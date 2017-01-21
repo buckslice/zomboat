@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour {
         // this is a little stupid but ok
         ph.controller.gamepad.InitializeNetPlayer(ph.netPlayer);
         // give each player a random role
-        ph.controller.role = (Role)Random.Range(0, System.Enum.GetValues(typeof(Role)).Length - 1);
+        ph.controller.role = (Role)Random.Range(0, System.Enum.GetValues(typeof(Role)).Length - 2);
         ph.controller.SetCanMove(false);
     }
 
