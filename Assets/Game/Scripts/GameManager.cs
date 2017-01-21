@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour {
     float countTimer = 10.0f;
     public Text countDownText;
     public Text playerCountText;
+    public Vector3[] humanSpawnPoints;
 
     public List<WaveObjectEntry> waveObjects = new List<WaveObjectEntry>();
     private List<PlayerHandle> players = new List<PlayerHandle>();    
@@ -65,13 +66,26 @@ public class GameManager : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
-		
-	}
+    void Start() {
+        GameObject[] spawnPointObjects = GameObject.FindGameObjectsWithTag("HumanSpawn");
+        if (spawnPointObjects.Length == 0) {
+            humanSpawnPoints = new Vector3[1];
+            humanSpawnPoints[0] = new Vector3(0, 0, 0);
+        } else {
+            humanSpawnPoints = new Vector3[spawnPointObjects.Length];
+            for (int i = 0; i < spawnPointObjects.Length; ++i) {
+                Vector2 variation = Random.insideUnitCircle.normalized * spawnRadius;
+                Vector3 actualPos = spawnPointObjects[i].transform.position;
+                actualPos.x += variation.x;
+                actualPos.y += variation.y;
+                humanSpawnPoints[i] = actualPos;
+            }
+        }
+    }
 
     void SpawnPlayer(PlayerHandle ph) {
         // initialize prefabs
-        Vector2 pos = Random.insideUnitCircle.normalized * spawnRadius;
+        Vector2 pos = humanSpawnPoints[Random.Range(0, humanSpawnPoints.Length)];
 
         GameObject go = Instantiate(playerPrefab, pos, Quaternion.identity);
 

@@ -13,8 +13,7 @@ var botTitle = document.getElementById("bottitle");
 var crosshair = document.getElementById("crosshair");
 var picture = document.getElementById("mid");
 var pictures = ["zomb.png","zomb1.png","zomb2.png"]
-var hpercent = document.getElementById("percent");
-var hpbar = document.getElementById("bar");
+var lives = document.getElementById("health");
 
 var $ = document.getElementById.bind(document);
 var globals = {
@@ -73,14 +72,10 @@ function handlePicture(data)
 	picture.style.backgroundImage = "url('zomboat_character_" + (data.number).toString() + ".jpg')";
 }
 
-function handleHealth(data)
+function handleLives(data)
 {
-	bar.style.width = data.number;
-	if(data.number < 50)
-	{
-		bar.style.color = yellow;
-	}
-	hppercent.innerHTML = (data.number).toString();
+	
+	lives.src = "Health_" + (data.number).toString() + "_template.jpg";
 }
 
 function handleScore(data){
@@ -101,7 +96,7 @@ function handleCountdown(data){
 client.addEventListener('color', handleColor);
 client.addEventListener('play', handlePlay);
 client.addEventListener('picture',handlePicture);
-client.addEventListener('healthchange',handleHealth);
+client.addEventListener('livechange',handleLives);
 client.addEventListener('character', handleCharacter);
 client.addEventListener('score', handleScore);
 client.addEventListener('countdown', handleCountdown);
