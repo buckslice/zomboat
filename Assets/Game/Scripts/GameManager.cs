@@ -29,11 +29,12 @@ public class GameManager : MonoBehaviour {
 
     public int currentWave = 0;
     public int playersToStart = 3;
-    public float spawnRadius = 2.0f;
+    public float spawnRadius = 0.5f;
     public GameObject playerPrefab;
     bool gameStarted = false;
     public float gameTime;
     public float gameStartCountdownTime = 10.0f;
+    public Vector3[] humanSpawnPoints;
 
     public List<WaveObjectEntry> waveObjects = new List<WaveObjectEntry>();
 
@@ -57,8 +58,21 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        GameObject[] spawnPointObjects = GameObject.FindGameObjectsWithTag("HumanSpawn");
+        if (spawnPointObjects.Length == 0) {
+            humanSpawnPoints = new Vector3[1];
+            humanSpawnPoints[0] = new Vector3(0, 0, 0);
+        } else {
+            humanSpawnPoints = new Vector3[spawnPointObjects.Length];
+            for (int i = 0; i < spawnPointObjects.Length; ++i) {
+                Vector2 variation = Random.insideUnitCircle.normalized * spawnRadius;
+                Vector3 actualPos = spawnPointObjects[i].transform.position;
+                actualPos.x += variation.x;
+                actualPos.y += variation.y;
+                humanSpawnPoints[i] = actualPos;
+            }
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -67,7 +81,7 @@ public class GameManager : MonoBehaviour {
         if(!gameStarted && players.Count >= playersToStart) {
             for(int i = 0; i < players.Count; ++i) {
                 // initialize prefabs
-                Vector2 pos = Random.insideUnitCircle.normalized * spawnRadius;
+                Vector2 pos = humanSpawnPoints[Random.Range(0, humanSpawnPoints.Length)];
 
                 GameObject go = Instantiate(playerPrefab, pos, Quaternion.identity);
 
