@@ -133,6 +133,7 @@ public class PlayerController : MonoBehaviour {
         if (isZombie) {
             moveSpeed = zombieSpeed;
             health = 0.0f;
+            gamepad.SendHealth((int)(health / maxHealth));
             alive = false;
             if(role != Role.SECRETZOMBIE) {
                 sr.sprite = zombieSprite;
@@ -166,6 +167,8 @@ public class PlayerController : MonoBehaviour {
                 health = maxHealth;
             }
         }
+
+        gamepad.SendHealth((int)(health / maxHealth));
     }
     void OnCollisionStay2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
@@ -173,6 +176,7 @@ public class PlayerController : MonoBehaviour {
             if (otherPlayer.alive) {
                 if (!alive) {
                     otherPlayer.AddHealth(-dps * Time.deltaTime);
+                   
                     //Debug.Log(otherPlayer.health);
                 }
                 else if (alive && role == Role.MEDIC) {
@@ -188,11 +192,16 @@ public class PlayerController : MonoBehaviour {
         //Debug.Log("Perform Action");
         switch (role) {
             case Role.RUNNER:
+<<<<<<< HEAD
                 if (abilityTimer < 0.0f) {
                     dashing = true;
                     dashTimer = maxDashTime;
                     abilityTimer = dashCooldown;
                 }
+=======
+                rb.AddForce(transform.forward);
+                //Debug.Log("Runner");
+>>>>>>> origin/master
                 break;
             case Role.POLICE:
                 if (abilityTimer < 0.0f) {
