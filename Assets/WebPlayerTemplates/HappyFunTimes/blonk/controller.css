@@ -38,7 +38,8 @@
 #bar {
  height: 100px;
  background-color: green;
- width: 30%;
+ text-align: center;
+ width: 100%;
 }
 
 
