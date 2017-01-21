@@ -16,7 +16,17 @@ public class PlayerController : MonoBehaviour {
 
     public float humanSpeed = 3.5f;
     public float zombieSpeed = 5.0f;
+    public float dashSpeed = 10.0f;
+
+    public float dashTimer = 0.0f;
+    public float maxDashTime = 1.0f;
+    public float abilityTimer = 0.0f;
+    public float dashCooldown = 5.0f;
+
+    public bool disabled = false;
+    public float disabledTimer = 0.0f;
     float moveSpeed;
+    bool dashing = false; // for runners
     public bool alive = true;   // zombies are dead
     public float health = 100.0f;
     public float maxHealth = 100.0f;
@@ -29,6 +39,7 @@ public class PlayerController : MonoBehaviour {
     public Sprite zombieSprite;
     public ParticleSystem zombParticles;
     public TopDownGamePad gamepad;
+    public GameObject projectile;
 
     Rigidbody2D rb;
     SpriteRenderer sr;
@@ -62,15 +73,33 @@ public class PlayerController : MonoBehaviour {
             default:
                 break;
         }
+
+        abilityTimer -= Time.deltaTime;
+        if (dashing) {
+            dashTimer -= Time.deltaTime;
+            if (dashTimer > 0.0f) {
+                moveSpeed = dashSpeed;
+            } else {
+                moveSpeed = zombieSpeed;
+                dashing = false;
+            }
+        }
+        disabledTimer -= Time.deltaTime;
+        if(disabledTimer < 0.0f) {
+            disabled = false;
+        }
     }
 
     void FixedUpdate() {
-        if (gamepad.touching) {
-            rb.velocity = gamepad.dir * moveSpeed;
-        } else {
-            rb.velocity = Vector2.zero;
+        if (!disabled) {
+            if (gamepad.touching) {
+                rb.velocity = gamepad.dir * moveSpeed;
+            } else {
+                rb.velocity = Vector2.zero;
+            }
+            //Debug.Log(gamepad.dir);  
         }
-        //Debug.Log(gamepad.dir);    
+
     }
 
     // 
@@ -104,6 +133,7 @@ public class PlayerController : MonoBehaviour {
         if (isZombie) {
             moveSpeed = zombieSpeed;
             health = 0.0f;
+            gamepad.SendHealth((int)(health / maxHealth));
             alive = false;
             if(role != Role.SECRETZOMBIE) {
                 sr.sprite = zombieSprite;
@@ -137,6 +167,8 @@ public class PlayerController : MonoBehaviour {
                 health = maxHealth;
             }
         }
+
+        gamepad.SendHealth((int)(health / maxHealth));
     }
     void OnCollisionStay2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
@@ -144,6 +176,7 @@ public class PlayerController : MonoBehaviour {
             if (otherPlayer.alive) {
                 if (!alive) {
                     otherPlayer.AddHealth(-dps * Time.deltaTime);
+                   
                     //Debug.Log(otherPlayer.health);
                 }
                 else if (alive && role == Role.MEDIC) {
@@ -156,14 +189,29 @@ public class PlayerController : MonoBehaviour {
         }
     }
     void PerformAction() {
+        //Debug.Log("Perform Action");
         switch (role) {
             case Role.RUNNER:
-                rb.AddForce(transform.forward);
-                Debug.Log("Runner");
+                if (abilityTimer < 0.0f) {
+                    dashing = true;
+                    dashTimer = maxDashTime;
+                    abilityTimer = dashCooldown;
+                }
                 break;
             case Role.POLICE:
+                if (abilityTimer < 0.0f) {
+                    GameObject p = Instantiate(projectile, transform.position + transform.right.normalized * 2.0f, Quaternion.identity);
+                    p.GetComponent<Projectile>().direction = transform.right;
+                    abilityTimer = dashCooldown;
+                }
                 break;
+
         }
+    }
+
+    public void DisableControls(float time) {
+        disabled = true;
+        disabledTimer = time;
     }
 
 }

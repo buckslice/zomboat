@@ -171,4 +171,13 @@ public class TopDownGamePad : MonoBehaviour {
         }
     }
 
+    public void SendHealth(int percent)
+    {
+        if (netPlayer != null)
+        {
+            Debug.Log("ChangeHealth");
+            netPlayer.SendCmd("healthchange", new MessageNumber(percent));
+        }
+    }
+
 }

@@ -14,6 +14,7 @@ var crosshair = document.getElementById("crosshair");
 var picture = document.getElementById("mid");
 var pictures = ["zomb.png","zomb1.png","zomb2.png"]
 var hpercent = document.getElementById("percent");
+var hpbar = document.getElementById("bar");
 
 var $ = document.getElementById.bind(document);
 var globals = {
@@ -74,7 +75,12 @@ function handlePicture(data)
 
 function handleHealth(data)
 {
-	
+	bar.style.width = data.number;
+	if(data.number < 50)
+	{
+		bar.style.color = yellow;
+	}
+	hppercent.innerHTML = (data.number).toString();
 }
 
 function handleScore(data){

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using HappyFunTimes;
+using UnityEngine.UI;
 
 public class PlayerHandle {
     public NetPlayer netPlayer;
@@ -33,13 +34,14 @@ public class GameManager : MonoBehaviour {
     public GameObject playerPrefab;
     bool gameStarted = false;
     public float gameTime;
-    public float gameStartCountdownTime = 10.0f;
+    public float countDownTime = 10.0f;
+    float countTimer = 10.0f;
+    public Text countDownText;
+    public Text playerCountText;
     public Vector3[] humanSpawnPoints;
 
     public List<WaveObjectEntry> waveObjects = new List<WaveObjectEntry>();
-
-    private List<PlayerHandle> players = new List<PlayerHandle>();
-    
+    private List<PlayerHandle> players = new List<PlayerHandle>();    
 
     // crappy singleton
     public static GameManager instance = null;
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour {
     public void RegisterNetPlayer(NetPlayer np) {
         players.Add(new PlayerHandle(np, null));
         np.OnDisconnect += OnPlayerDisconnected;
+        playerCountText.text = "players " + players.Count;
     }
 
     // Use this for initialization
@@ -73,51 +76,101 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-        Debug.Log(players.Count);
 
+    void SpawnPlayers() {
         if(!gameStarted && players.Count >= playersToStart) {
             for(int i = 0; i < players.Count; ++i) {
                 // initialize prefabs
                 Vector2 pos = humanSpawnPoints[Random.Range(0, humanSpawnPoints.Length)];
 
-                GameObject go = Instantiate(playerPrefab, pos, Quaternion.identity);
+            GameObject go = Instantiate(playerPrefab, pos, Quaternion.identity);
 
-                PlayerHandle ph = players[i];
-                ph.controller = go.GetComponent<PlayerController>();
-                // this is a little stupid but ok
-                ph.controller.gamepad.InitializeNetPlayer(ph.netPlayer);
-                // give each player a random role
-                ph.controller.role = (Role)Random.Range(0, System.Enum.GetValues(typeof(Role)).Length - 1);
+            PlayerHandle ph = players[i];
+            ph.controller = go.GetComponent<PlayerController>();
+            // this is a little stupid but ok
+            ph.controller.gamepad.InitializeNetPlayer(ph.netPlayer);
+            // give each player a random role
+            ph.controller.role = (Role)Random.Range(0, System.Enum.GetValues(typeof(Role)).Length - 1);
 
-            }
-
-            // make one random player a zombie
-            players[Random.Range(0, players.Count)].controller.BeginZombification();
-
-            gameStarted = true;
         }
 
-        if(gameStarted) {
+        // make one random player a zombie
+        players[Random.Range(0, players.Count)].controller.BeginZombification();
+    }
+
+    void CheckWaves() {
+        if (currentWave < WAVE_TIMES.Length && gameTime > WAVE_TIMES[currentWave]) {
+            List<WaveObjectEntry> remainingEntries = new List<WaveObjectEntry>();
+            foreach (WaveObjectEntry entry in waveObjects) {
+                if (entry.waveIndex == currentWave) {
+                    entry.waveObject.HandleWave();
+                } else {
+                    remainingEntries.Add(entry);
+                }
+            }
+
+            waveObjects = remainingEntries;
+            currentWave = currentWave + 1;
+        }
+    }
+
+    Coroutine countDownRoutine = null;
+    void StartCountDown() {
+        if (countDownRoutine == null) {
+            countDownRoutine = StartCoroutine(CountDownRoutine());
+        }
+    }
+    void StopCountDown() {
+        if (countDownRoutine != null) {
+            StopCoroutine(countDownRoutine);
+            countDownText.enabled = false;
+            countDownRoutine = null;
+        }
+    }
+    void SkipCountDown() {
+        StopCountDown();
+    }
+    WaitForSeconds waitOne = new WaitForSeconds(1.0f);
+    IEnumerator CountDownRoutine() {
+        countDownText.enabled = true;
+        for (int i = 0; i < countDownTime; ++i) {
+            countDownText.text = "" + (int)(countDownTime - i);
+            yield return waitOne;
+        }
+        countDownText.enabled = false;
+        countDownRoutine = null;
+
+        SpawnPlayers();
+        gameStarted = true;
+    }
+	
+	// Update is called once per frame
+	void Update () {
+        //Debug.Log(players.Count);
+        if (!gameStarted) {
+            if (Input.GetKeyDown(KeyCode.Space)) {  // start game instantly regardless of players
+                StopCountDown();
+                SpawnPlayers();
+                gameStarted = true;
+            }else if (players.Count >= playersToStart) {
+                StartCountDown();
+            } else {
+                StopCountDown();
+            }
+        } else {
             gameTime += Time.deltaTime;
 
-            if(currentWave < WAVE_TIMES.Length && gameTime > WAVE_TIMES[currentWave]) {
-                List<WaveObjectEntry> remainingEntries = new List<WaveObjectEntry>();
-                foreach (WaveObjectEntry entry in waveObjects) {
-                    if (entry.waveIndex == currentWave) {
-                        entry.waveObject.HandleWave();
-                    } else {
-                        remainingEntries.Add(entry);
-                    }
-                }
-
-                waveObjects = remainingEntries;
-                currentWave = currentWave + 1;
-            }
+            CheckWaves();
         }
+
 	}
+
+    void EndGame() {
+        // not sure how this will work yet
+        // need to delete all player objects
+        // send game over message to players
+        // 
+    }
 
     void OnPlayerDisconnected(object sender, System.EventArgs e) {
         NetPlayer np = (NetPlayer)sender;
@@ -127,6 +180,7 @@ public class GameManager : MonoBehaviour {
                 break;
             }
         }
+        playerCountText.text = "players " + players.Count;
     }
 
 }
