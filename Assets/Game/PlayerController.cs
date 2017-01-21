@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public float moveSpeed = 2.0f;
+    public bool alive = true;
+    public float health = 100.0f;
+    public float dps = 10.0f; // damage that the zombies do to humans per second
 
     private TopDownGamePad gamepad;
     private Rigidbody2D rb;
@@ -21,6 +24,13 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
+    void Update() {
+        if(health <= 0) {
+            health = 0.0f;
+            alive = false;
+        }
+    }
+
 	void FixedUpdate () {
         if (gamepad.touching) {
             rb.velocity = gamepad.dir * moveSpeed;
@@ -36,5 +46,15 @@ public class PlayerController : MonoBehaviour {
 
     void Remove() {
         Destroy(gameObject);
+    }
+
+    void OnCollisionStay2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Player") && !alive) {
+            PlayerController otherPlayer = collision.gameObject.GetComponent<PlayerController>();
+            if (otherPlayer.alive) {
+                otherPlayer.health -= dps * Time.deltaTime;
+                Debug.Log(otherPlayer.health);
+            }
+        }
     }
 }
