@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour {
 
         gamepad.OnDisconnect += Remove;
         gamepad.OnColorChanged += ColorChanged;
+        gamepad.OnTap += PerformAction;
 
     }
 
@@ -95,7 +96,7 @@ public class PlayerController : MonoBehaviour {
         SetZombie(true);
     }
 
-    void SetZombie(bool isZombie) {
+    public void SetZombie(bool isZombie) {
         if(isZombie && !alive) {
             return;
         }
@@ -106,7 +107,6 @@ public class PlayerController : MonoBehaviour {
             alive = false;
             if(role != Role.SECRETZOMBIE) {
                 sr.sprite = zombieSprite;
-            } else {
                 previousRole = role;
                 role = Role.ZOMBIE;
             }
@@ -153,6 +153,16 @@ public class PlayerController : MonoBehaviour {
             }
 
 
+        }
+    }
+    void PerformAction() {
+        switch (role) {
+            case Role.RUNNER:
+                rb.AddForce(transform.forward);
+                Debug.Log("Runner");
+                break;
+            case Role.POLICE:
+                break;
         }
     }
 
