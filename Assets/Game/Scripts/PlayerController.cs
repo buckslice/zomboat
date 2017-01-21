@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    public float ZOMBIE_SCALE = 1.0f;
+    public float HUMAN_SCALE = 0.75f;
+
     public float humanSpeed = 3.5f;
     public float zombieSpeed = 5.0f;
     float moveSpeed;
@@ -79,11 +82,14 @@ public class PlayerController : MonoBehaviour {
             health = 0.0f;
             alive = false;
             sr.sprite = zombieSprite;
+            Debug.Log("Setting scale");
+            transform.localScale = new Vector3(ZOMBIE_SCALE, ZOMBIE_SCALE, 1);
         } else {
             moveSpeed = humanSpeed;
             health = 100.0f;
             alive = true;
             sr.sprite = playerSprite;
+            transform.localScale = new Vector3(HUMAN_SCALE, HUMAN_SCALE, 1);
         }
     }
 

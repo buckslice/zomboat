@@ -13,13 +13,31 @@ public class PlayerHandle {
     }
 }
 
+public struct WaveObjectEntry {
+    public WaveObjectEntry(int _waveIndex, CollisionObject _waveObject)
+    {
+        waveIndex = _waveIndex;
+        waveObject = _waveObject;
+    }
+
+    public int waveIndex;
+    public CollisionObject waveObject;
+}
+
 public class GameManager : MonoBehaviour {
+    public float[] WAVE_TIMES = { 15, 30 };
+
+    public int currentWave = 0;
     public int playersToStart = 3;
     public float spawnRadius = 2.0f;
     public GameObject playerPrefab;
     bool gameStarted = false;
+    public float gameTime;
+
+    public List<WaveObjectEntry> waveObjects = new List<WaveObjectEntry>();
 
     private List<PlayerHandle> players = new List<PlayerHandle>();
+    
 
     // crappy singleton
     public static GameManager instance = null;
@@ -62,6 +80,24 @@ public class GameManager : MonoBehaviour {
             players[Random.Range(0, players.Count)].controller.BeginZombification();
 
             gameStarted = true;
+        }
+
+        if(gameStarted) {
+            gameTime += Time.deltaTime;
+
+            if(currentWave < WAVE_TIMES.Length && gameTime > WAVE_TIMES[currentWave]) {
+                List<WaveObjectEntry> remainingEntries = new List<WaveObjectEntry>();
+                foreach (WaveObjectEntry entry in waveObjects) {
+                    if (entry.waveIndex == currentWave) {
+                        entry.waveObject.HandleWave();
+                    } else {
+                        remainingEntries.Add(entry);
+                    }
+                }
+
+                waveObjects = remainingEntries;
+                currentWave = currentWave + 1;
+            }
         }
 	}
 
