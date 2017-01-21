@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour {
     public GameObject playerPrefab;
     bool gameStarted = false;
     public float gameTime;
+    public float gameStartCountdownTime = 10.0f;
 
     public List<WaveObjectEntry> waveObjects = new List<WaveObjectEntry>();
 
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //Debug.Log(players.Count);
+        Debug.Log(players.Count);
 
         if(!gameStarted && players.Count >= playersToStart) {
             for(int i = 0; i < players.Count; ++i) {
@@ -79,6 +80,7 @@ public class GameManager : MonoBehaviour {
 
             }
 
+            // make one random player a zombie
             players[Random.Range(0, players.Count)].controller.BeginZombification();
 
             gameStarted = true;

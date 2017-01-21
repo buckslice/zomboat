@@ -68,18 +68,10 @@
 }
 
 
-
-
-
-
 #crosshair{
-	font-size: 20em;
+	font-size: 10em;
 	text-align: center;
-	color: red;
-	z-index: 2;
-	
-
-	
+	z-index: 2;	
 }
 
 .top
