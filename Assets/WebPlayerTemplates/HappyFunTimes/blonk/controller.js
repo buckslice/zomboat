@@ -11,8 +11,9 @@ var inputElem = document.getElementById("inputarea");
 var topTitle = document.getElementById("toptitle");
 var botTitle = document.getElementById("bottitle");
 var crosshair = document.getElementById("crosshair");
-var picture = document.getElementById("pic");
+var picture = document.getElementById("mid");
 var pictures = ["zomb.png","zomb1.png","zomb2.png"]
+var hpercent = document.getElementById("percent");
 
 var $ = document.getElementById.bind(document);
 var globals = {
@@ -68,7 +69,12 @@ function handleCharacter(data){
 function handlePicture(data)
 {
 	
-	picture.src = pictures[data.number];
+	picture.style.backgroundImage = "url('zomboat_character_" + (data.number).toString() + ".jpg')";
+}
+
+function handleHealth(data)
+{
+	
 }
 
 function handleScore(data){
@@ -89,6 +95,7 @@ function handleCountdown(data){
 client.addEventListener('color', handleColor);
 client.addEventListener('play', handlePlay);
 client.addEventListener('picture',handlePicture);
+client.addEventListener('healthchange',handleHealth);
 client.addEventListener('character', handleCharacter);
 client.addEventListener('score', handleScore);
 client.addEventListener('countdown', handleCountdown);
