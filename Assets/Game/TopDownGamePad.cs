@@ -92,6 +92,7 @@ public class TopDownGamePad : MonoBehaviour {
 
         // send play command
         netPlayer.SendCmd("play");
+        SendImage();
         SendColor();
     }   
 
@@ -159,6 +160,16 @@ public class TopDownGamePad : MonoBehaviour {
             if (OnColorChanged != null) {
                 OnColorChanged(color);
             }
+        }
+    }
+
+    void SendImage()
+    {
+
+
+    if(netPlayer != null){
+            Debug.Log("SendImg");
+            netPlayer.SendCmd("picture", new MessageNumber(UnityEngine.Random.Range(0, 3)));
         }
     }
 

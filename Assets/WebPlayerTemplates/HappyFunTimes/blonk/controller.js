@@ -11,6 +11,8 @@ var inputElem = document.getElementById("inputarea");
 var topTitle = document.getElementById("toptitle");
 var botTitle = document.getElementById("bottitle");
 var crosshair = document.getElementById("crosshair");
+var picture = document.getElementById("pic");
+var pictures = ["zomb.png","zomb1.png","zomb2.png"]
 
 var $ = document.getElementById.bind(document);
 var globals = {
@@ -63,6 +65,12 @@ function handleCharacter(data){
 	bottitle.innerHTML = data.instructions + "<br><br>" + data.objective;
 }
 
+function handlePicture(data)
+{
+	
+	picture.src = pictures[data.number];
+}
+
 function handleScore(data){
 	toptitle.innerHTML = "You died!";
 	bottitle.innerHTML = "You scored " + data.number + " points!";
@@ -80,6 +88,7 @@ function handleCountdown(data){
 
 client.addEventListener('color', handleColor);
 client.addEventListener('play', handlePlay);
+client.addEventListener('picture',handlePicture);
 client.addEventListener('character', handleCharacter);
 client.addEventListener('score', handleScore);
 client.addEventListener('countdown', handleCountdown);
