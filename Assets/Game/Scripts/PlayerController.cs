@@ -11,6 +11,9 @@ public enum Role {
 
 public class PlayerController : MonoBehaviour {
 
+    public float ZOMBIE_SCALE = 1.0f;
+    public float HUMAN_SCALE = 0.75f;
+
     public float humanSpeed = 3.5f;
     public float zombieSpeed = 5.0f;
     float moveSpeed;
@@ -40,6 +43,7 @@ public class PlayerController : MonoBehaviour {
 
         gamepad.OnDisconnect += Remove;
         gamepad.OnColorChanged += ColorChanged;
+        gamepad.OnTap += PerformAction;
 
     }
 
@@ -92,7 +96,7 @@ public class PlayerController : MonoBehaviour {
         SetZombie(true);
     }
 
-    void SetZombie(bool isZombie) {
+    public void SetZombie(bool isZombie) {
         if(isZombie && !alive) {
             return;
         }
@@ -103,16 +107,18 @@ public class PlayerController : MonoBehaviour {
             alive = false;
             if(role != Role.SECRETZOMBIE) {
                 sr.sprite = zombieSprite;
-            } else {
                 previousRole = role;
                 role = Role.ZOMBIE;
             }
+            Debug.Log("Setting scale");
+            transform.localScale = new Vector3(ZOMBIE_SCALE, ZOMBIE_SCALE, 1);
         } else {
             moveSpeed = humanSpeed;
             health = 100.0f;
             alive = true;
             sr.sprite = playerSprite;
             role = previousRole;
+            transform.localScale = new Vector3(HUMAN_SCALE, HUMAN_SCALE, 1);
         }
     }
 
@@ -147,6 +153,16 @@ public class PlayerController : MonoBehaviour {
             }
 
 
+        }
+    }
+    void PerformAction() {
+        switch (role) {
+            case Role.RUNNER:
+                rb.AddForce(transform.forward);
+                Debug.Log("Runner");
+                break;
+            case Role.POLICE:
+                break;
         }
     }
 
