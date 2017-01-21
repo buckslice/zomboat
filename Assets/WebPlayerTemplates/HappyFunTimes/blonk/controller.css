@@ -12,8 +12,13 @@
 {
 	
 	width: 100%;
-    bottom: 10%;
-	background-color: grey;
+    height:20%;
+	background-color: blue;
+}
+
+#health
+{
+	width: 100%;
 }
 
 #progress

@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour {
 
     public int currentWave = 0;
     public int playersToStart = 3;
-    public float spawnRadius = 2.0f;
+    public float spawnRadius = 0.5f;
     public GameObject playerPrefab;
     bool gameStarted = false;
     public float gameTime;
@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour {
     float countTimer = 10.0f;
     public Text countDownText;
     public Text playerCountText;
+    public Vector3[] humanSpawnPoints;
 
     public List<WaveObjectEntry> waveObjects = new List<WaveObjectEntry>();
     private List<PlayerHandle> players = new List<PlayerHandle>();    
@@ -60,23 +61,38 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        GameObject[] spawnPointObjects = GameObject.FindGameObjectsWithTag("HumanSpawn");
+        if (spawnPointObjects.Length == 0) {
+            humanSpawnPoints = new Vector3[1];
+            humanSpawnPoints[0] = new Vector3(0, 0, 0);
+        } else {
+            humanSpawnPoints = new Vector3[spawnPointObjects.Length];
+            for (int i = 0; i < spawnPointObjects.Length; ++i) {
+                Vector2 variation = Random.insideUnitCircle.normalized * spawnRadius;
+                Vector3 actualPos = spawnPointObjects[i].transform.position;
+                actualPos.x += variation.x;
+                actualPos.y += variation.y;
+                humanSpawnPoints[i] = actualPos;
+            }
+        }
+    }
 
     void SpawnPlayers() {
-        for (int i = 0; i < players.Count; ++i) {
-            // initialize prefabs
-            Vector2 pos = Random.insideUnitCircle.normalized * spawnRadius;
+        if(!gameStarted && players.Count >= playersToStart) {
+            for (int i = 0; i < players.Count; ++i) {
+                // initialize prefabs
+                Vector2 pos = humanSpawnPoints[Random.Range(0, humanSpawnPoints.Length)];
 
-            GameObject go = Instantiate(playerPrefab, pos, Quaternion.identity);
+                GameObject go = Instantiate(playerPrefab, pos, Quaternion.identity);
 
-            PlayerHandle ph = players[i];
-            ph.controller = go.GetComponent<PlayerController>();
-            // this is a little stupid but ok
-            ph.controller.gamepad.InitializeNetPlayer(ph.netPlayer);
-            // give each player a random role
-            ph.controller.role = (Role)Random.Range(0, System.Enum.GetValues(typeof(Role)).Length - 1);
-
+                PlayerHandle ph = players[i];
+                ph.controller = go.GetComponent<PlayerController>();
+                // this is a little stupid but ok
+                ph.controller.gamepad.InitializeNetPlayer(ph.netPlayer);
+                // give each player a random role
+                ph.controller.role = (Role)Random.Range(0, System.Enum.GetValues(typeof(Role)).Length - 1);
+                ph.controller.SetZombie(false);
+            }
         }
 
         // make one random player a zombie

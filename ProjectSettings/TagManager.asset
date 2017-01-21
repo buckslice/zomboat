@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Food
   - Water
+  - HumanSpawn
+  - ZombieSpawn
   layers:
   - Default
   - TransparentFX
@@ -54,6 +56,9 @@ TagManager:
     locked: 0
   - name: Objects
     uniqueID: 1887222769
+    locked: 0
+  - name: Waves
+    uniqueID: 2039231413
     locked: 0
   - name: Characters
     uniqueID: 3830381661
