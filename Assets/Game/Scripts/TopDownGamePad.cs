@@ -171,4 +171,12 @@ public class TopDownGamePad : MonoBehaviour {
         }
     }
 
+    //void SendHealth()
+    //{
+    //    if (netPlayer != null)
+    //    {
+    //        netPlayer.SendCmd("changeHealth", new MessageNumber(UnityEngine.Random.Range(1, 9)));
+    //    }
+    //}
+
 }
