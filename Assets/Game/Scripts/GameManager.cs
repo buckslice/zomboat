@@ -79,19 +79,20 @@ public class GameManager : MonoBehaviour {
 
     void SpawnPlayers() {
         if(!gameStarted && players.Count >= playersToStart) {
-            for(int i = 0; i < players.Count; ++i) {
+            for (int i = 0; i < players.Count; ++i) {
                 // initialize prefabs
                 Vector2 pos = humanSpawnPoints[Random.Range(0, humanSpawnPoints.Length)];
 
-            GameObject go = Instantiate(playerPrefab, pos, Quaternion.identity);
+                GameObject go = Instantiate(playerPrefab, pos, Quaternion.identity);
 
-            PlayerHandle ph = players[i];
-            ph.controller = go.GetComponent<PlayerController>();
-            // this is a little stupid but ok
-            ph.controller.gamepad.InitializeNetPlayer(ph.netPlayer);
-            // give each player a random role
-            ph.controller.role = (Role)Random.Range(0, System.Enum.GetValues(typeof(Role)).Length - 1);
-
+                PlayerHandle ph = players[i];
+                ph.controller = go.GetComponent<PlayerController>();
+                // this is a little stupid but ok
+                ph.controller.gamepad.InitializeNetPlayer(ph.netPlayer);
+                // give each player a random role
+                ph.controller.role = (Role)Random.Range(0, System.Enum.GetValues(typeof(Role)).Length - 1);
+                ph.controller.SetZombie(false);
+            }
         }
 
         // make one random player a zombie

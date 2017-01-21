@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour {
                 previousRole = role;
                 role = Role.ZOMBIE;
             }
-            Debug.Log("Setting scale");
+
             transform.localScale = new Vector3(ZOMBIE_SCALE, ZOMBIE_SCALE, 1);
         } else {
             moveSpeed = humanSpeed;
