@@ -1,6 +1,19 @@
 
 <!DOCTYPE html>
 <html>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
 <head>
   <meta charset="utf-8">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -17,17 +30,53 @@
   <link rel="apple-touch-icon" href="/icon-16.png">
 </head>
 <body touch-action="none">
-<div id="hft-everything">
+  
+
+
+
+<body touch-action="none">
+<div id="hft-everything" class = "backgcolor">
+        <div class = " top noevents"><h1 >Welcome to ZOMBOAT!</h1></div>
+      <div id = "mid">
   <div id="hft-content">
     <div id="gamearea" class="fixheight">
-	  <div id="inputarea" class="hft-fullcenter fixheight">
-	  	<div id = "bheader" class = "noevents"><h1 id = "toptitle"><br><br><br>Welcome to ZOMBOAT!</h1></div>
-	    <div id="crosshair" class="hft-fullcenter noevents">+</div>
-		<div id = "bfooter" class = "noevents"><h2 id = "bottitle"></h2></div>
-	  </div>
+    <div id="inputarea" class="hft-fullcenter fixheight">
+
+      <div class="noevents" id="crosshair"><center><br><br>+<br><br><br></center>
+      </div>
+      </div>
+    <div id = "bfooter" class = "noevents"><h2 id = "bottitle"></h2></div>
     </div>
 
-    <script id="background-style" type="not-js">
+        <div class=" noevents">
+    </div>
+
+    </div>
+
+
+
+    
+    </div>
+        <div class=" noevents">
+      <div class="healthbar noevents">
+        <div id="progress noevents">
+          <span id="percent"><h1>30%</h1></span>
+          <div id="bar"></div>
+        </div>
+        </div>
+    </div>
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+<!--     <script id="background-style" type="not-js">
 linear-gradient(
   to bottom,
   %(dark)s,
@@ -37,7 +86,7 @@ linear-gradient(
   %(dark)s  80%,
   %(dark)s
 )
-    </script>
+    </script> -->
 
     <div id="hft-menu"><img src="/hft/assets/gear-icon.svg"></div>
     <div id="hft-disconnected">
@@ -65,11 +114,28 @@ linear-gradient(
   <div id="hft-touchstart">
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- </div> -->
 <script src="/3rdparty/chroma.min.js"></script>
 <script src="/3rdparty/game-utils-min.js"></script>
 <script src="/hft/hft-min.js"></script>
 <script src="/sample-ui/sample-ui-min.js"></script>
 <script src="controller.js"></script>
+
 </body>
 </html>
+
 

@@ -12,8 +12,8 @@
 {
 	
 	width: 100%;
-	position: absolute;
-    bottom: 30%;
+    bottom: 10%;
+	background-color: grey;
 }
 
 #progress
@@ -21,7 +21,6 @@
 	width:100%;
 	border: 1px solid black;
 	position: relative;
-	background-color: white;
 	z-index:2;
 	
 }
@@ -30,6 +29,7 @@
  position: absolute;   
  left: 50%;
  z-index: 2;
+ color:black;
  
 }
 
@@ -68,31 +68,38 @@
 }
 
 
+
+
+
+
 #crosshair{
-	font-size: 10em;
+	font-size: 5em;
 	text-align: center;
-	z-index: 2;	
+	z-index: 2;
+	
+
+	
 }
 
 .top
 {
-	width: 100%;
-	height: 20%;
-	position: absolute;
+	height: 10%;
+	width:100%;
 	text-align:center;
 	color: red;
 	background-color: blue;
+	z-index: 20;
 }
+
+
 
 #mid
 {
-	width: 100%;
-	height: 50%;
-	position: absolute;
-	top: 20%;
+	width:100%;
 	background-color: black;
 	background-image:;
-	background-size: 25% 100%;
+	height:70%;
+	background-position: center;
 	background-repeat: no-repeat;
 	
 }
