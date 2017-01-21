@@ -1,37 +1,62 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public enum Role {
+    MEDIC, // can heal other humans
+    RUNNER, // can run faster and have a dash
+    POLICE, // can shoot zombies with a taser to stun them temporarily
+    SECRETZOMBIE, // a zombie that appears as human but can still infect others
+    ZOMBIE
+}
 
 public class PlayerController : MonoBehaviour {
 
-    public float moveSpeed = 2.0f;
+    public float humanSpeed = 3.5f;
+    public float zombieSpeed = 5.0f;
+    float moveSpeed;
     public bool alive = true;   // zombies are dead
     public float health = 100.0f;
-    public float dps = 10.0f; // damage that the zombies do to humans per second
+    public float maxHealth = 100.0f;
+    public float dps; // damage that the zombies do to humans per second
+    public float hps; // healing that the medics do to humans per second 
+    public Role role;
+    Role previousRole; // in case we ever want to convert zombies back into humans
 
     public Sprite playerSprite;
     public Sprite zombieSprite;
+    public ParticleSystem zombParticles;
+    public TopDownGamePad gamepad;
 
-    private TopDownGamePad gamepad;
-    private Rigidbody2D rb;
-    private SpriteRenderer sr;
+    Rigidbody2D rb;
+    SpriteRenderer sr;
 
     // Use this for initialization
-    void Start() {
-        gamepad = GetComponent<TopDownGamePad>();
+    void Awake() {
+        health = maxHealth;
+        moveSpeed = humanSpeed;
+
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponentInChildren<SpriteRenderer>();
 
         gamepad.OnDisconnect += Remove;
         gamepad.OnColorChanged += ColorChanged;
+
     }
 
     // Update is called once per frame
     void Update() {
-        if (health <= 0) {
-            health = 0.0f;
-            alive = false;
-            sr.sprite = zombieSprite;
+        if (health < 0) {
+            BeginZombification();
+        }
+        switch (role) {
+            case Role.RUNNER:
+                moveSpeed = zombieSpeed; // runners can run as fast as zombies
+                break;
+            case Role.SECRETZOMBIE:
+                SetZombie(true);
+                break;
+            default:
+                break;
         }
     }
 
@@ -44,6 +69,53 @@ public class PlayerController : MonoBehaviour {
         //Debug.Log(gamepad.dir);    
     }
 
+    // 
+    bool zombifying = false;
+    public void BeginZombification() {
+        if (zombifying) {
+            return;
+        }
+        zombifying = true;
+
+        StartCoroutine(ZombificationRoutine());
+    }
+
+    WaitForSeconds wait = new WaitForSeconds(3.0f);
+    IEnumerator ZombificationRoutine() {
+        // turn on gross particle effect
+        // disable controls?
+        zombParticles.Play();
+
+        yield return wait;
+
+        zombParticles.Stop();
+        SetZombie(true);
+    }
+
+    void SetZombie(bool isZombie) {
+        if(isZombie && !alive) {
+            return;
+        }
+
+        if (isZombie) {
+            moveSpeed = zombieSpeed;
+            health = 0.0f;
+            alive = false;
+            if(role != Role.SECRETZOMBIE) {
+                sr.sprite = zombieSprite;
+            } else {
+                previousRole = role;
+                role = Role.ZOMBIE;
+            }
+        } else {
+            moveSpeed = humanSpeed;
+            health = 100.0f;
+            alive = true;
+            sr.sprite = playerSprite;
+            role = previousRole;
+        }
+    }
+
     void ColorChanged(Color c) {
         sr.color = c;
     }
@@ -51,18 +123,30 @@ public class PlayerController : MonoBehaviour {
     void Remove() {
         Destroy(gameObject);
     }
-    void AddHealth(float amount) {
+    public void AddHealth(float amount) {
+        // adds the amount of health to the player health and clamps it at max health
         if (alive) {
             health += amount;
+            if(health > maxHealth) {
+                health = maxHealth;
+            }
         }
     }
     void OnCollisionStay2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Player") && !alive) {
+        if (collision.gameObject.CompareTag("Player")) {
             PlayerController otherPlayer = collision.gameObject.GetComponent<PlayerController>();
             if (otherPlayer.alive) {
-                otherPlayer.health -= dps * Time.deltaTime;
-                //Debug.Log(otherPlayer.health);
+                if (!alive) {
+                    otherPlayer.AddHealth(-dps * Time.deltaTime);
+                    //Debug.Log(otherPlayer.health);
+                }
+                else if (alive && role == Role.MEDIC) {
+                    otherPlayer.AddHealth(hps * Time.deltaTime);
+                    //Debug.Log(otherPlayer.health);
+                }
             }
+
+
         }
     }
 
