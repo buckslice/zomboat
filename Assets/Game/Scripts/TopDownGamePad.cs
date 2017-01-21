@@ -4,9 +4,8 @@ using UnityEngine;
 using System;
 using HappyFunTimes;
 
+// Manages the connection between this object and the phone
 public class TopDownGamePad : MonoBehaviour {
-
-    // Manages the connection between this object and the phone.
     private NetPlayer netPlayer;
 
     public string playerName;
@@ -79,8 +78,8 @@ public class TopDownGamePad : MonoBehaviour {
         color = HFTColorUtils.HSVAToColor(hsva);
     }
 
-    public void InitializeNetPlayer(SpawnInfo spawnInfo) {
-        netPlayer = spawnInfo.netPlayer;
+    public void InitializeNetPlayer(NetPlayer netPlayer) {
+        this.netPlayer = netPlayer;
         netPlayer.OnDisconnect += HandleDisconnect;
 
         // Setup events for the different messages.
@@ -93,7 +92,7 @@ public class TopDownGamePad : MonoBehaviour {
         // send play command
         netPlayer.SendCmd("play");
         SendColor();
-    }   
+    }
 
     void HandleTouch(MessageTouch data) {
         touching = data.touching;
