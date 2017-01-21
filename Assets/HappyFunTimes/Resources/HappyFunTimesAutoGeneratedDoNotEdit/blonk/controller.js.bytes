@@ -13,7 +13,7 @@ var botTitle = document.getElementById("bottitle");
 var crosshair = document.getElementById("crosshair");
 var picture = document.getElementById("mid");
 var pictures = ["zomb.png","zomb1.png","zomb2.png"]
-var hpercent = document.getElementById("percent");
+var hpercent = document.getElementById("per");
 var hpbar = document.getElementById("bar");
 
 var $ = document.getElementById.bind(document);
@@ -75,7 +75,7 @@ function handlePicture(data)
 
 function handleHealth(data)
 {
-	bar.style.width = data.number;
+	bar.style.width = (data.number).toString() + "%";
 	if(data.number < 50)
 	{
 		bar.style.color = yellow;

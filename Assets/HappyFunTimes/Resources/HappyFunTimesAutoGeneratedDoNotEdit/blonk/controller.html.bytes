@@ -36,7 +36,7 @@
 
 <body touch-action="none">
 <div id="hft-everything" class = "backgcolor">
-        <div class = " top noevents"><h1 >Welcome to ZOMBOAT!</h1></div>
+        <div class = " top noevents"><image src = "Title_banner.jpg"></div>
       <div id = "mid">
   <div id="hft-content">
     <div id="gamearea" class="fixheight">
@@ -57,17 +57,8 @@
 
     
     </div>
-        <div class=" noevents">
       <div class="healthbar noevents">
-        <div id="progress noevents">
-          <span id="percent"><h1>100%</h1></span>
-          <div id="bar"></div>
-        </div>
-        </div>
-    </div>
-
-        </div>
-      </div>
+          <image src = "skeleton.png" id = "health">
 
 
 

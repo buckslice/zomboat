@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour {
         gamepad.OnDisconnect += Remove;
         gamepad.OnColorChanged += ColorChanged;
         gamepad.OnTap += PerformAction;
+        gamepad.SendHealth((int)health);
 
     }
 
