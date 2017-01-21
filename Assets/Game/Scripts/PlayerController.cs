@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour {
     public float hps; // healing that the medics do to humans per second 
     public Role role;
     Role previousRole; // in case we ever want to convert zombies back into humans
+    bool canMove = true;
 
     public Sprite playerSprite;
     public Sprite zombieSprite;
@@ -92,7 +93,7 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate() {
         if (!disabled) {
-            if (gamepad.touching) {
+            if (canMove && gamepad.touching) {
                 rb.velocity = gamepad.dir * moveSpeed;
             } else {
                 rb.velocity = Vector2.zero;
@@ -111,6 +112,10 @@ public class PlayerController : MonoBehaviour {
         zombifying = true;
 
         StartCoroutine(ZombificationRoutine());
+    }
+
+    public void SetCanMove(bool canMove) {
+        this.canMove = canMove;
     }
 
     WaitForSeconds wait = new WaitForSeconds(3.0f);

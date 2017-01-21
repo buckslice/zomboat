@@ -53,9 +53,15 @@ public class GameManager : MonoBehaviour {
     }
 
     public void RegisterNetPlayer(NetPlayer np) {
-        players.Add(new PlayerHandle(np, null));
+        PlayerHandle ph = new PlayerHandle(np, null);
         np.OnDisconnect += OnPlayerDisconnected;
-        playerCountText.text = "players " + players.Count;
+        if (!gameStarted) {
+            SpawnPlayer(ph);    // this should be moved for if we want to be able to restart without stopping and playing
+        } else {
+            // send message saying "Waiting for new game" or something
+        }
+        players.Add(ph);
+        playerCountText.text = "players " + players.Count;  // shows number of connected players not 
     }
 
     // Use this for initialization
@@ -63,24 +69,24 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-    void SpawnPlayers() {
-        for (int i = 0; i < players.Count; ++i) {
-            // initialize prefabs
-            Vector2 pos = Random.insideUnitCircle.normalized * spawnRadius;
+    void SpawnPlayer(PlayerHandle ph) {
+        // initialize prefabs
+        Vector2 pos = Random.insideUnitCircle.normalized * spawnRadius;
 
-            GameObject go = Instantiate(playerPrefab, pos, Quaternion.identity);
+        GameObject go = Instantiate(playerPrefab, pos, Quaternion.identity);
 
-            PlayerHandle ph = players[i];
-            ph.controller = go.GetComponent<PlayerController>();
-            // this is a little stupid but ok
-            ph.controller.gamepad.InitializeNetPlayer(ph.netPlayer);
-            // give each player a random role
-            ph.controller.role = (Role)Random.Range(0, System.Enum.GetValues(typeof(Role)).Length - 1);
+        ph.controller = go.GetComponent<PlayerController>();
+        // this is a little stupid but ok
+        ph.controller.gamepad.InitializeNetPlayer(ph.netPlayer);
+        // give each player a random role
+        ph.controller.role = (Role)Random.Range(0, System.Enum.GetValues(typeof(Role)).Length - 1);
+        ph.controller.SetCanMove(false);
+    }
 
+    void SetPlayersCanMove(bool canMove) {    // set all players movement
+        for(int i = 0; i < players.Count; ++i) {
+            players[i].controller.SetCanMove(canMove);
         }
-
-        // make one random player a zombie
-        players[Random.Range(0, players.Count)].controller.BeginZombification();
     }
 
     void CheckWaves() {
@@ -105,16 +111,6 @@ public class GameManager : MonoBehaviour {
             countDownRoutine = StartCoroutine(CountDownRoutine());
         }
     }
-    void StopCountDown() {
-        if (countDownRoutine != null) {
-            StopCoroutine(countDownRoutine);
-            countDownText.enabled = false;
-            countDownRoutine = null;
-        }
-    }
-    void SkipCountDown() {
-        StopCountDown();
-    }
     WaitForSeconds waitOne = new WaitForSeconds(1.0f);
     IEnumerator CountDownRoutine() {
         countDownText.enabled = true;
@@ -122,11 +118,36 @@ public class GameManager : MonoBehaviour {
             countDownText.text = "" + (int)(countDownTime - i);
             yield return waitOne;
         }
+        StartGame();
+    }
+
+    void StopCountDown() {
+        if (countDownRoutine != null) {
+            StopCoroutine(countDownRoutine);
+        }
         countDownText.enabled = false;
         countDownRoutine = null;
+    }
 
-        SpawnPlayers();
+    void StartGame() {
+        StopCountDown();
+
         gameStarted = true;
+        SetPlayersCanMove(true);
+
+        Invoke("ZombifySomeone", 3.0f);
+    }
+
+    // checks to see which players are actually in game (with controllers)
+    void ZombifySomeone() {
+        List<PlayerController> activePlayers = new List<PlayerController>();
+        for(int i = 0; i < players.Count; ++i) {
+            if (players[i].controller) {
+                activePlayers.Add(players[i].controller);
+            }
+        }
+        // make one player a zombie
+        activePlayers[Random.Range(0, activePlayers.Count)].BeginZombification();
     }
 	
 	// Update is called once per frame
@@ -134,9 +155,7 @@ public class GameManager : MonoBehaviour {
         //Debug.Log(players.Count);
         if (!gameStarted) {
             if (Input.GetKeyDown(KeyCode.Space)) {  // start game instantly regardless of players
-                StopCountDown();
-                SpawnPlayers();
-                gameStarted = true;
+                StartGame();
             }else if (players.Count >= playersToStart) {
                 StartCountDown();
             } else {
