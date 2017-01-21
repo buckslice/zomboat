@@ -37,4 +37,10 @@ public class PlayerController : MonoBehaviour {
     void Remove() {
         Destroy(gameObject);
     }
+
+    void OnTriggerEnter2D(Collider2D col) {
+        if (col.CompareTag("Water")) {
+            Remove();
+        }
+    }
 }
