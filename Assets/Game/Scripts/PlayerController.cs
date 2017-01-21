@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour {
     public bool alive = true;   // zombies are dead
     public float health = 100.0f;
     public float maxHealth = 100.0f;
+    private float prevHealth = 100.0f;
     public float dps; // damage that the zombies do to humans per second
     public float hps; // healing that the medics do to humans per second 
     public Role role;
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
         if (health < 0) {
             BeginZombification();
         }
@@ -133,7 +135,7 @@ public class PlayerController : MonoBehaviour {
         if (isZombie) {
             moveSpeed = zombieSpeed;
             health = 0.0f;
-            gamepad.SendHealth((int)(health / maxHealth));
+            gamepad.ChangeLives(0);
             alive = false;
             if(role != Role.SECRETZOMBIE) {
                 sr.sprite = zombieSprite;
@@ -161,14 +163,47 @@ public class PlayerController : MonoBehaviour {
     }
     public void AddHealth(float amount) {
         // adds the amount of health to the player health and clamps it at max health
+
+        float oldHealth = health;
         if (alive) {
+            if (prevHealth - health >= 20)
+            {
+                prevHealth = health;
+                if (health <= 0)
+                {
+                    gamepad.ChangeLives(0);
+                }
+                else if (health <= 20)
+                {
+                    gamepad.ChangeLives(20);
+                }
+                else if (health <= 40)
+                {
+                    gamepad.ChangeLives(40);
+                }
+                else if (health <= 60)
+                {
+                    gamepad.ChangeLives(60);
+                }
+                else if (health <= 80)
+                {
+                    gamepad.ChangeLives(80);
+                }
+                else if (health > 80)
+                {
+                    gamepad.ChangeLives(100);
+                }
+            }
             health += amount;
             if(health > maxHealth) {
                 health = maxHealth;
             }
         }
 
-        gamepad.SendHealth((int)(health / maxHealth));
+
+
+
+
     }
     void OnCollisionStay2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
