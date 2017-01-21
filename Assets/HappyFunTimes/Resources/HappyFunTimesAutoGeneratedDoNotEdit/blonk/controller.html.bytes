@@ -58,7 +58,7 @@
     
     </div>
       <div class="healthbar noevents">
-          <image src = "skeleton.png" id = "health">
+          <image src = "Health_100_template.jpg" id = "health">
 
 
 
