@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour {
                 ph.controller = go.GetComponent<PlayerController>();
                 // this is a little stupid but ok
                 ph.controller.gamepad.InitializeNetPlayer(ph.netPlayer);
+                // give each player a random role
+                ph.controller.role = (Role)Random.Range(0, System.Enum.GetValues(typeof(Role)).Length - 1);
 
             }
 
