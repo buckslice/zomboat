@@ -47,13 +47,17 @@ public class PlayerController : MonoBehaviour {
     void Remove() {
         Destroy(gameObject);
     }
-
+    void AddHealth(float amount) {
+        if (alive) {
+            health += amount;
+        }
+    }
     void OnCollisionStay2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player") && !alive) {
             PlayerController otherPlayer = collision.gameObject.GetComponent<PlayerController>();
             if (otherPlayer.alive) {
                 otherPlayer.health -= dps * Time.deltaTime;
-                Debug.Log(otherPlayer.health);
+                //Debug.Log(otherPlayer.health);
             }
         }
     }
