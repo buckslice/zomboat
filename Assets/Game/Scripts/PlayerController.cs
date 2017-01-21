@@ -192,16 +192,11 @@ public class PlayerController : MonoBehaviour {
         //Debug.Log("Perform Action");
         switch (role) {
             case Role.RUNNER:
-<<<<<<< HEAD
                 if (abilityTimer < 0.0f) {
                     dashing = true;
                     dashTimer = maxDashTime;
                     abilityTimer = dashCooldown;
                 }
-=======
-                rb.AddForce(transform.forward);
-                //Debug.Log("Runner");
->>>>>>> origin/master
                 break;
             case Role.POLICE:
                 if (abilityTimer < 0.0f) {
