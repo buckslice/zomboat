@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
         gamepad = GetComponent<TopDownGamePad>();
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
+        sr = GetComponentInChildren<SpriteRenderer>();
 
         gamepad.OnDisconnect += Remove;
         gamepad.OnColorChanged += ColorChanged;
@@ -61,4 +61,5 @@ public class PlayerController : MonoBehaviour {
             }
         }
     }
+
 }
