@@ -9,7 +9,7 @@ public class TopDownGamePad : MonoBehaviour {
     private NetPlayer netPlayer;
 
     public string playerName;
-
+    private int charNumb;
     public bool touching = false;
     public Vector2 dir;
     Quaternion targetRot;
@@ -57,6 +57,7 @@ public class TopDownGamePad : MonoBehaviour {
     }
 
     void Awake() {
+        charNumb = UnityEngine.Random.Range(0, 9);
         PickRandomColor();
     }
 
@@ -167,7 +168,7 @@ public class TopDownGamePad : MonoBehaviour {
 
 
     if(netPlayer != null){
-            netPlayer.SendCmd("picture", new MessageNumber(UnityEngine.Random.Range(1, 9)));
+            netPlayer.SendCmd("picture", new MessageNumber(charNumb));
         }
     }
 
@@ -177,6 +178,12 @@ public class TopDownGamePad : MonoBehaviour {
         {
             netPlayer.SendCmd("livechange", new MessageNumber(change));
         }
+    }
+
+    public void SendZombification()
+    {
+        Debug.Log("SendZomb");
+        netPlayer.SendCmd("zomb", new MessageNumber(charNumb));
     }
 
 }

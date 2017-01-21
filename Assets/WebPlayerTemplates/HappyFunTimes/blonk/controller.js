@@ -78,6 +78,11 @@ function handleLives(data)
 	lives.src = "Health_" + (data.number).toString() + "_template.jpg";
 }
 
+function handZomb(data)
+{
+	picture.style.backgroundImage = "url('zomboat_character_" + (data.number).toString() + "zombie.jpg')";
+}
+
 function handleScore(data){
 	toptitle.innerHTML = "You died!";
 	bottitle.innerHTML = "You scored " + data.number + " points!";
@@ -94,6 +99,7 @@ function handleCountdown(data){
 }
 
 client.addEventListener('color', handleColor);
+client.addEventListener('zomb', handleZomb);
 client.addEventListener('play', handlePlay);
 client.addEventListener('picture',handlePicture);
 client.addEventListener('livechange',handleLives);
