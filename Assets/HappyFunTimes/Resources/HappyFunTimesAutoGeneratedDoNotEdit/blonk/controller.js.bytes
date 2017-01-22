@@ -76,6 +76,7 @@ function handlePicture(data)
 	picture.style.backgroundImage = "url('zomboat_character_" + (data.number).toString() + ".jpg')";
 	lives.src = "Health_100_template.jpg";
 	wait.style.display = "none";
+	crosshair.style.display = "block";
 }
 
 function handleLives(data)
