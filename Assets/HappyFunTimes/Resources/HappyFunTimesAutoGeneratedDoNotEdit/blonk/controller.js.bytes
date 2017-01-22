@@ -16,6 +16,7 @@ var pictures = ["zomb.png","zomb1.png","zomb2.png"]
 var lives = document.getElementById("health");
 var banner = document.getElementById("banner");
 var myAudio = document.getElementById("myAudio");
+var wait = document.getElementById("wait");
 
 var $ = document.getElementById.bind(document);
 var globals = {
@@ -73,6 +74,7 @@ function handlePicture(data)
 	
 	picture.style.backgroundImage = "url('zomboat_character_" + (data.number).toString() + ".jpg')";
 	lives.src = "Health_100_template.jpg";
+	wait.style.display = "none";
 }
 
 function handleLives(data)
@@ -109,6 +111,11 @@ function handleCountdown(data){
 	}
 }
 
+function handleWait(data)
+{
+	wait.style.display = "block";
+}
+
 client.addEventListener('color', handleColor);
 client.addEventListener('zomb', handleZomb);
 client.addEventListener('play', handlePlay);
@@ -116,7 +123,7 @@ client.addEventListener('picture',handlePicture);
 client.addEventListener('livechange',handleLives);
 client.addEventListener('character', handleCharacter);
 client.addEventListener('role', handleRole);
-//client.addEventListener('wait', handleWait);
+client.addEventListener('wait', handleWait);
 //client.addEventListener('score', handleScore);
 //client.addEventListener('countdown', handleCountdown);
 

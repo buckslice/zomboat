@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour {
     public void RegisterNetPlayer(NetPlayer np) {
         PlayerHandle ph = new PlayerHandle(np, null);
         np.OnDisconnect += OnPlayerDisconnected;
+        np.SendCmd("wait");
         players.Add(ph);
         playerCountText.text = "players " + players.Count;  // shows number of connected players
     }
