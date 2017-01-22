@@ -86,7 +86,7 @@ function handleZomb(data)
 {
 		lives.src = "zombie_banner.jpg";
 		picture.style.backgroundImage = "url('zomboat_character_" + (data.number).toString() + "_zombie.jpg')";
-		myAudio.play();
+		//myAudio.play();
 }
 
 function handleRole(data)
