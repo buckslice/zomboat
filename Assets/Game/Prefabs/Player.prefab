@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1328025226996676}
   m_LocalRotation: {x: 0, y: 0, z: 0.8957505, w: 0.44455713}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.3786235, y: 0.21359156, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4874440856402364}
@@ -241,7 +241,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 902975606
+  randomSeed: -351467067
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1057,19 +1057,19 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 65289
+          rgba: 60672
         key1:
           serializedVersion: 2
           rgba: 4278190080
         key2:
           serializedVersion: 2
-          rgba: 4278190080
+          rgba: 2902458368
         key3:
           serializedVersion: 2
           rgba: 0
         key4:
           serializedVersion: 2
-          rgba: 0
+          rgba: 4278190080
         key5:
           serializedVersion: 2
           rgba: 0
@@ -1079,8 +1079,8 @@ ParticleSystem:
         key7:
           serializedVersion: 2
           rgba: 0
-        ctime0: 15227
-        ctime1: 65150
+        ctime0: 0
+        ctime1: 50693
         ctime2: 65150
         ctime3: 0
         ctime4: 0
@@ -1089,9 +1089,9 @@ ParticleSystem:
         ctime7: 0
         atime0: 0
         atime1: 7325
-        atime2: 60138
+        atime2: 51464
         atime3: 65535
-        atime4: 0
+        atime4: 65535
         atime5: 0
         atime6: 0
         atime7: 0
@@ -2837,7 +2837,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ed68f677f7dd1584890876316034a2ed, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
