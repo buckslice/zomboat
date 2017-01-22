@@ -248,7 +248,7 @@ public class PlayerController : MonoBehaviour {
                 case Role.MEDIC:
                     if (abilityTimer < 0.0f) {
                         GameObject p = Instantiate(medPack, transform.position, Quaternion.identity);
-                        abilityTimer = abilityCooldown;
+                        abilityTimer = 10.0f;
                     }
                     break;
                 case Role.ZOMBIE:
