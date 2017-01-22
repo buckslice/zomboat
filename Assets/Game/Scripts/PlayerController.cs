@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour {
     public ParticleSystem zombParticles;
     public ParticleSystem bloodParticles;
     public ParticleSystem abilityParticles;
+    public ParticleSystem taserParticles;
     public TopDownGamePad gamepad;
     public GameObject projectile;
     public GameObject medPack;
@@ -73,7 +74,7 @@ public class PlayerController : MonoBehaviour {
         }
         switch (role) {
             case Role.RUNNER:
-                moveSpeed = zombieSpeed; // runners can run as fast as zombies
+                //moveSpeed = zombieSpeed; // runners can run as fast as zombies
                 break;
             case Role.SECRETZOMBIE:
                 SetZombie(true);
@@ -247,8 +248,21 @@ public class PlayerController : MonoBehaviour {
                     break;
                 case Role.POLICE:
                     if (abilityTimer < 0.0f) {
-                        GameObject p = Instantiate(projectile, transform.position + transform.right.normalized * 2.0f + new Vector3(0, 0, 10), Quaternion.identity);
-                        p.GetComponent<Projectile>().direction = transform.right;
+                        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, 2.0f);
+                        taserParticles.Play();
+                        if (cols.Length > 0) {
+                            for (int i = 0; i < cols.Length; ++i) {
+                                if (cols[i].CompareTag("Player")) {
+                                    PlayerController player = cols[i].GetComponent<PlayerController>();
+                                    if (!player.alive) {
+                                        player.DisableControls(2.0f);
+                                    }
+                                }
+                            }
+                        }
+
+                        //GameObject p = Instantiate(projectile, transform.position + transform.right.normalized * 2.0f + new Vector3(0, 0, 10), Quaternion.identity);
+                        //p.GetComponent<Projectile>().direction = transform.right;
                         abilityTimer = abilityCooldown;
                         abilityParticles.Stop();
                     }
@@ -288,7 +302,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void DisableControls(float time) {
-        Debug.Log("disabled");
         canMove = false;
         StartCoroutine("EnableMove", time);
     }
