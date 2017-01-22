@@ -72,7 +72,7 @@ function handlePicture(data)
 {
 	
 	picture.style.backgroundImage = "url('zomboat_character_" + (data.number).toString() + ".jpg')";
-	lives.src = "Health__100_template.jpg";
+	lives.src = "Health_100_template.jpg";
 }
 
 function handleLives(data)
@@ -116,7 +116,7 @@ client.addEventListener('picture',handlePicture);
 client.addEventListener('livechange',handleLives);
 client.addEventListener('character', handleCharacter);
 client.addEventListener('role', handleRole);
-client.addEventListener('wait', handleWait);
+//client.addEventListener('wait', handleWait);
 //client.addEventListener('score', handleScore);
 //client.addEventListener('countdown', handleCountdown);
 
