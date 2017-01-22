@@ -19,11 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4334692413128604}
-  - component: {fileID: 114835332984143212}
   - component: {fileID: 58787282337185384}
   m_Layer: 0
   m_Name: Food
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,18 +84,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
---- !u!114 &114835332984143212
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1326379033240906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c052fb7f7d61b354f999f841cf7b8201, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amount: 10
 --- !u!212 &212380069921653878
 SpriteRenderer:
   m_ObjectHideFlags: 1

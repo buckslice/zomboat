@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
         disabledTimer -= Time.deltaTime;
-        if(disabledTimer < 0.0f) {
+        if (disabledTimer < 0.0f) {
             disabled = false;
         }
     }
@@ -122,35 +122,34 @@ public class PlayerController : MonoBehaviour {
         this.canMove = canMove;
     }
 
-    WaitForSeconds wait = new WaitForSeconds(3.0f);
     IEnumerator ZombificationRoutine() {
         // turn on gross particle effect
         // disable controls?
         zombParticles.Play();
 
-        yield return wait;
+        yield return new WaitForSeconds(3.0f); ;
 
         zombParticles.Stop();
         SetZombie(true);
     }
 
     public void SetZombie(bool isZombie) {
-        if(isZombie && !alive) {
+        if (isZombie && !alive) {
             return;
         }
 
         if (isZombie) {
+            bloodParticles.Stop();
             moveSpeed = zombieSpeed;
             health = 0.0f;
             gamepad.ChangeLives(0);
             gamepad.SendZombification();
             alive = false;
-            if(role != Role.SECRETZOMBIE) {
+            if (role != Role.SECRETZOMBIE) {
                 sr.sprite = zombieSprite;
                 //previousRole = role;
                 role = Role.ZOMBIE;
             }
-
             transform.localScale = new Vector3(ZOMBIE_SCALE, ZOMBIE_SCALE, 1);
         } else {
             moveSpeed = humanSpeed;
@@ -174,44 +173,28 @@ public class PlayerController : MonoBehaviour {
 
         float oldHealth = health;
         if (alive) {
-            if (prevHealth - health >= 20)
-            {
+            if (prevHealth - health >= 20) {
                 prevHealth = health;
-                if (health <= 0)
-                {
+                if (health <= 0) {
                     gamepad.ChangeLives(0);
-                }
-                else if (health <= 20)
-                {
+                } else if (health <= 20) {
                     gamepad.ChangeLives(20);
-                }
-                else if (health <= 40)
-                {
+                } else if (health <= 40) {
                     gamepad.ChangeLives(40);
-                }
-                else if (health <= 60)
-                {
+                } else if (health <= 60) {
                     gamepad.ChangeLives(60);
-                }
-                else if (health <= 80)
-                {
+                } else if (health <= 80) {
                     gamepad.ChangeLives(80);
-                }
-                else if (health > 80)
-                {
+                } else if (health > 80) {
                     gamepad.ChangeLives(100);
                 }
             }
             health += amount;
-            if(health > maxHealth) {
+            if (health >= maxHealth) {
                 health = maxHealth;
+                bloodParticles.Stop();
             }
         }
-
-
-
-
-
     }
     void OnCollisionStay2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
@@ -224,18 +207,22 @@ public class PlayerController : MonoBehaviour {
                     }
 
                     Debug.Log("Blood");
-                   
+
                     //Debug.Log(otherPlayer.health);
-                }
-                else if (alive && role == Role.MEDIC) {
+                } else if (alive && role == Role.MEDIC) {
                     otherPlayer.AddHealth(hps * Time.deltaTime);
                     //Debug.Log(otherPlayer.health);
                 }
             }
-
-
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (alive && collision.gameObject.CompareTag("Food")) {
+            AddHealth(10.0f);
+            Destroy(collision.gameObject);
+        }
+    }
+
     void PerformAction() {
         //Debug.Log("Perform Action");
         switch (role) {
@@ -248,7 +235,7 @@ public class PlayerController : MonoBehaviour {
                 break;
             case Role.POLICE:
                 if (abilityTimer < 0.0f) {
-                    GameObject p = Instantiate(projectile, transform.position + transform.right.normalized * 2.0f + new Vector3(0,0,10), Quaternion.identity);
+                    GameObject p = Instantiate(projectile, transform.position + transform.right.normalized * 2.0f + new Vector3(0, 0, 10), Quaternion.identity);
                     p.GetComponent<Projectile>().direction = transform.right;
                     abilityTimer = dashCooldown;
                 }
