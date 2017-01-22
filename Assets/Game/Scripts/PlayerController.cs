@@ -6,7 +6,8 @@ public enum Role {
     RUNNER, // can run faster and have a dash
     POLICE, // can shoot zombies with a taser to stun them temporarily
     SECRETZOMBIE, // a zombie that appears as human but can still infect others
-    ZOMBIE
+    ZOMBIE,
+    COUNT
 }
 
 public class PlayerController : MonoBehaviour {
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviour {
     public float dps; // damage that the zombies do to humans per second
     public float hps; // healing that the medics do to humans per second 
     public Role role;
-    Role previousRole; // in case we ever want to convert zombies back into humans
+    //Role previousRole; // in case we ever want to convert zombies back into humans
     bool canMove = true;
 
     public Sprite playerSprite;
@@ -145,7 +146,7 @@ public class PlayerController : MonoBehaviour {
             alive = false;
             if(role != Role.SECRETZOMBIE) {
                 sr.sprite = zombieSprite;
-                previousRole = role;
+                //previousRole = role;
                 role = Role.ZOMBIE;
             }
 
@@ -155,7 +156,7 @@ public class PlayerController : MonoBehaviour {
             health = 100.0f;
             alive = true;
             sr.sprite = playerSprite;
-            role = previousRole;
+            //role = previousRole;
             transform.localScale = new Vector3(HUMAN_SCALE, HUMAN_SCALE, 1);
         }
     }

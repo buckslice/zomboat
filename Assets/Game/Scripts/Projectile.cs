@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
     public Vector3 direction;
-    public float speed = 5.0f;
+    float speed = 5.0f;
     Rigidbody2D rb;
     // Use this for initialization
 	void Start () {
