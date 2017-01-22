@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour {
     public Sprite zombieSprite;
     public ParticleSystem zombParticles;
     public ParticleSystem bloodParticles;
+    public ParticleSystem abilityParticles;
     public TopDownGamePad gamepad;
     public GameObject projectile;
     public GameObject medPack;
@@ -93,6 +94,10 @@ public class PlayerController : MonoBehaviour {
                 moveSpeed = zombieSpeed;
                 dashing = false;
             }
+        }
+
+        if(abilityTimer < 0.0f && !abilityParticles.isPlaying) {
+            abilityParticles.Play();
         }
     }
 
@@ -168,7 +173,13 @@ public class PlayerController : MonoBehaviour {
         // adds the amount of health to the player health and clamps it at max health
         float oldHealth = prevHealth;
         if (alive) {
-            if (prevHealth - health >= 20) {
+            health += amount;
+            if (health >= maxHealth)
+            {
+                health = maxHealth;
+                bloodParticles.Stop();
+            }
+            if (Mathf.Abs(prevHealth - health) >= 20) {
                 prevHealth = health;
                 if (health <= 0) {
                     gamepad.ChangeLives(0, (int) oldHealth);
@@ -184,11 +195,7 @@ public class PlayerController : MonoBehaviour {
                     gamepad.ChangeLives(100, (int) oldHealth);
                 }
             }
-            health += amount;
-            if (health >= maxHealth) {
-                health = maxHealth;
-                bloodParticles.Stop();
-            }
+
         }
     }
     void OnCollisionStay2D(Collision2D collision) {
@@ -207,7 +214,7 @@ public class PlayerController : MonoBehaviour {
     }
     private void OnTriggerStay2D(Collider2D other) {
         if (alive && other.CompareTag("Food")) {
-            AddHealth(10.0f);
+            AddHealth(20.0f);
             Destroy(other.gameObject);
         }
         if (alive && other.CompareTag("MedPack")) {
@@ -236,6 +243,7 @@ public class PlayerController : MonoBehaviour {
                         dashing = true;
                         dashTimer = maxDashTime;
                         abilityTimer = abilityCooldown;
+                        abilityParticles.Stop();
                     }
                     break;
                 case Role.POLICE:
@@ -243,12 +251,14 @@ public class PlayerController : MonoBehaviour {
                         GameObject p = Instantiate(projectile, transform.position + transform.right.normalized * 2.0f + new Vector3(0, 0, 10), Quaternion.identity);
                         p.GetComponent<Projectile>().direction = transform.right;
                         abilityTimer = abilityCooldown;
+                        abilityParticles.Stop();
                     }
                     break;
                 case Role.MEDIC:
                     if (abilityTimer < 0.0f) {
                         GameObject p = Instantiate(medPack, transform.position, Quaternion.identity);
                         abilityTimer = 10.0f;
+                        abilityParticles.Stop();
                     }
                     break;
                 case Role.ZOMBIE:
@@ -256,6 +266,7 @@ public class PlayerController : MonoBehaviour {
                         return;
                     }
                     abilityTimer = 0.1f;
+                    abilityParticles.Stop();
                     int rets = Physics2D.RaycastNonAlloc(transform.position, gamepad.dir, hitRes, 2.0f);
                     for (int i = 0; i < rets; ++i) {
                         if (hitRes[i].collider.CompareTag("Movable")) {
