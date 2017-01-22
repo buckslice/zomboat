@@ -53,6 +53,9 @@ TagManager:
   - name: Boat
     uniqueID: 3876563763
     locked: 0
+  - name: BLOOD FOR THE BLOOD GOD
+    uniqueID: 1813732525
+    locked: 0
   - name: CollisionObjects
     uniqueID: 3585913027
     locked: 0
