@@ -7,7 +7,6 @@ using HappyFunTimes;
 // Manages the connection between this object and the phone
 public class TopDownGamePad : MonoBehaviour {
     private NetPlayer netPlayer;
-
     public string playerName;
     private int charNumb;
     public bool touching = false;
@@ -48,7 +47,7 @@ public class TopDownGamePad : MonoBehaviour {
         public Color color;
     }
 
-    private class MessageNumber {
+    public class MessageNumber {
         public MessageNumber(int number) {
             this.number = number;
         }
@@ -145,6 +144,7 @@ public class TopDownGamePad : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 0.1f);
         timeSinceTouched += Time.deltaTime;
         if (oldColor != color) {
@@ -165,7 +165,7 @@ public class TopDownGamePad : MonoBehaviour {
 
     void SendImage() {
         if (netPlayer != null) {
-            charNumb = UnityEngine.Random.Range(1, 19);
+            charNumb = UnityEngine.Random.Range(1, 22);
             netPlayer.SendCmd("picture", new MessageNumber(charNumb));
         }
     }
@@ -188,6 +188,8 @@ public class TopDownGamePad : MonoBehaviour {
     public void SendRole(Role role) {
         netPlayer.SendCmd("role", role.ToString().ToLower());
     }
+
+
 
 
 }

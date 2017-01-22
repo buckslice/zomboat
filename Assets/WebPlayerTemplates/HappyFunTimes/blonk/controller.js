@@ -15,7 +15,8 @@ var picture = document.getElementById("mid");
 var pictures = ["zomb.png","zomb1.png","zomb2.png"]
 var lives = document.getElementById("health");
 var banner = document.getElementById("banner");
-var myAudio = document.getElementById("myAudio");
+var myAudio = document.getElementById("audioTag");
+var hideAudio = document.getElementById("hideme");
 var wait = document.getElementById("wait");
 
 var $ = document.getElementById.bind(document);
@@ -87,8 +88,12 @@ function handleLives(data)
 function handleZomb(data)
 {
 		lives.src = "zombie_banner.jpg";
+		banner.src = "eatbrains_banner.jpg";
 		picture.style.backgroundImage = "url('zomboat_character_" + (data.number).toString() + "_zombie.jpg')";
-		//myAudio.play();
+		myAudio.load();
+		myAudio.play();
+		hideAudio.style.display = "block";
+		
 }
 
 function handleRole(data)
@@ -116,6 +121,22 @@ function handleWait(data)
 	wait.style.display = "block";
 }
 
+function handleGameOver(data)
+{
+	if(data.number > 0)
+	{
+		picture.style.backgroundImage = "url('End_phone_zombie_screen_" + (data.number).toString() + ".jpg')";
+	}
+	else
+	{
+		picture.style.backgroundImage = "url('End_phone_winner_screen.jpg')";
+	}
+	
+	crosshair.style.display = "none";
+	
+	
+}
+
 client.addEventListener('color', handleColor);
 client.addEventListener('zomb', handleZomb);
 client.addEventListener('play', handlePlay);
@@ -124,6 +145,7 @@ client.addEventListener('livechange',handleLives);
 client.addEventListener('character', handleCharacter);
 client.addEventListener('role', handleRole);
 client.addEventListener('wait', handleWait);
+client.addEventListener('gameover', handleGameOver);
 //client.addEventListener('score', handleScore);
 //client.addEventListener('countdown', handleCountdown);
 

@@ -9,9 +9,11 @@ public class WaveLine : MonoBehaviour {
     bool oscillating = true;
     public float lifeTime = 5.0f;
     float range;
+    ParticleSystem waveGenerator;
 
     // Use this for initialization
     void Start() {
+        waveGenerator = GetComponentInChildren<ParticleSystem>();
         StartCoroutine(SlideAndDestroy());
         moveDir = transform.right;
         range = Random.Range(3.0f, 6.0f);
@@ -25,7 +27,8 @@ public class WaveLine : MonoBehaviour {
 
     IEnumerator SlideAndDestroy() {
         yield return new WaitForSeconds(lifeTime);
-
+        ParticleSystem.EmissionModule emit = waveGenerator.emission;
+        emit.enabled = false;
         // slide away before deleting so we get OnTriggerExit2D events
         speed = 200.0f;
         moveDir = Vector3.down;

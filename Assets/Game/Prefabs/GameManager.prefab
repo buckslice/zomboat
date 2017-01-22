@@ -140,6 +140,8 @@ MonoBehaviour:
   playerPrefab: {fileID: 1328025226996676, guid: cea65baec29c96f4d8f801980ed38a8e,
     type: 2}
   foodPrefab: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
+  boxBreakPrefab: {fileID: 1003537191707932, guid: a0228b4b81b9640459b9da455a587516,
+    type: 2}
   foodSprites:
   - {fileID: 21300000, guid: 46453e8e2e1438343bf38585fe9e3242, type: 3}
   - {fileID: 21300000, guid: 4bdb6160eb9a2de40b20cde41710b628, type: 3}
