@@ -31,7 +31,7 @@ public class TimedSpawn : MonoBehaviour {
             return;
         }
 
-		while (spawnedObjectIndex < spawnTimes.Length && gameManager.gameTime > spawnTimes[spawnedObjectIndex]) {
+		while (spawnedObjectIndex < spawnTimes.Length && gameManager.curTime > spawnTimes[spawnedObjectIndex]) {
             GameObject spawnedObject = GameObject.Instantiate(spawnObjects[spawnedObjectIndex]);
             spawnedObject.transform.position = spawnPositions[spawnedObjectIndex];
             spawnedObjectIndex = spawnedObjectIndex + 1;

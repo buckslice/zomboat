@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HappyFunTimes;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHandle {
     public NetPlayer netPlayer;
@@ -15,8 +16,7 @@ public class PlayerHandle {
 }
 
 public struct WaveObjectEntry {
-    public WaveObjectEntry(int _waveIndex, CollisionObject _waveObject)
-    {
+    public WaveObjectEntry(int _waveIndex, CollisionObject _waveObject) {
         waveIndex = _waveIndex;
         waveObject = _waveObject;
     }
@@ -35,41 +35,70 @@ public class GameManager : MonoBehaviour {
     public float spawnRadius = 2.0f;
     public GameObject playerPrefab;
     bool gameStarted = false;
-    public float gameTime;
+    public float curTime;
+    public float winTimeSeconds = 180.0f;
     public float countDownTime = 10.0f;
-    float countTimer = 10.0f;
-    public Text countDownText;
-    public Text playerCountText;
+    Text timerText;
+    Text centerText;
+    Text playerCountText;
+    Image splash;
+    public Sprite winSplash;
+    public Sprite loseSplash;
+    public Sprite intro1;
+    public Sprite intro2;
+    public Sprite intro3;
+    int introSequence = 1;
     Vector3[] humanSpawnPoints;
+    public AudioClip lobbyClip;
     public AudioClip introClip;
     public AudioClip gameClip;
     public AudioClip shotgunClip;
+    public AudioClip humanWinClip;
     AudioSource source;
 
     public List<WaveObjectEntry> waveObjects = new List<WaveObjectEntry>();
-    private List<PlayerHandle> players = new List<PlayerHandle>();    
+    private List<PlayerHandle> players = new List<PlayerHandle>();
+    bool introGoing = false;
 
     // crappy singleton
     public static GameManager instance = null;
     void Awake() {
-        source = GetComponent<AudioSource>();
         if (instance == null) {
             instance = this;
         } else {
             Destroy(gameObject);
+            return;
         }
+        ResetVariables();
+
+        UpdateGameTimerText();
+        DontDestroyOnLoad(transform.gameObject);    // keep the manager alive
     }
 
     public void RegisterNetPlayer(NetPlayer np) {
         PlayerHandle ph = new PlayerHandle(np, null);
         np.OnDisconnect += OnPlayerDisconnected;
-        if (!gameStarted) {
-            SpawnPlayer(ph);    // this should be moved for if we want to be able to restart without stopping and playing
-        } else {
-            // send message saying "Waiting for new game" or something
-        }
         players.Add(ph);
-        playerCountText.text = "players " + players.Count;  // shows number of connected players not 
+        playerCountText.text = "players " + players.Count;  // shows number of connected players
+    }
+
+    private void OnLevelWasLoaded(int level) {
+        ResetVariables();
+    }
+
+    void ResetVariables() {
+        source = GetComponent<AudioSource>();
+        timerText = GameObject.Find("TimerText").GetComponent<Text>();
+        centerText = GameObject.Find("CenterText").GetComponent<Text>();
+        playerCountText = GameObject.Find("PlayerCountText").GetComponent<Text>();
+        playerCountText.text = "players " + players.Count;  // shows number of connected players
+        splash = GameObject.Find("SplashScreen").GetComponent<Image>();
+        gameStarted = false;
+        curTime = 0.0f;
+        introSequence = 1;
+        introGoing = true;
+        splash.enabled = true;
+        splash.sprite = intro1;
     }
 
     // Use this for initialization
@@ -107,13 +136,13 @@ public class GameManager : MonoBehaviour {
     }
 
     void SetPlayersCanMove(bool canMove) {    // set all players movement
-        for(int i = 0; i < players.Count; ++i) {
+        for (int i = 0; i < players.Count; ++i) {
             players[i].controller.SetCanMove(canMove);
         }
     }
 
     void CheckWaves() {
-        if (currentWave < WAVE_TIMES.Length && gameTime > WAVE_TIMES[currentWave]) {
+        if (currentWave < WAVE_TIMES.Length && curTime > WAVE_TIMES[currentWave]) {
             /*
             List<WaveObjectEntry> remainingEntries = new List<WaveObjectEntry>();
             foreach (WaveObjectEntry entry in waveObjects) {
@@ -148,36 +177,29 @@ public class GameManager : MonoBehaviour {
     }
     WaitForSeconds waitOne = new WaitForSeconds(1.0f);
     IEnumerator CountDownRoutine() {
-        countDownText.enabled = true;
-        source.Stop();
+        centerText.enabled = true;
         source.clip = introClip;
         source.loop = false;
         source.Play();
         for (int i = 0; i < countDownTime; ++i) {
-            countDownText.text = "" + (int)(countDownTime - i);
+            centerText.text = "" + (int)(countDownTime - i);
             yield return waitOne;
         }
-        countDownText.text = "GO";
+        centerText.text = "GO";
         StartGame();
-        countDownText.enabled = true;
+        centerText.enabled = true;
         source.clip = shotgunClip;
         source.Play();
         yield return waitOne;
-        countDownText.enabled = false;
+        centerText.enabled = false;
         source.clip = gameClip;
         source.loop = true;
         source.Play();
     }
 
-    void StopCountDown() {
-        if (countDownRoutine != null) {
-            StopCoroutine(countDownRoutine);
-        }
-        countDownText.enabled = false;
-        countDownRoutine = null;
-    }
-
     void StartGame() {
+        centerText.enabled = false;
+        countDownRoutine = null;
         gameStarted = true;
         SetPlayersCanMove(true);
 
@@ -187,7 +209,7 @@ public class GameManager : MonoBehaviour {
     // checks to see which players are actually in game (with controllers)
     void ZombifySomeone() {
         List<PlayerController> activePlayers = new List<PlayerController>();
-        for(int i = 0; i < players.Count; ++i) {
+        for (int i = 0; i < players.Count; ++i) {
             if (players[i].controller) {
                 activePlayers.Add(players[i].controller);
             }
@@ -195,26 +217,118 @@ public class GameManager : MonoBehaviour {
         // make one player a zombie
         activePlayers[Random.Range(0, activePlayers.Count)].BeginZombification();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
+        if (introGoing) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                introSequence++;
+                if(introSequence == 2) {
+                    splash.sprite = intro2;
+                }else if (introSequence == 3) {
+                    splash.sprite = intro3;
+                    source.clip = lobbyClip;
+                    source.loop = true;
+                    source.Play();
+                } else {
+                    splash.enabled = false;
+                    introGoing = false;
+                }
+            }
+            return;
+        }
+        
         //Debug.Log(players.Count);
         if (!gameStarted) {
+            for (int i = 0; i < players.Count; ++i) {
+                if (players[i].controller == null) {
+                    SpawnPlayer(players[i]);
+                }
+            }
+
             if (Input.GetKeyDown(KeyCode.Space)) {
                 if (countDownRoutine == null) {
                     StartCountDown();
                 } else {
-                    StopCountDown();
+                    if (countDownRoutine != null) { // stop countdown
+                        StopCoroutine(countDownRoutine);
+                    }
                     StartGame();
+                    source.clip = gameClip;
+                    source.loop = true;
+                    source.Play();
                 }
             }
         } else {
-            gameTime += Time.deltaTime;
-
+            curTime += Time.deltaTime;
+            UpdateGameTimerText();
             CheckWaves();
-        }
 
-	}
+            if (curTime >= winTimeSeconds) {
+                splash.sprite = winSplash;
+                splash.enabled = true;
+                ResetGame(true);
+            } else if (OnlyZombiesLeft()) {
+                splash.sprite = loseSplash;
+                splash.enabled = true;
+                ResetGame(false);
+            }
+        }
+    }
+
+    bool reseting = false;
+    void ResetGame(bool humansWin) {
+        if (reseting) {
+            return;
+        }
+        reseting = true;
+        StartCoroutine(ResetRoutine(humansWin));
+    }
+
+    IEnumerator ResetRoutine(bool humansWin) {
+        if (humansWin) {
+            source.clip = humanWinClip;
+            source.Play();
+        }
+        float t = 0.0f;
+        while (t < 10.0f) {
+            t += Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                break;
+            }
+            yield return null;
+        }
+        for (int i = 0; i < players.Count; ++i) {
+            players[i].controller = null;
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);   // reload scene
+        reseting = false;
+    }
+
+    bool OnlyZombiesLeft() {
+        for (int i = 0; i < players.Count; ++i) {
+            if (players[i].controller.alive) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    void UpdateGameTimerText() {
+        int t = (int)(winTimeSeconds - curTime);
+        string color = "<color=#FFFFFFFF>";
+        if (t <= 10) {
+            if ((int)((winTimeSeconds - curTime) * 2.0f) % 2 == 0) {
+                color = "<color=#FF0000FF>";
+            }
+        } else if (t <= 30) {
+            color = "<color=#FF0000FF>";
+        } else if (t <= 60) {
+            color = "<color=#FFFF00FF>";
+        }
+        string txt = string.Format("{0}:{1:00}", t / 60, t % 60);
+        timerText.text = color + txt + "</color>";
+    }
 
     void EndGame() {
         // not sure how this will work yet
@@ -225,8 +339,8 @@ public class GameManager : MonoBehaviour {
 
     void OnPlayerDisconnected(object sender, System.EventArgs e) {
         NetPlayer np = (NetPlayer)sender;
-        for(int i = 0; i < players.Count; ++i) {
-            if(players[i].netPlayer == np) {
+        for (int i = 0; i < players.Count; ++i) {
+            if (players[i].netPlayer == np) {
                 players.RemoveAt(i);
                 break;
             }
