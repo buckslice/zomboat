@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour {
             moveSpeed = zombieSpeed;
             health = 0.0f;
             gamepad.ChangeLives(0);
-            gamepad.SendZombification();
+            //gamepad.SendZombification();
             alive = false;
             if(role != Role.SECRETZOMBIE) {
                 sr.sprite = zombieSprite;

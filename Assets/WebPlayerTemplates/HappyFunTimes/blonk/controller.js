@@ -69,7 +69,7 @@ function handleCharacter(data){
 function handlePicture(data)
 {
 	
-	picture.style.backgroundImage = "url('zomboat_character_" + (data.number).toString() + ".jpg')";
+	picture.style.backgroundImage = "url('zomboat_character_1.jpg')";
 }
 
 function handleLives(data)
@@ -78,7 +78,7 @@ function handleLives(data)
 	lives.src = "Health_" + (data.number).toString() + "_template.jpg";
 }
 
-function handZomb(data)
+function handleZomb(data)
 {
 	picture.style.backgroundImage = "url('zomboat_character_" + (data.number).toString() + "zombie.jpg')";
 }
