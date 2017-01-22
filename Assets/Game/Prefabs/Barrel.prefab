@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 212225693021878026}
   - component: {fileID: 61516478614105622}
   - component: {fileID: 114351521916765910}
+  - component: {fileID: 50135085576401364}
+  - component: {fileID: 114867310524901684}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -42,6 +44,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50135085576401364
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1394287369333696}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &61516478614105622
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -68,6 +90,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveIndex: 0
+--- !u!114 &114867310524901684
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1394287369333696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6381716bd75d14642921089b98e590ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stubborness: 0
+  weight: 0.5
 --- !u!212 &212225693021878026
 SpriteRenderer:
   m_ObjectHideFlags: 1
