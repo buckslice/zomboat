@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         }
         UpdateGameTimerText();
+
+        DontDestroyOnLoad(transform.gameObject);    // keep the manager alive
     }
 
     public void RegisterNetPlayer(NetPlayer np) {
@@ -199,16 +201,28 @@ public class GameManager : MonoBehaviour {
         } else {
             curTime += Time.deltaTime;
             UpdateGameTimerText();
-
             CheckWaves();
-        }
 
+            if(curTime >= winTimeSeconds) {
+
+            }
+        }
     }
 
     void UpdateGameTimerText() {
         int t = (int)(winTimeSeconds - curTime);
+        string color = "<color=#FFFFFFFF>";
+        if (t <= 10) {
+            if ((int)((winTimeSeconds - curTime)*2.0f) % 2 == 0) {
+                color = "<color=#FF0000FF>";
+            }
+        } else if (t <= 30) {
+            color = "<color=#FF0000FF>";
+        } else if (t <= 60) {
+            color = "<color=#FFFF00FF>";
+        }
         string txt = string.Format("{0}:{1:00}", t / 60, t % 60);
-        timerText.text = txt;
+        timerText.text = color + txt + "</color>";
     }
 
     void EndGame() {
