@@ -203,9 +203,7 @@ MonoBehaviour:
   dashTimer: 0
   maxDashTime: 1
   abilityTimer: 0
-  dashCooldown: 5
-  disabled: 0
-  disabledTimer: 0
+  abilityCooldown: 5
   alive: 1
   health: 100
   maxHealth: 100
@@ -218,6 +216,7 @@ MonoBehaviour:
   bloodParticles: {fileID: 198468854596807212}
   gamepad: {fileID: 114070306184506752}
   projectile: {fileID: 1373155402037464, guid: 7226407d4240bea4fb7b9743bd8c2cf6, type: 2}
+  velocityChange: {x: 0, y: 0}
 --- !u!198 &198119609438306834
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -2910,7 +2909,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 219128341
+  randomSeed: -109721518
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2954,7 +2953,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 20
+      scalar: 30
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2972,7 +2971,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0
+          value: 0.16666667
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -5453,7 +5452,7 @@ ParticleSystemRenderer:
   m_GameObject: {fileID: 1438834122850786}
   m_Enabled: 1
   m_CastShadows: 0
-  m_ReceiveShadows: 0
+  m_ReceiveShadows: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
@@ -5475,7 +5474,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1887222769
+  m_SortingLayerID: 1813732525
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
