@@ -134,9 +134,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WAVE_TIMES:
-  - 20
-  - 80
+  - 10
+  - 25
+  WAVE_INTENSITY: []
   currentWave: 0
+  waveCrash: 0
   playersToStart: 3
   spawnRadius: 0.5
   playerPrefab: {fileID: 1328025226996676, guid: cea65baec29c96f4d8f801980ed38a8e,
