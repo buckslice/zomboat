@@ -168,7 +168,13 @@ public class PlayerController : MonoBehaviour {
         // adds the amount of health to the player health and clamps it at max health
         float oldHealth = prevHealth;
         if (alive) {
-            if (prevHealth - health >= 20) {
+            health += amount;
+            if (health >= maxHealth)
+            {
+                health = maxHealth;
+                bloodParticles.Stop();
+            }
+            if (Mathf.Abs(prevHealth - health) >= 20) {
                 prevHealth = health;
                 if (health <= 0) {
                     gamepad.ChangeLives(0, (int) oldHealth);
@@ -184,11 +190,7 @@ public class PlayerController : MonoBehaviour {
                     gamepad.ChangeLives(100, (int) oldHealth);
                 }
             }
-            health += amount;
-            if (health >= maxHealth) {
-                health = maxHealth;
-                bloodParticles.Stop();
-            }
+
         }
     }
     void OnCollisionStay2D(Collision2D collision) {
@@ -207,7 +209,7 @@ public class PlayerController : MonoBehaviour {
     }
     private void OnTriggerStay2D(Collider2D other) {
         if (alive && other.CompareTag("Food")) {
-            AddHealth(10.0f);
+            AddHealth(20.0f);
             Destroy(other.gameObject);
         }
         if (alive && other.CompareTag("MedPack")) {
