@@ -10,6 +10,7 @@ TagManager:
   - ZombieSpawn
   - Movable
   - Wave
+  - MedPack
   layers:
   - Default
   - TransparentFX
