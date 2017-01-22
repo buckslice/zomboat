@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour {
     Image splash;
     public Sprite winSplash;
     public Sprite loseSplash;
+    public Sprite intro1;
+    public Sprite intro2;
+    public Sprite intro3;
+    int introSequence = 1;
     Vector3[] humanSpawnPoints;
     public AudioClip lobbyClip;
     public AudioClip introClip;
@@ -53,30 +57,17 @@ public class GameManager : MonoBehaviour {
 
     public List<WaveObjectEntry> waveObjects = new List<WaveObjectEntry>();
     private List<PlayerHandle> players = new List<PlayerHandle>();
+    bool introGoing = false;
 
     // crappy singleton
     public static GameManager instance = null;
     void Awake() {
-        source = GetComponent<AudioSource>();
-        ResetVariables();
         if (instance == null) {
             instance = this;
         } else {
             Destroy(gameObject);
         }
-        UpdateGameTimerText();
-
-        DontDestroyOnLoad(transform.gameObject);    // keep the manager alive
-    }
-
-    private void OnLevelWasLoaded(int level) {
-        ResetVariables();
-    }
-
-    void ResetVariables() {
-        source.clip = lobbyClip;
-        source.loop = true;
-        source.Play();
+        source = GetComponent<AudioSource>();
         timerText = GameObject.Find("TimerText").GetComponent<Text>();
         centerText = GameObject.Find("CenterText").GetComponent<Text>();
         playerCountText = GameObject.Find("PlayerCountText").GetComponent<Text>();
@@ -84,6 +75,14 @@ public class GameManager : MonoBehaviour {
         splash = GameObject.Find("SplashScreen").GetComponent<Image>();
         gameStarted = false;
         curTime = 0.0f;
+        introSequence = 1;
+        introGoing = true;
+        splash.enabled = true;
+        splash.sprite = intro1;
+
+        UpdateGameTimerText();
+        Debug.Log(Time.time);
+        DontDestroyOnLoad(transform.gameObject);    // keep the manager alive
     }
 
     public void RegisterNetPlayer(NetPlayer np) {
@@ -213,10 +212,28 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (introGoing) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                introSequence++;
+                if(introSequence == 2) {
+                    splash.sprite = intro2;
+                }else if (introSequence == 3) {
+                    splash.sprite = intro3;
+                    source.clip = lobbyClip;
+                    source.loop = true;
+                    source.Play();
+                } else {
+                    splash.enabled = false;
+                    introGoing = false;
+                }
+            }
+            return;
+        }
+        
         //Debug.Log(players.Count);
         if (!gameStarted) {
-            for(int i = 0; i < players.Count; ++i) {
-                if(players[i].controller == null) {
+            for (int i = 0; i < players.Count; ++i) {
+                if (players[i].controller == null) {
                     SpawnPlayer(players[i]);
                 }
             }
@@ -259,14 +276,14 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator ResetRoutine() {
         float t = 0.0f;
-        while(t < 10.0f) {
+        while (t < 10.0f) {
             t += Time.deltaTime;
             if (Input.GetKeyDown(KeyCode.Space)) {
                 break;
             }
             yield return null;
         }
-        for(int i = 0; i < players.Count; ++i) {
+        for (int i = 0; i < players.Count; ++i) {
             players[i].controller = null;
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);   // reload scene
