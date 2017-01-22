@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour {
     public Sprite winSplash;
     public Sprite loseSplash;
     Vector3[] humanSpawnPoints;
+    public AudioClip lobbyClip;
     public AudioClip introClip;
     public AudioClip gameClip;
     public AudioClip shotgunClip;
@@ -56,8 +57,8 @@ public class GameManager : MonoBehaviour {
     // crappy singleton
     public static GameManager instance = null;
     void Awake() {
-        ResetVariables();
         source = GetComponent<AudioSource>();
+        ResetVariables();
         if (instance == null) {
             instance = this;
         } else {
@@ -73,6 +74,9 @@ public class GameManager : MonoBehaviour {
     }
 
     void ResetVariables() {
+        source.clip = lobbyClip;
+        source.loop = true;
+        source.Play();
         timerText = GameObject.Find("TimerText").GetComponent<Text>();
         centerText = GameObject.Find("CenterText").GetComponent<Text>();
         playerCountText = GameObject.Find("PlayerCountText").GetComponent<Text>();
