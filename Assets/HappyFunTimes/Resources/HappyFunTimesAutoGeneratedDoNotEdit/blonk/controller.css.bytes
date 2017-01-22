@@ -29,6 +29,14 @@
 	z-index:2;
 	
 }
+#cross
+{
+	width:15%;
+	height: 15%;
+	
+	
+	
+}
 
 #percent {
  position: absolute;   
@@ -102,8 +110,8 @@
 #mid
 {
 	width:100%;
-	background-color: black;
 	background-image:;
+	background-color:black;
 	height:70%;
 	background-position: center;
 	background-repeat: no-repeat;
