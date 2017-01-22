@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if(abilityTimer < 0.0f && !abilityParticles.isPlaying) {
+        if (abilityTimer < 0.0f && !abilityParticles.isPlaying) {
             abilityParticles.Play();
         }
     }
@@ -174,25 +174,24 @@ public class PlayerController : MonoBehaviour {
         float oldHealth = prevHealth;
         if (alive) {
             health += amount;
-            if (health >= maxHealth)
-            {
+            if (health >= maxHealth) {
                 health = maxHealth;
                 bloodParticles.Stop();
             }
             if (Mathf.Abs(prevHealth - health) >= 20) {
                 prevHealth = health;
                 if (health <= 0) {
-                    gamepad.ChangeLives(0, (int) oldHealth);
+                    gamepad.ChangeLives(0, (int)oldHealth);
                 } else if (health <= 20) {
-                    gamepad.ChangeLives(20, (int) oldHealth);
+                    gamepad.ChangeLives(20, (int)oldHealth);
                 } else if (health <= 40) {
                     gamepad.ChangeLives(40, (int)oldHealth);
                 } else if (health <= 60) {
-                    gamepad.ChangeLives(60, (int) oldHealth);
+                    gamepad.ChangeLives(60, (int)oldHealth);
                 } else if (health <= 80) {
-                    gamepad.ChangeLives(80, (int) oldHealth);
+                    gamepad.ChangeLives(80, (int)oldHealth);
                 } else if (health > 80) {
-                    gamepad.ChangeLives(100, (int) oldHealth);
+                    gamepad.ChangeLives(100, (int)oldHealth);
                 }
             }
 
@@ -256,7 +255,7 @@ public class PlayerController : MonoBehaviour {
                     break;
                 case Role.MEDIC:
                     if (abilityTimer < 0.0f) {
-                        GameObject p = Instantiate(medPack, transform.position, Quaternion.identity);
+                        Instantiate(medPack, transform.position, Quaternion.identity);
                         abilityTimer = 10.0f;
                         abilityParticles.Stop();
                     }
