@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
     public bool alive = true;   // zombies are dead
     public float health = 100.0f;
     public float maxHealth = 100.0f;
-    private float prevHealth = 100.0f;
+    public float prevHealth = 100.0f;
     public float dps; // damage that the zombies do to humans per second
     public float hps; // healing that the medics do to humans per second 
     public Role role;
@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour {
     public TopDownGamePad gamepad;
     public GameObject projectile;
     public GameObject medPack;
+    private bool eatFood = false;
 
     public Vector2 velocityChange = Vector2.zero;
 
@@ -166,9 +167,15 @@ public class PlayerController : MonoBehaviour {
     public void AddHealth(float amount) {
         // adds the amount of health to the player health and clamps it at max health
 
-        float oldHealth = health;
         if (alive) {
-            if (prevHealth - health >= 20) {
+            health += amount;
+            if (health >= maxHealth)
+            {
+                health = maxHealth;
+                bloodParticles.Stop();
+            }
+            if (Mathf.Abs(prevHealth - health) >= 20 || eatFood) {
+                eatFood = false;
                 prevHealth = health;
                 if (health <= 0) {
                     gamepad.ChangeLives(0);
@@ -184,11 +191,7 @@ public class PlayerController : MonoBehaviour {
                     gamepad.ChangeLives(100);
                 }
             }
-            health += amount;
-            if (health >= maxHealth) {
-                health = maxHealth;
-                bloodParticles.Stop();
-            }
+            
         }
     }
     void OnCollisionStay2D(Collision2D collision) {
@@ -207,7 +210,9 @@ public class PlayerController : MonoBehaviour {
     }
     private void OnTriggerStay2D(Collider2D other) {
         if (alive && other.CompareTag("Food")) {
-            AddHealth(10.0f);
+            prevHealth = health;
+            eatFood = true;
+            AddHealth(20.0f);
             Destroy(other.gameObject);
         }
         if (alive && other.CompareTag("MedPack")) {
