@@ -38,7 +38,11 @@ public class GameManager : MonoBehaviour {
     float countTimer = 10.0f;
     public Text countDownText;
     public Text playerCountText;
-    public Vector3[] humanSpawnPoints;
+    Vector3[] humanSpawnPoints;
+    public AudioClip introClip;
+    public AudioClip gameClip;
+    public AudioClip shotgunClip;
+    AudioSource source;
 
     public List<WaveObjectEntry> waveObjects = new List<WaveObjectEntry>();
     private List<PlayerHandle> players = new List<PlayerHandle>();    
@@ -46,6 +50,7 @@ public class GameManager : MonoBehaviour {
     // crappy singleton
     public static GameManager instance = null;
     void Awake() {
+        source = GetComponent<AudioSource>();
         if (instance == null) {
             instance = this;
         } else {
@@ -128,11 +133,24 @@ public class GameManager : MonoBehaviour {
     WaitForSeconds waitOne = new WaitForSeconds(1.0f);
     IEnumerator CountDownRoutine() {
         countDownText.enabled = true;
+        source.Stop();
+        source.clip = introClip;
+        source.loop = false;
+        source.Play();
         for (int i = 0; i < countDownTime; ++i) {
             countDownText.text = "" + (int)(countDownTime - i);
             yield return waitOne;
         }
+        countDownText.text = "GO";
         StartGame();
+        countDownText.enabled = true;
+        source.clip = shotgunClip;
+        source.Play();
+        yield return waitOne;
+        countDownText.enabled = false;
+        source.clip = gameClip;
+        source.loop = true;
+        source.Play();
     }
 
     void StopCountDown() {
@@ -144,8 +162,6 @@ public class GameManager : MonoBehaviour {
     }
 
     void StartGame() {
-        StopCountDown();
-
         gameStarted = true;
         SetPlayersCanMove(true);
 
@@ -168,12 +184,13 @@ public class GameManager : MonoBehaviour {
 	void Update () {
         //Debug.Log(players.Count);
         if (!gameStarted) {
-            if (Input.GetKeyDown(KeyCode.Space)) {  // start game instantly regardless of players
-                StartGame();
-            }else if (players.Count >= playersToStart) {
-                StartCountDown();
-            } else {
-                StopCountDown();
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                if (countDownRoutine == null) {
+                    StartCountDown();
+                } else {
+                    StopCountDown();
+                    StartGame();
+                }
             }
         } else {
             gameTime += Time.deltaTime;
