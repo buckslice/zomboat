@@ -45,7 +45,14 @@ public class GameManager : MonoBehaviour {
     public AudioClip shotgunClip;
     public AudioClip humanWinClip;
     AudioSource source;
+    AudioSource ambience;
     WaveSpawner waves;
+    SoundManager soundManager;
+    public float baseAmbienceFrequency = 10.0f;
+    public float chompFrequency;
+    float ambienceFrequency;
+    public float ambienceSpeedUp = 5.0f;
+    float timeUntilAmbience = 15.0f;
 
     List<PlayerHandle> players = new List<PlayerHandle>();
     bool introGoing = false;
@@ -79,6 +86,7 @@ public class GameManager : MonoBehaviour {
     void ResetVariables() {
         source = GetComponent<AudioSource>();
         source.pitch = 1.0f;
+        ambience = GameObject.Find("AmbienceSource").GetComponent<AudioSource>();
         timerText = GameObject.Find("TimerText").GetComponent<Text>();
         centerText = GameObject.Find("CenterText").GetComponent<Text>();
         playerCountText = GameObject.Find("PlayerCountText").GetComponent<Text>();
@@ -91,6 +99,8 @@ public class GameManager : MonoBehaviour {
         introGoing = true;
         splash.enabled = true;
         splash.sprite = intro1;
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        ambienceFrequency = baseAmbienceFrequency;
     }
 
     // Use this for initialization
@@ -187,6 +197,7 @@ public class GameManager : MonoBehaviour {
         playerCountText.text = "players: " + players.Count;  // shows number of connected players
 
         if (introGoing) {
+            ambience.Stop();
             if (Input.GetKeyDown(KeyCode.Space)) {
                 introSequence++;
                 if (introSequence == 2) {
@@ -199,12 +210,13 @@ public class GameManager : MonoBehaviour {
                 } else {
                     splash.enabled = false;
                     introGoing = false;
+                    ambience.Play();
+                    Debug.Log("Playing ambience");
                 }
             }
             return;
         }
 
-        //Debug.Log(players.Count);
         if (!gameStarted) {
             for (int i = 0; i < players.Count; ++i) {
                 if (players[i].controller == null) {
@@ -226,6 +238,14 @@ public class GameManager : MonoBehaviour {
                 }
             }
         } else if(!reseting){
+            timeUntilAmbience -= Random.Range(0, Time.deltaTime * 2.0f);
+            if (timeUntilAmbience <= 0.0f) {
+                ambienceFrequency = baseAmbienceFrequency - (curTime / winTimeSeconds) * ambienceSpeedUp;
+                Debug.Log(ambienceFrequency);
+                timeUntilAmbience += ambienceFrequency;
+                soundManager.PlayAmbience(Random.Range(0, soundManager.numAmbience));
+            }
+
             curTime += Time.deltaTime;
             UpdateGameTimerText();
 
