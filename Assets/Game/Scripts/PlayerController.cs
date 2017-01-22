@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour {
             if (dashTimer > 0.0f) {
                 moveSpeed = dashSpeed;
             } else {
-                moveSpeed = zombieSpeed;
+                moveSpeed = humanSpeed;
                 dashing = false;
             }
         }
@@ -263,7 +263,7 @@ public class PlayerController : MonoBehaviour {
 
                         //GameObject p = Instantiate(projectile, transform.position + transform.right.normalized * 2.0f + new Vector3(0, 0, 10), Quaternion.identity);
                         //p.GetComponent<Projectile>().direction = transform.right;
-                        abilityTimer = abilityCooldown;
+                        abilityTimer = 8.0f;
                         abilityParticles.Stop();
                     }
                     break;

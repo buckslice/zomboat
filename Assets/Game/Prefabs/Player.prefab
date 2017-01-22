@@ -259,7 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ZOMBIE_SCALE: 1.4
   HUMAN_SCALE: 1
-  humanSpeed: 4
+  humanSpeed: 3.5
   zombieSpeed: 5
   dashSpeed: 10
   dashTimer: 0
@@ -277,6 +277,7 @@ MonoBehaviour:
   zombParticles: {fileID: 198119609438306834}
   bloodParticles: {fileID: 198592777904169474}
   abilityParticles: {fileID: 198468854596807212}
+  taserParticles: {fileID: 198874782271213846}
   gamepad: {fileID: 114070306184506752}
   projectile: {fileID: 1373155402037464, guid: 7226407d4240bea4fb7b9743bd8c2cf6, type: 2}
   medPack: {fileID: 1038261226823176, guid: 2366b908989301947a8d8c27c8302a09, type: 2}
@@ -336,7 +337,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -166364424
+  randomSeed: 1839872311
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3134,7 +3135,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 0.31764707, a: 1}
       minMaxState: 0
     startSize:
       scalar: 1
@@ -3404,7 +3405,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 5
+      scalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5562,7 +5563,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1989124686
+  randomSeed: 100027798
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -8105,7 +8106,7 @@ ParticleSystem:
   serializedVersion: 5
   lengthInSec: 5
   speed: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   autoRandomSeed: 1
