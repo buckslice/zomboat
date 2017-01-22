@@ -16,7 +16,6 @@ public class Drift : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         driftingTime += Time.deltaTime;
-        Debug.Log(driftSpeed * Time.deltaTime * direction);
         transform.Translate(driftSpeed * Time.deltaTime * direction);
         
         if (driftingTime > turnaroundTime) {
