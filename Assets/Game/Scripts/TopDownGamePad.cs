@@ -186,4 +186,9 @@ public class TopDownGamePad : MonoBehaviour {
         netPlayer.SendCmd("zomb", new MessageNumber(charNumb));
     }
 
+    public void SendRole(Role role)
+    {
+        netPlayer.SendCmd("role", role.ToString().ToLower());
+    }
+
 }
