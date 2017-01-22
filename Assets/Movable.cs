@@ -28,6 +28,7 @@ public class Movable : MonoBehaviour {
     void OnDestruction() {
         float r = Random.Range(0.0f, 1.0f);
         if (r < 0.25f) {
+            GameManager.instance.foodPrefab.GetComponentInChildren<SpriteRenderer>().sprite = GameManager.instance.foodSprites[Random.Range(0, GameManager.instance.foodSprites.Length)];
             Instantiate(GameManager.instance.foodPrefab, transform.position, Quaternion.identity);
         }
         GameObject.Destroy(gameObject);
