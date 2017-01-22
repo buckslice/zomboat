@@ -134,9 +134,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WAVE_TIMES:
-  - 10
-  - 25
-  WAVE_INTENSITY: []
+  - 2
+  - 3
+  WAVE_INTENSITY:
+  - 2
+  - 3
   currentWave: 0
   waveCrash: 0
   playersToStart: 3
