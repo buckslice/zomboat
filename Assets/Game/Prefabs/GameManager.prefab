@@ -53,7 +53,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -160,6 +160,9 @@ MonoBehaviour:
   gameClip: {fileID: 8300000, guid: ab99aec586cd8e94eb3b336176670619, type: 3}
   shotgunClip: {fileID: 8300000, guid: 07a82b5f504ca4948b994e71ee6d64f1, type: 3}
   humanWinClip: {fileID: 8300000, guid: 420aa522fed9a2f4eb45fde967ddfda8, type: 3}
+  baseAmbienceFrequency: 10
+  chompFrequency: 40
+  ambienceSpeedUp: 5
 --- !u!114 &114749273408884610
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -15,6 +15,7 @@ public class WaveLine : MonoBehaviour {
         StartCoroutine(SlideAndDestroy());
         moveDir = transform.right;
         range = Random.Range(3.0f, 6.0f);
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound(0);
     }
 
     void Update() {
