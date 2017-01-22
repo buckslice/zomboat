@@ -57,7 +57,6 @@ public class TopDownGamePad : MonoBehaviour {
     }
 
     void Awake() {
-        charNumb = UnityEngine.Random.Range(0, 9);
         PickRandomColor();
     }
 
@@ -168,6 +167,7 @@ public class TopDownGamePad : MonoBehaviour {
 
 
     if(netPlayer != null){
+            charNumb = UnityEngine.Random.Range(1, 9);
             netPlayer.SendCmd("picture", new MessageNumber(charNumb));
         }
     }
@@ -180,10 +180,10 @@ public class TopDownGamePad : MonoBehaviour {
         }
     }
 
-    public void SendZombification()
-    {
-        Debug.Log("SendZomb");
-        netPlayer.SendCmd("zomb", new MessageNumber(charNumb));
-    }
+    //public void SendZombification()
+    //{
+    //    Debug.Log("SendZomb");
+    //    netPlayer.SendCmd("zomb", new MessageNumber(charNumb));
+    //}
 
 }
