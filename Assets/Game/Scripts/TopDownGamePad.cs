@@ -167,7 +167,7 @@ public class TopDownGamePad : MonoBehaviour {
 
 
     if(netPlayer != null){
-            charNumb = UnityEngine.Random.Range(1, 9);
+            charNumb = UnityEngine.Random.Range(1, 19);
             netPlayer.SendCmd("picture", new MessageNumber(charNumb));
         }
     }
