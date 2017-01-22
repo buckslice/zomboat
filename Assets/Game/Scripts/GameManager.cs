@@ -66,7 +66,26 @@ public class GameManager : MonoBehaviour {
             instance = this;
         } else {
             Destroy(gameObject);
+            return;
         }
+        ResetVariables();
+
+        UpdateGameTimerText();
+        DontDestroyOnLoad(transform.gameObject);    // keep the manager alive
+    }
+
+    public void RegisterNetPlayer(NetPlayer np) {
+        PlayerHandle ph = new PlayerHandle(np, null);
+        np.OnDisconnect += OnPlayerDisconnected;
+        players.Add(ph);
+        playerCountText.text = "players " + players.Count;  // shows number of connected players
+    }
+
+    private void OnLevelWasLoaded(int level) {
+        ResetVariables();
+    }
+
+    void ResetVariables() {
         source = GetComponent<AudioSource>();
         timerText = GameObject.Find("TimerText").GetComponent<Text>();
         centerText = GameObject.Find("CenterText").GetComponent<Text>();
@@ -79,17 +98,6 @@ public class GameManager : MonoBehaviour {
         introGoing = true;
         splash.enabled = true;
         splash.sprite = intro1;
-
-        UpdateGameTimerText();
-        Debug.Log(Time.time);
-        DontDestroyOnLoad(transform.gameObject);    // keep the manager alive
-    }
-
-    public void RegisterNetPlayer(NetPlayer np) {
-        PlayerHandle ph = new PlayerHandle(np, null);
-        np.OnDisconnect += OnPlayerDisconnected;
-        players.Add(ph);
-        playerCountText.text = "players " + players.Count;  // shows number of connected players
     }
 
     // Use this for initialization
@@ -169,7 +177,6 @@ public class GameManager : MonoBehaviour {
     WaitForSeconds waitOne = new WaitForSeconds(1.0f);
     IEnumerator CountDownRoutine() {
         centerText.enabled = true;
-        source.Stop();
         source.clip = introClip;
         source.loop = false;
         source.Play();
