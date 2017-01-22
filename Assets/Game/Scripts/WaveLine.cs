@@ -4,43 +4,35 @@ using UnityEngine;
 
 public class WaveLine : MonoBehaviour {
 
-    public Vector3 moveVel;
-    public Vector3 pushVel;
+    public float speed = 2.0f; // movespeed
+    Vector3 moveDir;
+    bool oscillating = true;
     public float lifeTime = 5.0f;
+    float range;
 
     // Use this for initialization
     void Start() {
         StartCoroutine(SlideAndDestroy());
+        moveDir = transform.right;
+        range = Random.Range(3.0f, 6.0f);
     }
 
     void Update() {
-        transform.Translate(Time.deltaTime * moveVel);
+        float t = oscillating ? Mathf.Sin(Time.time * 2.0f) * range : 1.0f;
+        transform.Translate(Time.deltaTime * moveDir * speed * t);
     }
 
     IEnumerator SlideAndDestroy() {
         yield return new WaitForSeconds(lifeTime);
 
         // slide away before deleting so we get OnTriggerExit2D events
-        moveVel = new Vector3(0.0f, -200.0f, 0.0f);
+        speed = 200.0f;
+        moveDir = Vector3.down;
+        oscillating = false;
+
         yield return new WaitForSeconds(5.0f);
 
         Destroy(gameObject);
 
     }
-
-    //void OnTriggerStay2D(Collider2D other) {
-    //    if (other.CompareTag("Movable") && other.attachedRigidbody) {
-    //        other.attachedRigidbody.drag = 0.0f;
-    //        other.attachedRigidbody.velocity = direction * 2.0f;
-    //    }else if (other.CompareTag("Player")) {
-    //        other.GetComponent<PlayerController>().velocityChange = direction * 5.0f;
-    //    }
-    //}
-
-    //private void OnTriggerExit2D(Collider2D other) {
-    //    if (other.CompareTag("Movable") && other.attachedRigidbody) {
-    //        other.attachedRigidbody.drag = 10000.0f;
-    //    }
-    //}
-
 }

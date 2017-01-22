@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour {
     public AudioClip shotgunClip;
     public AudioClip humanWinClip;
     AudioSource source;
+    WaveSpawner waves;
 
     private List<PlayerHandle> players = new List<PlayerHandle>();
     bool introGoing = false;
@@ -71,7 +72,7 @@ public class GameManager : MonoBehaviour {
         playerCountText.text = "players " + players.Count;  // shows number of connected players
     }
 
-    private void OnLevelWasLoaded(int level) {
+    private void OnLevelWasLoaded(int level) {  // not sure what the non deprecated version of this is
         ResetVariables();
     }
 
@@ -83,6 +84,8 @@ public class GameManager : MonoBehaviour {
         playerCountText = GameObject.Find("PlayerCountText").GetComponent<Text>();
         playerCountText.text = "players " + players.Count;  // shows number of connected players
         splash = GameObject.Find("SplashScreen").GetComponent<Image>();
+        waves = FindObjectOfType<WaveSpawner>();
+        waves.enabled = false;
         gameStarted = false;
         curTime = 0.0f;
         introSequence = 1;
@@ -163,6 +166,7 @@ public class GameManager : MonoBehaviour {
         countDownRoutine = null;
         gameStarted = true;
         SetPlayersCanMove(true);
+        waves.enabled = true;
 
         Invoke("ZombifySomeone", 3.0f);
     }
@@ -285,13 +289,6 @@ public class GameManager : MonoBehaviour {
         }
         string txt = string.Format("{0}:{1:00}", t / 60, t % 60);
         timerText.text = color + txt + "</color>";
-    }
-
-    void EndGame() {
-        // not sure how this will work yet
-        // need to delete all player objects
-        // send game over message to players
-        // 
     }
 
     void OnPlayerDisconnected(object sender, System.EventArgs e) {

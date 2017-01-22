@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
     public float dashTimer = 0.0f;
     public float maxDashTime = 1.0f;
     public float abilityTimer = 0.0f;
-    public float dashCooldown = 5.0f;
+    public float abilityCooldown = 5.0f;
 
     public bool disabled = false;
     public float disabledTimer = 0.0f;
@@ -205,9 +205,6 @@ public class PlayerController : MonoBehaviour {
                     if (!otherPlayer.bloodParticles.isPlaying) {
                         otherPlayer.bloodParticles.Play();
                     }
-
-                    Debug.Log("Blood");
-
                     //Debug.Log(otherPlayer.health);
                 } else if (alive && role == Role.MEDIC) {
                     otherPlayer.AddHealth(hps * Time.deltaTime);
@@ -223,7 +220,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (other.CompareTag("Wave")) {
-            velocityChange = other.GetComponent<WaveLine>().pushVel * 1.5f;
+            velocityChange = other.transform.up * -2.0f;
         }
     }
 
@@ -233,6 +230,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    RaycastHit2D[] hitRes = new RaycastHit2D[8];
     void PerformAction() {
         //Debug.Log("Perform Action");
         switch (role) {
@@ -240,17 +238,35 @@ public class PlayerController : MonoBehaviour {
                 if (abilityTimer < 0.0f) {
                     dashing = true;
                     dashTimer = maxDashTime;
-                    abilityTimer = dashCooldown;
+                    abilityTimer = abilityCooldown;
                 }
                 break;
             case Role.POLICE:
                 if (abilityTimer < 0.0f) {
                     GameObject p = Instantiate(projectile, transform.position + transform.right.normalized * 2.0f + new Vector3(0, 0, 10), Quaternion.identity);
                     p.GetComponent<Projectile>().direction = transform.right;
-                    abilityTimer = dashCooldown;
+                    abilityTimer = abilityCooldown;
                 }
                 break;
+            case Role.ZOMBIE:
+                if (abilityTimer > 0.0f) {
+                    return;
+                }
+                abilityTimer = 3.0f;
+                int rets = Physics2D.RaycastNonAlloc(transform.position, gamepad.dir, hitRes, 1.5f);
+                for (int i = 0; i < rets; ++i) {
+                    if (hitRes[i].collider.CompareTag("Movable")) {
+                        if (Random.value < 0.25f) {
+                            // random chance to spawn food
+                            GameManager.instance.foodPrefab.GetComponentInChildren<SpriteRenderer>().sprite = GameManager.instance.foodSprites[Random.Range(0, GameManager.instance.foodSprites.Length)];
+                            Instantiate(GameManager.instance.foodPrefab, hitRes[i].transform.position, Quaternion.identity);
+                        }
+                        Destroy(hitRes[i].collider.gameObject);
+                        break;
+                    }
+                }
 
+                break;
         }
     }
 

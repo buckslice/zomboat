@@ -140,6 +140,13 @@ MonoBehaviour:
   playerPrefab: {fileID: 1328025226996676, guid: cea65baec29c96f4d8f801980ed38a8e,
     type: 2}
   foodPrefab: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
+  foodSprites:
+  - {fileID: 21300000, guid: 46453e8e2e1438343bf38585fe9e3242, type: 3}
+  - {fileID: 21300000, guid: 4bdb6160eb9a2de40b20cde41710b628, type: 3}
+  - {fileID: 21300000, guid: e757231bfbc05044aac6db5eadaaa2d0, type: 3}
+  - {fileID: 21300000, guid: 67499a01e15a0004b82152a90c40b337, type: 3}
+  - {fileID: 21300000, guid: 1482d0c3a958d8f468ded7f601de3a09, type: 3}
+  - {fileID: 21300000, guid: 5f32282760b37c5449f75a7590c90fd9, type: 3}
   curTime: 0
   winTimeSeconds: 120
   countDownTime: 5
