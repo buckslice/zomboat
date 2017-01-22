@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Water : MonoBehaviour {
     SpriteRenderer sr;
-    float t;
+    public float t;
 	// Use this for initialization
 	void Start () {
         sr = GetComponent<SpriteRenderer>();
@@ -13,6 +13,6 @@ public class Water : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         t += Time.deltaTime;
-        sr.color = new Color(1.0f, 1.0f, 1.0f, 0.5f + 0.5f * (Mathf.Sin(t)));
+        sr.color = new Color(1.0f, 1.0f, 1.0f, 0.5f + 0.3f * (Mathf.Sin(t)));
 	}
 }
