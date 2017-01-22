@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody2D rb;
     SpriteRenderer sr;
+    SoundManager soundManager;
 
     // Use this for initialization
     void Awake() {
@@ -60,7 +61,7 @@ public class PlayerController : MonoBehaviour {
         gamepad.OnDisconnect += Remove;
         gamepad.OnColorChanged += ColorChanged;
         gamepad.OnTap += PerformAction;
-
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
@@ -137,7 +138,7 @@ public class PlayerController : MonoBehaviour {
             bloodParticles.Stop();
             moveSpeed = zombieSpeed;
             health = 0.0f;
-            gamepad.ChangeLives(0);
+            gamepad.ChangeLives(0, 5);
             gamepad.SendZombification();
             alive = false;
             if (role != Role.SECRETZOMBIE) {
@@ -165,23 +166,22 @@ public class PlayerController : MonoBehaviour {
     }
     public void AddHealth(float amount) {
         // adds the amount of health to the player health and clamps it at max health
-
-        float oldHealth = health;
+        float oldHealth = prevHealth;
         if (alive) {
             if (prevHealth - health >= 20) {
                 prevHealth = health;
                 if (health <= 0) {
-                    gamepad.ChangeLives(0);
+                    gamepad.ChangeLives(0, (int) oldHealth);
                 } else if (health <= 20) {
-                    gamepad.ChangeLives(20);
+                    gamepad.ChangeLives(20, (int) oldHealth);
                 } else if (health <= 40) {
-                    gamepad.ChangeLives(40);
+                    gamepad.ChangeLives(40, (int)oldHealth);
                 } else if (health <= 60) {
-                    gamepad.ChangeLives(60);
+                    gamepad.ChangeLives(60, (int) oldHealth);
                 } else if (health <= 80) {
-                    gamepad.ChangeLives(80);
+                    gamepad.ChangeLives(80, (int) oldHealth);
                 } else if (health > 80) {
-                    gamepad.ChangeLives(100);
+                    gamepad.ChangeLives(100, (int) oldHealth);
                 }
             }
             health += amount;
