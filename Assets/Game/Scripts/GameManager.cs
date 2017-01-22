@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HappyFunTimes;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHandle {
     public NetPlayer netPlayer;
@@ -35,10 +36,12 @@ public class GameManager : MonoBehaviour {
     public float curTime;
     public float winTimeSeconds = 180.0f;
     public float countDownTime = 10.0f;
-    float countTimer = 10.0f;
-    public Text timerText;
-    public Text centerText;
-    public Text playerCountText;
+    Text timerText;
+    Text centerText;
+    Text playerCountText;
+    Image splash;
+    public Sprite winSplash;
+    public Sprite loseSplash;
     Vector3[] humanSpawnPoints;
     public AudioClip introClip;
     public AudioClip gameClip;
@@ -51,6 +54,7 @@ public class GameManager : MonoBehaviour {
     // crappy singleton
     public static GameManager instance = null;
     void Awake() {
+        ResetVariables();
         source = GetComponent<AudioSource>();
         if (instance == null) {
             instance = this;
@@ -62,16 +66,25 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(transform.gameObject);    // keep the manager alive
     }
 
+    private void OnLevelWasLoaded(int level) {
+        ResetVariables();
+    }
+
+    void ResetVariables() {
+        timerText = GameObject.Find("TimerText").GetComponent<Text>();
+        centerText = GameObject.Find("CenterText").GetComponent<Text>();
+        playerCountText = GameObject.Find("PlayerCountText").GetComponent<Text>();
+        playerCountText.text = "players " + players.Count;  // shows number of connected players
+        splash = GameObject.Find("SplashScreen").GetComponent<Image>();
+        gameStarted = false;
+        curTime = 0.0f;
+    }
+
     public void RegisterNetPlayer(NetPlayer np) {
         PlayerHandle ph = new PlayerHandle(np, null);
         np.OnDisconnect += OnPlayerDisconnected;
-        if (!gameStarted) {
-            SpawnPlayer(ph);    // this should be moved for if we want to be able to restart without stopping and playing
-        } else {
-            // send message saying "Waiting for new game" or something
-        }
         players.Add(ph);
-        playerCountText.text = "players " + players.Count;  // shows number of connected players not 
+        playerCountText.text = "players " + players.Count;  // shows number of connected players
     }
 
     // Use this for initialization
@@ -159,15 +172,9 @@ public class GameManager : MonoBehaviour {
         source.Play();
     }
 
-    void StopCountDown() {
-        if (countDownRoutine != null) {
-            StopCoroutine(countDownRoutine);
-        }
+    void StartGame() {
         centerText.enabled = false;
         countDownRoutine = null;
-    }
-
-    void StartGame() {
         gameStarted = true;
         SetPlayersCanMove(true);
 
@@ -190,11 +197,19 @@ public class GameManager : MonoBehaviour {
     void Update() {
         //Debug.Log(players.Count);
         if (!gameStarted) {
+            for(int i = 0; i < players.Count; ++i) {
+                if(players[i].controller == null) {
+                    SpawnPlayer(players[i]);
+                }
+            }
+
             if (Input.GetKeyDown(KeyCode.Space)) {
                 if (countDownRoutine == null) {
                     StartCountDown();
                 } else {
-                    StopCountDown();
+                    if (countDownRoutine != null) { // stop countdown
+                        StopCoroutine(countDownRoutine);
+                    }
                     StartGame();
                 }
             }
@@ -203,17 +218,57 @@ public class GameManager : MonoBehaviour {
             UpdateGameTimerText();
             CheckWaves();
 
-            if(curTime >= winTimeSeconds) {
-
+            if (curTime >= winTimeSeconds) {
+                splash.sprite = winSplash;
+                splash.enabled = true;
+                ResetGame();
+            } else if (OnlyZombiesLeft()) {
+                splash.sprite = loseSplash;
+                splash.enabled = true;
+                ResetGame();
             }
         }
+    }
+
+    bool reseting = false;
+    void ResetGame() {
+        if (reseting) {
+            return;
+        }
+        reseting = true;
+        StartCoroutine(ResetRoutine());
+    }
+
+    IEnumerator ResetRoutine() {
+        float t = 0.0f;
+        while(t < 10.0f) {
+            t += Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                break;
+            }
+            yield return null;
+        }
+        for(int i = 0; i < players.Count; ++i) {
+            players[i].controller = null;
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);   // reload scene
+        reseting = false;
+    }
+
+    bool OnlyZombiesLeft() {
+        for (int i = 0; i < players.Count; ++i) {
+            if (players[i].controller.alive) {
+                return false;
+            }
+        }
+        return true;
     }
 
     void UpdateGameTimerText() {
         int t = (int)(winTimeSeconds - curTime);
         string color = "<color=#FFFFFFFF>";
         if (t <= 10) {
-            if ((int)((winTimeSeconds - curTime)*2.0f) % 2 == 0) {
+            if ((int)((winTimeSeconds - curTime) * 2.0f) % 2 == 0) {
                 color = "<color=#FF0000FF>";
             }
         } else if (t <= 30) {

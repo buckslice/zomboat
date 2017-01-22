@@ -129,7 +129,7 @@ public class TopDownGamePad : MonoBehaviour {
     }
 
     void HandleDisconnect(object sender, System.EventArgs e) {
-        if(OnDisconnect != null) {
+        if (OnDisconnect != null) {
             OnDisconnect();
         }
     }
@@ -162,32 +162,25 @@ public class TopDownGamePad : MonoBehaviour {
         }
     }
 
-    void SendImage()
-    {
-
-
-    if(netPlayer != null){
+    void SendImage() {
+        if (netPlayer != null) {
             charNumb = UnityEngine.Random.Range(1, 19);
             netPlayer.SendCmd("picture", new MessageNumber(charNumb));
         }
     }
 
-    public void ChangeLives(int change)
-    {
-        if (netPlayer != null)
-        {
+    public void ChangeLives(int change) {
+        if (netPlayer != null) {
             netPlayer.SendCmd("livechange", new MessageNumber(change));
         }
     }
 
-    public void SendZombification()
-    {
+    public void SendZombification() {
         Debug.Log("SendZomb");
         netPlayer.SendCmd("zomb", new MessageNumber(charNumb));
     }
 
-    public void SendRole(Role role)
-    {
+    public void SendRole(Role role) {
         netPlayer.SendCmd("role", role.ToString().ToLower());
     }
 
