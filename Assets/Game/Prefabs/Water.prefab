@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4550179764826184}
   - component: {fileID: 212804701998491300}
-  - component: {fileID: 114390244868133240}
   - component: {fileID: 114271658087967232}
+  - component: {fileID: 114587610868513932}
   m_Layer: 0
   m_Name: water_2
   m_TagString: Untagged
@@ -53,8 +53,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4207538516253622}
   - component: {fileID: 212481170874273996}
-  - component: {fileID: 114589701239616806}
   - component: {fileID: 114639801317019448}
+  - component: {fileID: 114655354910375034}
   m_Layer: 0
   m_Name: water_1
   m_TagString: Untagged
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   t: 1
---- !u!114 &114390244868133240
+--- !u!114 &114587610868513932
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -123,25 +123,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1206093220843414}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f2bd9b8bb55dcb4d89bec9460812fcd, type: 3}
+  m_Script: {fileID: 11500000, guid: 786d5718e3285234cb48a02094b6f9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   driftSpeed: 2
   direction: {x: -1, y: -1, z: 0}
-  turnaroundTime: 5
---- !u!114 &114589701239616806
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1982198114429846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f2bd9b8bb55dcb4d89bec9460812fcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  driftSpeed: 2
-  direction: {x: 1, y: 1, z: 0}
   turnaroundTime: 5
 --- !u!114 &114639801317019448
 MonoBehaviour:
@@ -155,6 +141,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   t: 0
+--- !u!114 &114655354910375034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1982198114429846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786d5718e3285234cb48a02094b6f9a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  driftSpeed: 2
+  direction: {x: 1, y: 1, z: 0}
+  turnaroundTime: 5
 --- !u!212 &212481170874273996
 SpriteRenderer:
   m_ObjectHideFlags: 1

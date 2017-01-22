@@ -133,12 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5999b25099ffa3c42a58e659ddc5b6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WAVE_TIMES:
-  - 2
-  - 3
-  WAVE_INTENSITY:
-  - 2
-  - 3
   currentWave: 0
   waveCrash: 0
   playersToStart: 3

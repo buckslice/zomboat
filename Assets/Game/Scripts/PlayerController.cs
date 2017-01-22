@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour {
     public TopDownGamePad gamepad;
     public GameObject projectile;
 
+    public Vector2 velocityChange = Vector2.zero;
+
     Rigidbody2D rb;
     SpriteRenderer sr;
 
@@ -98,16 +100,14 @@ public class PlayerController : MonoBehaviour {
     void FixedUpdate() {
         if (!disabled) {
             if (canMove && gamepad.touching) {
-                rb.velocity = gamepad.dir * moveSpeed;
+                rb.velocity = gamepad.dir * moveSpeed + velocityChange;
             } else {
-                rb.velocity = Vector2.zero;
+                rb.velocity = Vector2.zero + velocityChange;
             }
             //Debug.Log(gamepad.dir);  
         }
-
     }
 
-    // 
     bool zombifying = false;
     public void BeginZombification() {
         if (zombifying) {
@@ -216,10 +216,20 @@ public class PlayerController : MonoBehaviour {
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (alive && collision.gameObject.CompareTag("Food")) {
+    private void OnTriggerStay2D(Collider2D other) {
+        if (alive && other.CompareTag("Food")) {
             AddHealth(10.0f);
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
+        }
+
+        if (other.CompareTag("Wave")) {
+            velocityChange = other.GetComponent<WaveLine>().pushVel * 1.5f;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D col) {
+        if (col.CompareTag("Wave")) {
+            velocityChange = Vector2.zero;
         }
     }
 

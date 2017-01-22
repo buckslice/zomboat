@@ -9,6 +9,7 @@ TagManager:
   - HumanSpawn
   - ZombieSpawn
   - Movable
+  - Wave
   layers:
   - Default
   - TransparentFX

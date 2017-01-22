@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 58482972173804640}
   - component: {fileID: 114252981925423350}
   - component: {fileID: 114070306184506752}
-  - component: {fileID: 114498107655175010}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -219,22 +218,6 @@ MonoBehaviour:
   bloodParticles: {fileID: 198468854596807212}
   gamepad: {fileID: 114070306184506752}
   projectile: {fileID: 1373155402037464, guid: 7226407d4240bea4fb7b9743bd8c2cf6, type: 2}
---- !u!114 &114498107655175010
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1328025226996676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6381716bd75d14642921089b98e590ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stubborness: 0
-  weight: 1
-  destructability: 100
-  destruction: 0
-  food: {fileID: 0}
 --- !u!198 &198119609438306834
 ParticleSystem:
   m_ObjectHideFlags: 1

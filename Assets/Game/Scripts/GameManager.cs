@@ -15,20 +15,7 @@ public class PlayerHandle {
     }
 }
 
-public struct WaveObjectEntry {
-    public WaveObjectEntry(int _waveIndex, CollisionObject _waveObject) {
-        waveIndex = _waveIndex;
-        waveObject = _waveObject;
-    }
-
-    public int waveIndex;
-    public CollisionObject waveObject;
-}
-
 public class GameManager : MonoBehaviour {
-    public float[] WAVE_TIMES = { 15, 30 };
-    public float[] WAVE_INTENSITY = { 1.0f, 1.0f, 1.0f };
-
     public int currentWave = 0;
     public float waveCrash = 0.0f;
     public int playersToStart = 3;
@@ -57,7 +44,6 @@ public class GameManager : MonoBehaviour {
     public AudioClip humanWinClip;
     AudioSource source;
 
-    public List<WaveObjectEntry> waveObjects = new List<WaveObjectEntry>();
     private List<PlayerHandle> players = new List<PlayerHandle>();
     bool introGoing = false;
 
@@ -138,34 +124,6 @@ public class GameManager : MonoBehaviour {
     void SetPlayersCanMove(bool canMove) {    // set all players movement
         for (int i = 0; i < players.Count; ++i) {
             players[i].controller.SetCanMove(canMove);
-        }
-    }
-
-    void CheckWaves() {
-        if (currentWave < WAVE_TIMES.Length && curTime > WAVE_TIMES[currentWave]) {
-            /*
-            List<WaveObjectEntry> remainingEntries = new List<WaveObjectEntry>();
-            foreach (WaveObjectEntry entry in waveObjects) {
-                if (entry.waveIndex == currentWave) {
-                    entry.waveObject.HandleWave();
-                } else {
-                    remainingEntries.Add(entry);
-                }
-            }
-
-            waveObjects = remainingEntries;
-            */
-            currentWave = currentWave + 1;
-        }
-
-        if (currentWave < WAVE_INTENSITY.Length && waveCrash >= WAVE_INTENSITY[currentWave]) {
-            foreach (WaveObjectEntry entry in waveObjects) {
-                if (entry.waveIndex == currentWave) {
-                    entry.waveObject.HandleWave();
-                    waveObjects.Remove(entry);
-                    break;
-                }
-            }
         }
     }
 
@@ -263,7 +221,6 @@ public class GameManager : MonoBehaviour {
         } else if(!reseting){
             curTime += Time.deltaTime;
             UpdateGameTimerText();
-            CheckWaves();
 
             source.pitch = 1.0f + Mathf.Lerp(0.5f, 0.0f, (winTimeSeconds - curTime) / 30.0f);
 
