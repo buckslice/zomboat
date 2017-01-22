@@ -163,6 +163,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &4908392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +279,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &20094237
 Rigidbody2D:
   serializedVersion: 4
@@ -414,6 +416,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &24551903
 Rigidbody2D:
   serializedVersion: 4
@@ -571,6 +574,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &26341305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -706,6 +710,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &29499636
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -824,6 +829,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &63074055
 Rigidbody2D:
   serializedVersion: 4
@@ -995,6 +1001,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &76654721
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1103,6 +1110,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &82161835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1218,6 +1226,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &82287928
 Rigidbody2D:
   serializedVersion: 4
@@ -1354,6 +1363,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &89776256
 Rigidbody2D:
   serializedVersion: 4
@@ -1490,6 +1500,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &104679893
 Rigidbody2D:
   serializedVersion: 4
@@ -1661,6 +1672,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &164468918
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1783,6 +1795,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &185760859
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1890,6 +1903,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &188736929
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2013,6 +2027,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &204514448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2242,6 +2257,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &214290684
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2344,6 +2360,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &221503214
 Rigidbody2D:
   serializedVersion: 4
@@ -2501,6 +2518,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &245915299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2637,6 +2655,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &246271755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2858,6 +2877,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &253645654
 Rigidbody2D:
   serializedVersion: 4
@@ -2994,6 +3014,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &270290961
 Rigidbody2D:
   serializedVersion: 4
@@ -3150,6 +3171,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &273033576
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3273,6 +3295,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &278946982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3409,6 +3432,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &293395864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3586,6 +3610,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &337084016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3717,6 +3742,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &371231844
 Rigidbody2D:
   serializedVersion: 4
@@ -3853,6 +3879,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &373435629
 Rigidbody2D:
   serializedVersion: 4
@@ -4010,6 +4037,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &387159837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4146,6 +4174,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &400361909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4296,6 +4325,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &417425742
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4428,6 +4458,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &423255174
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4565,6 +4596,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &450881320
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4673,6 +4705,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &468471155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4788,6 +4821,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &469004031
 Rigidbody2D:
   serializedVersion: 4
@@ -4991,6 +5025,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &510075490
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5093,6 +5128,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &513945556
 Rigidbody2D:
   serializedVersion: 4
@@ -5236,6 +5272,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 0}
 --- !u!114 &514927393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5386,6 +5423,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &527105103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5522,6 +5560,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &529426917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5637,6 +5676,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &553557738
 Rigidbody2D:
   serializedVersion: 4
@@ -5793,6 +5833,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &554473831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5916,6 +5957,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &570202988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6052,6 +6094,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &585784264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6167,6 +6210,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &622335333
 Rigidbody2D:
   serializedVersion: 4
@@ -6324,6 +6368,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &639388878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6490,6 +6535,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &676524223
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6654,6 +6700,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &679659501
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6825,6 +6872,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &713780144
 Rigidbody2D:
   serializedVersion: 4
@@ -7003,6 +7051,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &728434639
 Rigidbody2D:
   serializedVersion: 4
@@ -7184,6 +7233,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &742685000
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7307,6 +7357,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &765922269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7422,6 +7473,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &774635200
 Rigidbody2D:
   serializedVersion: 4
@@ -7558,6 +7610,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &813367135
 Rigidbody2D:
   serializedVersion: 4
@@ -7701,6 +7754,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 0}
 --- !u!114 &815323776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7850,6 +7904,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &820998790
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7987,6 +8042,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &831401237
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8095,6 +8151,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &833070364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8232,6 +8289,7 @@ MonoBehaviour:
   weight: 1
   destructability: 1
   destruction: 1
+  food: {fileID: 0}
 --- !u!114 &838284805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8248,6 +8306,7 @@ MonoBehaviour:
   weight: 0.5
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &838284806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8384,6 +8443,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &841899358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8519,6 +8579,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &847452081
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8621,6 +8682,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &850354010
 Rigidbody2D:
   serializedVersion: 4
@@ -8778,6 +8840,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &854224517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8939,6 +9002,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &861986114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9074,6 +9138,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &861998504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9176,6 +9241,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &863573320
 Rigidbody2D:
   serializedVersion: 4
@@ -9312,6 +9378,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &872132086
 Rigidbody2D:
   serializedVersion: 4
@@ -9448,6 +9515,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &872697590
 Rigidbody2D:
   serializedVersion: 4
@@ -9584,6 +9652,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &885012369
 Rigidbody2D:
   serializedVersion: 4
@@ -9720,6 +9789,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &886578485
 Rigidbody2D:
   serializedVersion: 4
@@ -9876,6 +9946,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &888405354
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9999,6 +10070,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &900534764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10135,6 +10207,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &905336781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10285,6 +10358,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &921986390
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10393,6 +10467,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &930564923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10508,6 +10583,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &940991103
 Rigidbody2D:
   serializedVersion: 4
@@ -10665,6 +10741,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &942000503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10780,6 +10857,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &949877148
 Rigidbody2D:
   serializedVersion: 4
@@ -10916,6 +10994,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &955440140
 Rigidbody2D:
   serializedVersion: 4
@@ -11052,6 +11131,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &966838889
 Rigidbody2D:
   serializedVersion: 4
@@ -11188,6 +11268,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &979223845
 Rigidbody2D:
   serializedVersion: 4
@@ -11345,6 +11426,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &990962535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11460,6 +11542,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1009440203
 Rigidbody2D:
   serializedVersion: 4
@@ -11596,6 +11679,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1010456351
 Rigidbody2D:
   serializedVersion: 4
@@ -11753,6 +11837,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1011750941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11889,6 +11974,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1032281944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12025,6 +12111,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1038286016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12140,6 +12227,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1039968536
 Rigidbody2D:
   serializedVersion: 4
@@ -12311,6 +12399,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &1056219325
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12433,6 +12522,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &1060104325
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12540,6 +12630,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &1074962200
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12663,6 +12754,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1075851875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12799,6 +12891,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1079613248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12914,6 +13007,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1110723827
 Rigidbody2D:
   serializedVersion: 4
@@ -13071,6 +13165,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1116595681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13207,6 +13302,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1119441771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13322,6 +13418,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1124096494
 Rigidbody2D:
   serializedVersion: 4
@@ -13479,6 +13576,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1140519721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13615,6 +13713,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1147344060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13780,6 +13879,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1172829371
 Rigidbody2D:
   serializedVersion: 4
@@ -13962,6 +14062,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1190602487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14098,6 +14199,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1192675557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14220,6 +14322,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 0}
 --- !u!114 &1201329319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14384,6 +14487,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &1205734569
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14471,6 +14575,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1218895658
 Rigidbody2D:
   serializedVersion: 4
@@ -14607,6 +14712,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1240063013
 Rigidbody2D:
   serializedVersion: 4
@@ -14743,6 +14849,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1241843436
 Rigidbody2D:
   serializedVersion: 4
@@ -14900,6 +15007,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1249170516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15036,6 +15144,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1252160352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15257,6 +15366,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1284929828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15392,6 +15502,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &1300264845
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15494,6 +15605,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1300477646
 Rigidbody2D:
   serializedVersion: 4
@@ -15650,6 +15762,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &1303464662
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15773,6 +15886,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1304675749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15909,6 +16023,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1306064976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16045,6 +16160,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1308620692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16181,6 +16297,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1318234518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16331,6 +16448,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &1318323684
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16418,6 +16536,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1322574571
 Rigidbody2D:
   serializedVersion: 4
@@ -16575,6 +16694,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1344639160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16711,6 +16831,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1348210758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16826,6 +16947,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1364423728
 Rigidbody2D:
   serializedVersion: 4
@@ -16983,6 +17105,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1377457532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17098,6 +17221,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1394581917
 Rigidbody2D:
   serializedVersion: 4
@@ -17255,6 +17379,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1403923465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17377,6 +17502,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 0}
 --- !u!114 &1412339546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17506,6 +17632,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1412941650
 Rigidbody2D:
   serializedVersion: 4
@@ -17663,6 +17790,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1430134644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17799,6 +17927,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1430482837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17914,6 +18043,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1431112018
 Rigidbody2D:
   serializedVersion: 4
@@ -18070,6 +18200,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &1431773464
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18192,6 +18323,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &1433109462
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18314,6 +18446,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &1442637287
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18416,6 +18549,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1443391249
 Rigidbody2D:
   serializedVersion: 4
@@ -18573,6 +18707,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1448609722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18709,6 +18844,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1465509708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18824,6 +18960,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1476116827
 Rigidbody2D:
   serializedVersion: 4
@@ -19018,6 +19155,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1491991539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19154,6 +19292,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1507056364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19303,6 +19442,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1512352831
 Rigidbody2D:
   serializedVersion: 4
@@ -19460,6 +19600,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1518865325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19596,6 +19737,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1520068328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19731,6 +19873,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &1524034903
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19854,6 +19997,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1529879754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19990,6 +20134,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1546685587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20125,6 +20270,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &1555563003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20290,6 +20436,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1570239742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20426,6 +20573,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1577285092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20541,6 +20689,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1583292987
 Rigidbody2D:
   serializedVersion: 4
@@ -20704,6 +20853,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1596645249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20839,6 +20989,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &1599264991
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20962,6 +21113,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1612518798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21123,6 +21275,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1630538276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21238,6 +21391,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1664777925
 Rigidbody2D:
   serializedVersion: 4
@@ -21374,6 +21528,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1679820696
 Rigidbody2D:
   serializedVersion: 4
@@ -21531,6 +21686,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1681266180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21646,6 +21802,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1688596546
 Rigidbody2D:
   serializedVersion: 4
@@ -21782,6 +21939,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1701860336
 Rigidbody2D:
   serializedVersion: 4
@@ -21918,6 +22076,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1705587533
 Rigidbody2D:
   serializedVersion: 4
@@ -22075,6 +22234,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1715152460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22239,6 +22399,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 0}
 --- !u!114 &1739485996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22403,6 +22564,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &1747534229
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22511,6 +22673,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1747834737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22647,6 +22810,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1762259661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22783,6 +22947,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1785125035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22919,6 +23084,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1787829305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23055,6 +23221,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1790562036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23170,6 +23337,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1796279889
 Rigidbody2D:
   serializedVersion: 4
@@ -23306,6 +23474,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1801911560
 Rigidbody2D:
   serializedVersion: 4
@@ -23463,6 +23632,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1806655499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23578,6 +23748,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1814608140
 Rigidbody2D:
   serializedVersion: 4
@@ -23714,6 +23885,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1815532684
 Rigidbody2D:
   serializedVersion: 4
@@ -23850,6 +24022,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1818822716
 Rigidbody2D:
   serializedVersion: 4
@@ -23986,6 +24159,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1853914411
 Rigidbody2D:
   serializedVersion: 4
@@ -24185,6 +24359,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1885725340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24307,6 +24482,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 0}
 --- !u!114 &1892700153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24471,6 +24647,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &1914037761
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24579,6 +24756,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1916028688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24694,6 +24872,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1916824029
 Rigidbody2D:
   serializedVersion: 4
@@ -24851,6 +25030,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1919846707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24966,6 +25146,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1956325169
 Rigidbody2D:
   serializedVersion: 4
@@ -25123,6 +25304,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &1966463565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25238,6 +25420,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &1994423942
 Rigidbody2D:
   serializedVersion: 4
@@ -25374,6 +25557,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &2012482897
 Rigidbody2D:
   serializedVersion: 4
@@ -25510,6 +25694,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &2016283532
 Rigidbody2D:
   serializedVersion: 4
@@ -25667,6 +25852,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &2025441988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25803,6 +25989,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &2032704275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25939,6 +26126,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &2064897842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26074,6 +26262,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &2071651925
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26211,6 +26400,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &2077081536
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26333,6 +26523,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &2077944772
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26420,6 +26611,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &2094289294
 Rigidbody2D:
   serializedVersion: 4
@@ -26591,6 +26783,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &2111991598
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26678,6 +26871,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &2113184984
 Rigidbody2D:
   serializedVersion: 4
@@ -26835,6 +27029,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &2115311429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26950,6 +27145,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &2116571012
 Rigidbody2D:
   serializedVersion: 4
@@ -27106,6 +27302,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!61 &2119720152
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27243,6 +27440,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &2131340513
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27355,6 +27553,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!50 &2137539152
 Rigidbody2D:
   serializedVersion: 4

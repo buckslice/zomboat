@@ -7,6 +7,7 @@ public class Movable : MonoBehaviour {
     public float weight = 1.0f;
     public float destructability = 1.0f;
     public float destruction = 1.0f;
+    public GameObject food;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,10 @@ public class Movable : MonoBehaviour {
     }
 
     void OnDestruction() {
+        float r = Random.Range(0.0f, 1.0f);
+        if (r < 0.25f) {
+            Instantiate(food, transform.position, Quaternion.identity);
+        }
         GameObject.Destroy(gameObject);
     }
 }

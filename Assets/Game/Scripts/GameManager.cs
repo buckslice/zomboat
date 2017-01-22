@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour {
 
     void ResetVariables() {
         source = GetComponent<AudioSource>();
+        source.pitch = 1.0f;
         timerText = GameObject.Find("TimerText").GetComponent<Text>();
         centerText = GameObject.Find("CenterText").GetComponent<Text>();
         playerCountText = GameObject.Find("PlayerCountText").GetComponent<Text>();
@@ -177,6 +178,7 @@ public class GameManager : MonoBehaviour {
     }
     WaitForSeconds waitOne = new WaitForSeconds(1.0f);
     IEnumerator CountDownRoutine() {
+        source.pitch = 1.0f;
         centerText.enabled = true;
         source.clip = introClip;
         source.loop = false;
@@ -223,9 +225,9 @@ public class GameManager : MonoBehaviour {
         if (introGoing) {
             if (Input.GetKeyDown(KeyCode.Space)) {
                 introSequence++;
-                if(introSequence == 2) {
+                if (introSequence == 2) {
                     splash.sprite = intro2;
-                }else if (introSequence == 3) {
+                } else if (introSequence == 3) {
                     splash.sprite = intro3;
                     source.clip = lobbyClip;
                     source.loop = true;
@@ -237,7 +239,7 @@ public class GameManager : MonoBehaviour {
             }
             return;
         }
-        
+
         //Debug.Log(players.Count);
         if (!gameStarted) {
             for (int i = 0; i < players.Count; ++i) {
@@ -259,33 +261,30 @@ public class GameManager : MonoBehaviour {
                     source.Play();
                 }
             }
-        } else {
+        } else if(!reseting){
             curTime += Time.deltaTime;
             UpdateGameTimerText();
             CheckWaves();
 
-            if (curTime >= winTimeSeconds) {
+            source.pitch = 1.0f + Mathf.Lerp(0.5f, 0.0f, (winTimeSeconds - curTime) / 30.0f);
+
+            if (curTime >= winTimeSeconds - 1.0f) {
                 splash.sprite = winSplash;
                 splash.enabled = true;
-                ResetGame(true);
+                reseting = true;
+                StartCoroutine(ResetRoutine(true));
             } else if (OnlyZombiesLeft()) {
                 splash.sprite = loseSplash;
                 splash.enabled = true;
-                ResetGame(false);
+                reseting = true;
+                StartCoroutine(ResetRoutine(false));
             }
         }
     }
-
     bool reseting = false;
-    void ResetGame(bool humansWin) {
-        if (reseting) {
-            return;
-        }
-        reseting = true;
-        StartCoroutine(ResetRoutine(humansWin));
-    }
 
     IEnumerator ResetRoutine(bool humansWin) {
+        source.pitch = 1.0f;
         if (humansWin) {
             source.clip = humanWinClip;
             source.Play();

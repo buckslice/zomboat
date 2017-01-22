@@ -219,7 +219,10 @@ public class PlayerController : MonoBehaviour {
             if (otherPlayer.alive) {
                 if (!alive) {
                     otherPlayer.AddHealth(-dps * Time.deltaTime);
-                    otherPlayer.bloodParticles.Play();
+                    if (!otherPlayer.bloodParticles.isPlaying) {
+                        otherPlayer.bloodParticles.Play();
+                    }
+
                     Debug.Log("Blood");
                    
                     //Debug.Log(otherPlayer.health);
