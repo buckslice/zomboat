@@ -12257,6 +12257,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114008576675001844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12272,6 +12273,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114008712322093964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12299,6 +12301,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114012397017526636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12314,6 +12317,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114013412621632522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12329,6 +12333,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114013595364817954
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12344,6 +12349,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114015698570430562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12359,6 +12365,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114019447632174932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12386,6 +12393,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114028044780835878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12401,6 +12409,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114028732499125630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12440,6 +12449,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114034208113786788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12479,6 +12489,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114048199136166650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12494,6 +12505,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114053125293405842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12509,6 +12521,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114053363159430322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12524,6 +12537,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114057412879828646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12551,6 +12565,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114062971139135668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12578,6 +12593,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114067137343981444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12593,6 +12609,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114067755280954354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12608,6 +12625,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114069737247928290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12623,6 +12641,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114072566533314948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12638,6 +12657,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114076798330504806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12653,6 +12673,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114082278958529080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12668,6 +12689,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114092838900875668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12683,6 +12705,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114093160598976292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12710,6 +12733,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114097829249026316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12737,6 +12761,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114103329760780536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12752,6 +12777,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114103581355113280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12791,6 +12817,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114111628317183658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12806,6 +12833,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114114957455445000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12857,6 +12885,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114134756990497494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12884,6 +12913,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114139276596900070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12911,6 +12941,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114140518180936568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12938,6 +12969,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114143109728818944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12953,6 +12985,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114144695616472816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12980,6 +13013,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114148345626647910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12995,6 +13029,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114152276449118456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13010,6 +13045,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114154579081803832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13061,6 +13097,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114167441897356928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13088,6 +13125,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114178214052008336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13127,6 +13165,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114187692849638428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13142,6 +13181,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114193243802937326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13157,6 +13197,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114194578666324266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13172,6 +13213,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114195329572691980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13187,6 +13229,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114198543959080464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13202,6 +13245,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114200282788656244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13265,6 +13309,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114222601709094362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13304,6 +13349,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114241701512936604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13343,6 +13389,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114246446948548176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13358,6 +13405,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114247041514990198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13373,6 +13421,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114247989072172138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13388,6 +13437,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114258491278329290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13403,6 +13453,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114260530657026920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13502,6 +13553,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114281829632514040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13517,6 +13569,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114283532830971908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13556,6 +13609,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114293314567057714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13583,6 +13637,7 @@ MonoBehaviour:
   weight: 0.5
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114308162311219440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13622,6 +13677,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114324470649474628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13661,6 +13717,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114334073678699384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13688,6 +13745,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114337021627673920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13703,6 +13761,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114339613840986488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13718,6 +13777,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114341949286562722
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13745,6 +13805,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114350523335194862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13760,6 +13821,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114353083252775334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13775,6 +13837,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114353373733553394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13814,6 +13877,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114360869713594218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13829,6 +13893,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114362319943966736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13844,6 +13909,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114369866546754200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13871,6 +13937,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114377139450990604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13886,6 +13953,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114377776886804224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13901,6 +13969,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114379911075662514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13916,6 +13985,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114382750480661756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13931,6 +14001,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114384629303139158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13946,6 +14017,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114387487193054140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13973,6 +14045,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114392696066719082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14012,6 +14085,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114400414685134132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14027,6 +14101,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114402825189457898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14042,6 +14117,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114404251522030520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14057,6 +14133,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114418328386873636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14072,6 +14149,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114420248110190696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14123,6 +14201,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114439807692597486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14138,6 +14217,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114442781819805576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14153,6 +14233,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114447850095870894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14168,6 +14249,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114451724915843908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14183,6 +14265,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114459448450032234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14198,6 +14281,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114461380178943778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14237,6 +14321,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114470775818763262
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14252,6 +14337,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114471506788312624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14267,6 +14353,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114475397805501760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14282,6 +14369,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114478507684771666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14297,6 +14385,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114483216919359066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14312,6 +14401,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114491417870954426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14327,6 +14417,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114491705684920486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14354,6 +14445,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114504548501714354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14393,6 +14485,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114512828847689218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14408,6 +14501,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114520357592782638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14423,6 +14517,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114528333931963414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14450,6 +14545,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114530280521908140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14465,6 +14561,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114530433462416660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14480,6 +14577,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114530797577124448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14495,6 +14593,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114533663388955554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14534,6 +14633,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114541626740843660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14549,6 +14649,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114550754135858312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14564,6 +14665,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114552536110637418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14579,6 +14681,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114553621259365284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14606,6 +14709,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114565238314519534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14621,6 +14725,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114565820479157360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14636,6 +14741,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114566649568283630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14651,6 +14757,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114571165567551058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14666,6 +14773,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114574327520010114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14693,6 +14801,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114583995260064094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14708,6 +14817,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114585314931319658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14735,6 +14845,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114590684690730162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14750,6 +14861,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114590854064070258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14777,6 +14889,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114592576216124612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14804,6 +14917,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114593130817227854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14831,6 +14945,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114597798146312710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14894,6 +15009,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114614258540006658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14921,6 +15037,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114617371937674560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14936,6 +15053,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114620828342672614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14951,6 +15069,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114627754341040566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14966,6 +15085,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114631822885446816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14993,6 +15113,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114642343113062846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15044,6 +15165,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114652803983978358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15095,6 +15217,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114672492253094498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15134,6 +15257,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114692183141638448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15161,6 +15285,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114695043488102370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15176,6 +15301,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114698067205024818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15191,6 +15317,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114710825290509724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15218,6 +15345,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114714413155953892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15257,6 +15385,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114717953670486236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15272,6 +15401,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114719159960035596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15299,6 +15429,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114721491288760754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15326,6 +15457,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114723681095944628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15341,6 +15473,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114724654692997306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15356,6 +15489,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114730912406944012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15371,6 +15505,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114730990432918908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15386,6 +15521,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114731106358704256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15401,6 +15537,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114732699995104584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15428,6 +15565,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114735233896418172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15491,6 +15629,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114779585112724854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15506,6 +15645,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114780174537548470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15533,6 +15673,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114783411821873788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15572,6 +15713,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114792609049916680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15587,6 +15729,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114793277219870086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15602,6 +15745,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114796783585649358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15629,6 +15773,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114804333315783414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15644,6 +15789,7 @@ MonoBehaviour:
   weight: 1
   destructability: 1
   destruction: 1
+  food: {fileID: 0}
 --- !u!114 &114806403447426390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15659,6 +15805,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114819430102247138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15698,6 +15845,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114827019183452570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15725,6 +15873,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114828976069189128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15764,6 +15913,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114832243006026238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15803,6 +15953,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114835710116660826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15818,6 +15969,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114838087434056502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15845,6 +15997,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114842635781165546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15860,6 +16013,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114848379759747054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15887,6 +16041,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114850391678078608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15902,6 +16057,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114856585568932758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15917,6 +16073,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114867683805154700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15944,6 +16101,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114868932087221410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15971,6 +16129,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114880079961258052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15986,6 +16145,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114883268539669342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16013,6 +16173,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114885684717263284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16040,6 +16201,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114887512888994908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16079,6 +16241,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114891528643000352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16130,6 +16293,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114898270053575966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16145,6 +16309,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114907344613116454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16160,6 +16325,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114907576180668970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16175,6 +16341,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114907734470539198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16190,6 +16357,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114916655767490228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16229,6 +16397,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114926109845480304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16244,6 +16413,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114926857465468314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16259,6 +16429,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114927135511659850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16274,6 +16445,7 @@ MonoBehaviour:
   weight: 2
   destructability: 10
   destruction: 5
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114927618327281724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16313,6 +16485,7 @@ MonoBehaviour:
   weight: 2
   destructability: 50
   destruction: 50
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114938391634653596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16328,6 +16501,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114941675384412338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16391,6 +16565,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114967168051989346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16454,6 +16629,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114985158241755400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16469,6 +16645,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114992288241109282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16496,6 +16673,7 @@ MonoBehaviour:
   weight: 1
   destructability: 0
   destruction: 0
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!114 &114998299302531270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16535,6 +16713,7 @@ MonoBehaviour:
   weight: 1
   destructability: 2
   destruction: 2
+  food: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
 --- !u!212 &212001516765984622
 SpriteRenderer:
   m_ObjectHideFlags: 1
