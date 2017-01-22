@@ -145,6 +145,7 @@ MonoBehaviour:
   spawnRadius: 0.5
   playerPrefab: {fileID: 1328025226996676, guid: cea65baec29c96f4d8f801980ed38a8e,
     type: 2}
+  foodPrefab: {fileID: 1326379033240906, guid: 14a733713ddc95940ad965c5f05bba43, type: 2}
   curTime: 0
   winTimeSeconds: 120
   countDownTime: 5

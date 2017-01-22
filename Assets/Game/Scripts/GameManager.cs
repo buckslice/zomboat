@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour {
     public int playersToStart = 3;
     public float spawnRadius = 1.0f;
     public GameObject playerPrefab;
+    public GameObject foodPrefab;
     bool gameStarted = false;
     public float curTime;
     public float winTimeSeconds = 180.0f;
