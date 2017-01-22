@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     public float spawnRadius = 1.0f;
     public GameObject playerPrefab;
     public GameObject foodPrefab;
+    public GameObject boxBreakPrefab;
     public Sprite[] foodSprites;
     bool gameStarted = false;
     public float curTime;

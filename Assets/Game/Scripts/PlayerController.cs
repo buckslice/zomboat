@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour {
     public ParticleSystem bloodParticles;
     public TopDownGamePad gamepad;
     public GameObject projectile;
+    public GameObject medPack;
 
     public Vector2 velocityChange = Vector2.zero;
 
@@ -74,6 +75,9 @@ public class PlayerController : MonoBehaviour {
                 break;
             case Role.SECRETZOMBIE:
                 SetZombie(true);
+                break;
+            case Role.ZOMBIE:
+                PerformAction();    // just auto attack boxes as zombie
                 break;
             default:
                 break;
@@ -197,9 +201,6 @@ public class PlayerController : MonoBehaviour {
                         otherPlayer.bloodParticles.Play();
                     }
                     //Debug.Log(otherPlayer.health);
-                } else if (alive && role == Role.MEDIC) {
-                    otherPlayer.AddHealth(hps * Time.deltaTime);
-                    //Debug.Log(otherPlayer.health);
                 }
             }
         }
@@ -207,6 +208,10 @@ public class PlayerController : MonoBehaviour {
     private void OnTriggerStay2D(Collider2D other) {
         if (alive && other.CompareTag("Food")) {
             AddHealth(10.0f);
+            Destroy(other.gameObject);
+        }
+        if (alive && other.CompareTag("MedPack")) {
+            AddHealth(50.0f);
             Destroy(other.gameObject);
         }
 
@@ -224,40 +229,51 @@ public class PlayerController : MonoBehaviour {
     RaycastHit2D[] hitRes = new RaycastHit2D[8];
     void PerformAction() {
         //Debug.Log("Perform Action");
-        switch (role) {
-            case Role.RUNNER:
-                if (abilityTimer < 0.0f) {
-                    dashing = true;
-                    dashTimer = maxDashTime;
-                    abilityTimer = abilityCooldown;
-                }
-                break;
-            case Role.POLICE:
-                if (abilityTimer < 0.0f) {
-                    GameObject p = Instantiate(projectile, transform.position + transform.right.normalized * 2.0f + new Vector3(0, 0, 10), Quaternion.identity);
-                    p.GetComponent<Projectile>().direction = transform.right;
-                    abilityTimer = abilityCooldown;
-                }
-                break;
-            case Role.ZOMBIE:
-                if (abilityTimer > 0.0f) {
-                    return;
-                }
-                abilityTimer = 3.0f;
-                int rets = Physics2D.RaycastNonAlloc(transform.position, gamepad.dir, hitRes, 1.5f);
-                for (int i = 0; i < rets; ++i) {
-                    if (hitRes[i].collider.CompareTag("Movable")) {
-                        if (Random.value < 0.25f) {
-                            // random chance to spawn food
-                            GameManager.instance.foodPrefab.GetComponentInChildren<SpriteRenderer>().sprite = GameManager.instance.foodSprites[Random.Range(0, GameManager.instance.foodSprites.Length)];
-                            Instantiate(GameManager.instance.foodPrefab, hitRes[i].transform.position, Quaternion.identity);
-                        }
-                        Destroy(hitRes[i].collider.gameObject);
-                        break;
+        if (canMove) {
+            switch (role) {
+                case Role.RUNNER:
+                    if (abilityTimer < 0.0f) {
+                        dashing = true;
+                        dashTimer = maxDashTime;
+                        abilityTimer = abilityCooldown;
                     }
-                }
-
-                break;
+                    break;
+                case Role.POLICE:
+                    if (abilityTimer < 0.0f) {
+                        GameObject p = Instantiate(projectile, transform.position + transform.right.normalized * 2.0f + new Vector3(0, 0, 10), Quaternion.identity);
+                        p.GetComponent<Projectile>().direction = transform.right;
+                        abilityTimer = abilityCooldown;
+                    }
+                    break;
+                case Role.MEDIC:
+                    if (abilityTimer < 0.0f) {
+                        GameObject p = Instantiate(medPack, transform.position, Quaternion.identity);
+                        abilityTimer = 10.0f;
+                    }
+                    break;
+                case Role.ZOMBIE:
+                    if (abilityTimer > 0.0f) {
+                        return;
+                    }
+                    abilityTimer = 0.1f;
+                    int rets = Physics2D.RaycastNonAlloc(transform.position, gamepad.dir, hitRes, 1.5f);
+                    for (int i = 0; i < rets; ++i) {
+                        if (hitRes[i].collider.CompareTag("Movable")) {
+                            if (Random.value < 0.25f) {
+                                // random chance to spawn food
+                                GameManager.instance.foodPrefab.GetComponentInChildren<SpriteRenderer>().sprite = GameManager.instance.foodSprites[Random.Range(0, GameManager.instance.foodSprites.Length)];
+                                Instantiate(GameManager.instance.foodPrefab, hitRes[i].transform.position, Quaternion.identity);
+                            }
+                            // add box destruction
+                            GameObject go = Instantiate(GameManager.instance.boxBreakPrefab, hitRes[i].transform.position, Quaternion.identity);
+                            Destroy(go, 3.0f);
+                            abilityTimer = 3.0f;
+                            Destroy(hitRes[i].collider.gameObject);
+                            break;
+                        }
+                    }
+                    break;
+            }
         }
     }
 
@@ -271,5 +287,5 @@ public class PlayerController : MonoBehaviour {
         yield return new WaitForSeconds(time);
         canMove = true;
     }
-    
+
 }
