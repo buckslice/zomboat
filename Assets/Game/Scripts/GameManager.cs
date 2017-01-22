@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour {
     public AudioClip introClip;
     public AudioClip gameClip;
     public AudioClip shotgunClip;
+    public AudioClip humanWinClip;
     AudioSource source;
 
     public List<WaveObjectEntry> waveObjects = new List<WaveObjectEntry>();
@@ -253,6 +254,9 @@ public class GameManager : MonoBehaviour {
                         StopCoroutine(countDownRoutine);
                     }
                     StartGame();
+                    source.clip = gameClip;
+                    source.loop = true;
+                    source.Play();
                 }
             }
         } else {
@@ -263,25 +267,29 @@ public class GameManager : MonoBehaviour {
             if (curTime >= winTimeSeconds) {
                 splash.sprite = winSplash;
                 splash.enabled = true;
-                ResetGame();
+                ResetGame(true);
             } else if (OnlyZombiesLeft()) {
                 splash.sprite = loseSplash;
                 splash.enabled = true;
-                ResetGame();
+                ResetGame(false);
             }
         }
     }
 
     bool reseting = false;
-    void ResetGame() {
+    void ResetGame(bool humansWin) {
         if (reseting) {
             return;
         }
         reseting = true;
-        StartCoroutine(ResetRoutine());
+        StartCoroutine(ResetRoutine(humansWin));
     }
 
-    IEnumerator ResetRoutine() {
+    IEnumerator ResetRoutine(bool humansWin) {
+        if (humansWin) {
+            source.clip = humanWinClip;
+            source.Play();
+        }
         float t = 0.0f;
         while (t < 10.0f) {
             t += Time.deltaTime;
