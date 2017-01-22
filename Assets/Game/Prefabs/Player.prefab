@@ -195,8 +195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6480bfb18e4b7a44bd9b8315cd10a9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ZOMBIE_SCALE: 1
-  HUMAN_SCALE: 0.75
+  ZOMBIE_SCALE: 1.25
+  HUMAN_SCALE: 1
   humanSpeed: 3.5
   zombieSpeed: 5
   dashSpeed: 10
