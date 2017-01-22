@@ -68,9 +68,9 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   spawnObjects:
-  - {fileID: 1495555826800888, guid: b9d71d0feb8eea6458d88d5f844e324c, type: 2}
-  - {fileID: 1185682485155026, guid: 6f091095f7d174143833f241e0d9c816, type: 2}
-  - {fileID: 1495555826800888, guid: b9d71d0feb8eea6458d88d5f844e324c, type: 2}
+  - {fileID: 1003372284245110, guid: b1f38851d25792b4f8d4bc82dd2546ef, type: 2}
+  - {fileID: 1408332446944858, guid: f226900e7ec40dd459aa8b133d4e2af8, type: 2}
+  - {fileID: 1003372284245110, guid: b1f38851d25792b4f8d4bc82dd2546ef, type: 2}
   - {fileID: 1495555826800888, guid: b9d71d0feb8eea6458d88d5f844e324c, type: 2}
   - {fileID: 1185682485155026, guid: 6f091095f7d174143833f241e0d9c816, type: 2}
   - {fileID: 1185682485155026, guid: 6f091095f7d174143833f241e0d9c816, type: 2}

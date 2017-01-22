@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour {
     public int currentWave = 0;
     public float waveCrash = 0.0f;
     public int playersToStart = 3;
-    public float spawnRadius = 2.0f;
+    public float spawnRadius = 1.0f;
     public GameObject playerPrefab;
     bool gameStarted = false;
     public float curTime;
@@ -111,10 +111,7 @@ public class GameManager : MonoBehaviour {
         } else {
             humanSpawnPoints = new Vector3[spawnPointObjects.Length];
             for (int i = 0; i < spawnPointObjects.Length; ++i) {
-                Vector2 variation = Random.insideUnitCircle.normalized * spawnRadius;
                 Vector3 actualPos = spawnPointObjects[i].transform.position;
-                actualPos.x += variation.x;
-                actualPos.y += variation.y;
                 humanSpawnPoints[i] = actualPos;
             }
         }
@@ -123,7 +120,8 @@ public class GameManager : MonoBehaviour {
     void SpawnPlayer(PlayerHandle ph) {
         // initialize prefabs
         Vector2 pos = humanSpawnPoints[Random.Range(0, humanSpawnPoints.Length)];
-
+        pos.x += Random.Range(-spawnRadius, spawnRadius);
+        pos.y += Random.Range(-spawnRadius, spawnRadius);
         GameObject go = Instantiate(playerPrefab, pos, Quaternion.identity);
 
         ph.controller = go.GetComponent<PlayerController>();
