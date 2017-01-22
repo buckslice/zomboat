@@ -43,18 +43,18 @@ function to255(v) {
   return v * 255 | 0;
 }
 function handleColor(data) {
-  // the color arrives in data.color.
-  // we use chroma.js to darken the color
-  // then we get our style from a template in controller.html
-  // sub in our colors, remove extra whitespace and attach to body.
-  var color = "rgb(" + to255(data.color.r) + "," + to255(data.color.g) + "," + to255(data.color.b) + ")";
-  var subs = {
-    light: color,
-    dark: chroma(color).darken().hex(),
-  };
-  var style = $("background-style").text;
-  style = strings.replaceParams(style, subs).replace(/[\n ]+/g, ' ').trim();
-  $("hft-content").style.background = style;
+  // // the color arrives in data.color.
+  // // we use chroma.js to darken the color
+  // // then we get our style from a template in controller.html
+  // // sub in our colors, remove extra whitespace and attach to body.
+  // var color = "rgb(" + to255(data.color.r) + "," + to255(data.color.g) + "," + to255(data.color.b) + ")";
+  // var subs = {
+    // light: color,
+    // dark: chroma(color).darken().hex(),
+  // };
+  // var style = $("background-style").text;
+  // style = strings.replaceParams(style, subs).replace(/[\n ]+/g, ' ').trim();
+  // $("hft-content").style.background = style;
 }
 
 function handlePlay() {
@@ -69,7 +69,7 @@ function handleCharacter(data){
 function handlePicture(data)
 {
 	
-	picture.style.backgroundImage = "url('zomboat_character_1.jpg')";
+	picture.style.backgroundImage = "url('zomboat_character_" + (data.number).toString() + ".jpg')";
 }
 
 function handleLives(data)
@@ -104,8 +104,8 @@ client.addEventListener('play', handlePlay);
 client.addEventListener('picture',handlePicture);
 client.addEventListener('livechange',handleLives);
 client.addEventListener('character', handleCharacter);
-client.addEventListener('score', handleScore);
-client.addEventListener('countdown', handleCountdown);
+//client.addEventListener('score', handleScore);
+//client.addEventListener('countdown', handleCountdown);
 
 commonUI.setupStandardControllerUI(client, globals);
 
