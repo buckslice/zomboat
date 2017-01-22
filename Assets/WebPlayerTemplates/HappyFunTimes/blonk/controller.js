@@ -14,6 +14,7 @@ var crosshair = document.getElementById("crosshair");
 var picture = document.getElementById("mid");
 var pictures = ["zomb.png","zomb1.png","zomb2.png"]
 var lives = document.getElementById("health");
+var banner = document.getElementById("banner");
 
 var $ = document.getElementById.bind(document);
 var globals = {
@@ -85,6 +86,11 @@ function handleZomb(data)
 	
 }
 
+function handleRole(data)
+{
+	banner.src = data + "_banner.jpg";
+}
+
 function handleScore(data){
 	toptitle.innerHTML = "You died!";
 	bottitle.innerHTML = "You scored " + data.number + " points!";
@@ -106,6 +112,7 @@ client.addEventListener('play', handlePlay);
 client.addEventListener('picture',handlePicture);
 client.addEventListener('livechange',handleLives);
 client.addEventListener('character', handleCharacter);
+client.addEventListener('role', handleRole);
 //client.addEventListener('score', handleScore);
 //client.addEventListener('countdown', handleCountdown);
 
