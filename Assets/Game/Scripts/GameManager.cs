@@ -27,8 +27,10 @@ public struct WaveObjectEntry {
 
 public class GameManager : MonoBehaviour {
     public float[] WAVE_TIMES = { 15, 30 };
+    public float[] WAVE_INTENSITY = { 1.0f, 1.0f, 1.0f };
 
     public int currentWave = 0;
+    public float waveCrash = 0.0f;
     public int playersToStart = 3;
     public float spawnRadius = 2.0f;
     public GameObject playerPrefab;
@@ -98,7 +100,7 @@ public class GameManager : MonoBehaviour {
         // this is a little stupid but ok
         ph.controller.gamepad.InitializeNetPlayer(ph.netPlayer);
         // give each player a random role
-        ph.controller.role = (Role)Random.Range(0, System.Enum.GetValues(typeof(Role)).Length - 2);
+        ph.controller.role = (Role)Random.Range(0, (int)Role.COUNT - 2);
         ph.controller.gamepad.SendRole(ph.controller.role);
         ph.controller.SetCanMove(false);
         ph.controller.SetZombie(false);
@@ -112,6 +114,7 @@ public class GameManager : MonoBehaviour {
 
     void CheckWaves() {
         if (currentWave < WAVE_TIMES.Length && gameTime > WAVE_TIMES[currentWave]) {
+            /*
             List<WaveObjectEntry> remainingEntries = new List<WaveObjectEntry>();
             foreach (WaveObjectEntry entry in waveObjects) {
                 if (entry.waveIndex == currentWave) {
@@ -122,7 +125,18 @@ public class GameManager : MonoBehaviour {
             }
 
             waveObjects = remainingEntries;
+            */
             currentWave = currentWave + 1;
+        }
+
+        if (currentWave < WAVE_INTENSITY.Length && waveCrash >= WAVE_INTENSITY[currentWave]) {
+            foreach (WaveObjectEntry entry in waveObjects) {
+                if (entry.waveIndex == currentWave) {
+                    entry.waveObject.HandleWave();
+                    waveObjects.Remove(entry);
+                    break;
+                }
+            }
         }
     }
 
