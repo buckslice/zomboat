@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
     public bool alive = true;   // zombies are dead
     public float health = 100.0f;
     public float maxHealth = 100.0f;
-    public float prevHealth = 100.0f;
+    private float prevHealth = 100.0f;
     public float dps; // damage that the zombies do to humans per second
     public float hps; // healing that the medics do to humans per second 
     public Role role;
@@ -43,12 +43,12 @@ public class PlayerController : MonoBehaviour {
     public TopDownGamePad gamepad;
     public GameObject projectile;
     public GameObject medPack;
-    private bool eatFood = false;
 
     public Vector2 velocityChange = Vector2.zero;
 
     Rigidbody2D rb;
     SpriteRenderer sr;
+    SoundManager soundManager;
 
     // Use this for initialization
     void Awake() {
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour {
         gamepad.OnDisconnect += Remove;
         gamepad.OnColorChanged += ColorChanged;
         gamepad.OnTap += PerformAction;
-
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour {
             bloodParticles.Stop();
             moveSpeed = zombieSpeed;
             health = 0.0f;
-            gamepad.ChangeLives(0);
+            gamepad.ChangeLives(0, 5);
             gamepad.SendZombification();
             alive = false;
             if (role != Role.SECRETZOMBIE) {
@@ -166,32 +166,29 @@ public class PlayerController : MonoBehaviour {
     }
     public void AddHealth(float amount) {
         // adds the amount of health to the player health and clamps it at max health
-
+        float oldHealth = prevHealth;
         if (alive) {
+            if (prevHealth - health >= 20) {
+                prevHealth = health;
+                if (health <= 0) {
+                    gamepad.ChangeLives(0, (int) oldHealth);
+                } else if (health <= 20) {
+                    gamepad.ChangeLives(20, (int) oldHealth);
+                } else if (health <= 40) {
+                    gamepad.ChangeLives(40, (int)oldHealth);
+                } else if (health <= 60) {
+                    gamepad.ChangeLives(60, (int) oldHealth);
+                } else if (health <= 80) {
+                    gamepad.ChangeLives(80, (int) oldHealth);
+                } else if (health > 80) {
+                    gamepad.ChangeLives(100, (int) oldHealth);
+                }
+            }
             health += amount;
-            if (health >= maxHealth)
-            {
+            if (health >= maxHealth) {
                 health = maxHealth;
                 bloodParticles.Stop();
             }
-            if (Mathf.Abs(prevHealth - health) >= 20 || eatFood) {
-                eatFood = false;
-                prevHealth = health;
-                if (health <= 0) {
-                    gamepad.ChangeLives(0);
-                } else if (health <= 20) {
-                    gamepad.ChangeLives(20);
-                } else if (health <= 40) {
-                    gamepad.ChangeLives(40);
-                } else if (health <= 60) {
-                    gamepad.ChangeLives(60);
-                } else if (health <= 80) {
-                    gamepad.ChangeLives(80);
-                } else if (health > 80) {
-                    gamepad.ChangeLives(100);
-                }
-            }
-            
         }
     }
     void OnCollisionStay2D(Collision2D collision) {
@@ -210,9 +207,7 @@ public class PlayerController : MonoBehaviour {
     }
     private void OnTriggerStay2D(Collider2D other) {
         if (alive && other.CompareTag("Food")) {
-            prevHealth = health;
-            eatFood = true;
-            AddHealth(20.0f);
+            AddHealth(10.0f);
             Destroy(other.gameObject);
         }
         if (alive && other.CompareTag("MedPack")) {

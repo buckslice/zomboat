@@ -170,9 +170,14 @@ public class TopDownGamePad : MonoBehaviour {
         }
     }
 
-    public void ChangeLives(int change) {
+    public void ChangeLives(int newHealth, int oldHealth) {
+        Debug.Log("ChangeLive " + newHealth + " " + oldHealth);
+        if (newHealth < oldHealth && UnityEngine.Random.Range(0.0f, 100.0f) >= (100.0f - GameManager.instance.chompFrequency)) {
+            SoundManager.instance.PlaySound(1);
+        }
+
         if (netPlayer != null) {
-            netPlayer.SendCmd("livechange", new MessageNumber(change));
+            netPlayer.SendCmd("livechange", new MessageNumber(newHealth));
         }
     }
 
