@@ -44,18 +44,18 @@ function to255(v) {
   return v * 255 | 0;
 }
 function handleColor(data) {
-  // // the color arrives in data.color.
-  // // we use chroma.js to darken the color
-  // // then we get our style from a template in controller.html
-  // // sub in our colors, remove extra whitespace and attach to body.
-  // var color = "rgb(" + to255(data.color.r) + "," + to255(data.color.g) + "," + to255(data.color.b) + ")";
-  // var subs = {
-    // light: color,
-    // dark: chroma(color).darken().hex(),
-  // };
-  // var style = $("background-style").text;
-  // style = strings.replaceParams(style, subs).replace(/[\n ]+/g, ' ').trim();
-  // $("hft-content").style.background = style;
+  // // // the color arrives in data.color.
+  // // // we use chroma.js to darken the color
+  // // // then we get our style from a template in controller.html
+  // // // sub in our colors, remove extra whitespace and attach to body.
+   // var color = "rgb(" + to255(data.color.r) + "," + to255(data.color.g) + "," + to255(data.color.b) + ")";
+   // var subs = {
+     // light: color,
+     // dark: chroma(color).darken().hex(),
+    // };
+    // var style = $("background-style").text;
+    // style = strings.replaceparams(style, subs).replace(/[\n ]+/g, ' ').trim();
+    // $("hft-content").style.background = style;
 }
 
 function handlePlay() {

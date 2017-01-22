@@ -35,7 +35,7 @@
     <div id="gamearea" class="fixheight">
     <div id="inputarea" class="hft-fullcenter fixheight">
 
-      <div class="noevents" id="crosshair"><center><br><br>+<br><br><br></center>
+      <div class="noevents" id="crosshair"><image src = "crosshair.png" id = "cross">
       </div>
       </div>
     <div id = "bfooter" class = "noevents"><h2 id = "bottitle"></h2></div>
