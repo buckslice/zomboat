@@ -203,9 +203,7 @@ MonoBehaviour:
   dashTimer: 0
   maxDashTime: 1
   abilityTimer: 0
-  dashCooldown: 5
-  disabled: 0
-  disabledTimer: 0
+  abilityCooldown: 5
   alive: 1
   health: 100
   maxHealth: 100
@@ -218,6 +216,8 @@ MonoBehaviour:
   bloodParticles: {fileID: 198468854596807212}
   gamepad: {fileID: 114070306184506752}
   projectile: {fileID: 1373155402037464, guid: 7226407d4240bea4fb7b9743bd8c2cf6, type: 2}
+  medPack: {fileID: 1038261226823176, guid: 2366b908989301947a8d8c27c8302a09, type: 2}
+  velocityChange: {x: 0, y: 0}
 --- !u!198 &198119609438306834
 ParticleSystem:
   m_ObjectHideFlags: 1
