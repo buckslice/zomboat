@@ -214,7 +214,6 @@ public class GameManager : MonoBehaviour {
                     splash.enabled = false;
                     introGoing = false;
                     ambience.Play();
-                    Debug.Log("Playing ambience");
                 }
             }
             return;
@@ -244,7 +243,6 @@ public class GameManager : MonoBehaviour {
             timeUntilAmbience -= Random.Range(0, Time.deltaTime * 2.0f);
             if (timeUntilAmbience <= 0.0f) {
                 ambienceFrequency = baseAmbienceFrequency - (curTime / winTimeSeconds) * ambienceSpeedUp;
-                Debug.Log(ambienceFrequency);
                 timeUntilAmbience += ambienceFrequency;
                 soundManager.PlayAmbience(Random.Range(0, soundManager.numAmbience));
             }
