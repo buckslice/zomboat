@@ -15,8 +15,7 @@ public class PlayerHandle {
 }
 
 public struct WaveObjectEntry {
-    public WaveObjectEntry(int _waveIndex, CollisionObject _waveObject)
-    {
+    public WaveObjectEntry(int _waveIndex, CollisionObject _waveObject) {
         waveIndex = _waveIndex;
         waveObject = _waveObject;
     }
@@ -33,10 +32,12 @@ public class GameManager : MonoBehaviour {
     public float spawnRadius = 2.0f;
     public GameObject playerPrefab;
     bool gameStarted = false;
-    public float gameTime;
+    public float curTime;
+    public float winTimeSeconds = 180.0f;
     public float countDownTime = 10.0f;
     float countTimer = 10.0f;
-    public Text countDownText;
+    public Text timerText;
+    public Text centerText;
     public Text playerCountText;
     Vector3[] humanSpawnPoints;
     public AudioClip introClip;
@@ -45,7 +46,7 @@ public class GameManager : MonoBehaviour {
     AudioSource source;
 
     public List<WaveObjectEntry> waveObjects = new List<WaveObjectEntry>();
-    private List<PlayerHandle> players = new List<PlayerHandle>();    
+    private List<PlayerHandle> players = new List<PlayerHandle>();
 
     // crappy singleton
     public static GameManager instance = null;
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
+        UpdateGameTimerText();
     }
 
     public void RegisterNetPlayer(NetPlayer np) {
@@ -105,13 +107,13 @@ public class GameManager : MonoBehaviour {
     }
 
     void SetPlayersCanMove(bool canMove) {    // set all players movement
-        for(int i = 0; i < players.Count; ++i) {
+        for (int i = 0; i < players.Count; ++i) {
             players[i].controller.SetCanMove(canMove);
         }
     }
 
     void CheckWaves() {
-        if (currentWave < WAVE_TIMES.Length && gameTime > WAVE_TIMES[currentWave]) {
+        if (currentWave < WAVE_TIMES.Length && curTime > WAVE_TIMES[currentWave]) {
             List<WaveObjectEntry> remainingEntries = new List<WaveObjectEntry>();
             foreach (WaveObjectEntry entry in waveObjects) {
                 if (entry.waveIndex == currentWave) {
@@ -134,22 +136,22 @@ public class GameManager : MonoBehaviour {
     }
     WaitForSeconds waitOne = new WaitForSeconds(1.0f);
     IEnumerator CountDownRoutine() {
-        countDownText.enabled = true;
+        centerText.enabled = true;
         source.Stop();
         source.clip = introClip;
         source.loop = false;
         source.Play();
         for (int i = 0; i < countDownTime; ++i) {
-            countDownText.text = "" + (int)(countDownTime - i);
+            centerText.text = "" + (int)(countDownTime - i);
             yield return waitOne;
         }
-        countDownText.text = "GO";
+        centerText.text = "GO";
         StartGame();
-        countDownText.enabled = true;
+        centerText.enabled = true;
         source.clip = shotgunClip;
         source.Play();
         yield return waitOne;
-        countDownText.enabled = false;
+        centerText.enabled = false;
         source.clip = gameClip;
         source.loop = true;
         source.Play();
@@ -159,7 +161,7 @@ public class GameManager : MonoBehaviour {
         if (countDownRoutine != null) {
             StopCoroutine(countDownRoutine);
         }
-        countDownText.enabled = false;
+        centerText.enabled = false;
         countDownRoutine = null;
     }
 
@@ -173,7 +175,7 @@ public class GameManager : MonoBehaviour {
     // checks to see which players are actually in game (with controllers)
     void ZombifySomeone() {
         List<PlayerController> activePlayers = new List<PlayerController>();
-        for(int i = 0; i < players.Count; ++i) {
+        for (int i = 0; i < players.Count; ++i) {
             if (players[i].controller) {
                 activePlayers.Add(players[i].controller);
             }
@@ -181,9 +183,9 @@ public class GameManager : MonoBehaviour {
         // make one player a zombie
         activePlayers[Random.Range(0, activePlayers.Count)].BeginZombification();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
         //Debug.Log(players.Count);
         if (!gameStarted) {
             if (Input.GetKeyDown(KeyCode.Space)) {
@@ -195,12 +197,19 @@ public class GameManager : MonoBehaviour {
                 }
             }
         } else {
-            gameTime += Time.deltaTime;
+            curTime += Time.deltaTime;
+            UpdateGameTimerText();
 
             CheckWaves();
         }
 
-	}
+    }
+
+    void UpdateGameTimerText() {
+        int t = (int)(winTimeSeconds - curTime);
+        string txt = string.Format("{0}:{1:00}", t / 60, t % 60);
+        timerText.text = txt;
+    }
 
     void EndGame() {
         // not sure how this will work yet
@@ -211,8 +220,8 @@ public class GameManager : MonoBehaviour {
 
     void OnPlayerDisconnected(object sender, System.EventArgs e) {
         NetPlayer np = (NetPlayer)sender;
-        for(int i = 0; i < players.Count; ++i) {
-            if(players[i].netPlayer == np) {
+        for (int i = 0; i < players.Count; ++i) {
+            if (players[i].netPlayer == np) {
                 players.RemoveAt(i);
                 break;
             }

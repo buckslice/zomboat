@@ -143,7 +143,8 @@ MonoBehaviour:
     type: 2}
   gameTime: 0
   countDownTime: 5
-  countDownText: {fileID: 0}
+  timerText: {fileID: 0}
+  centerText: {fileID: 0}
   playerCountText: {fileID: 0}
   introClip: {fileID: 8300000, guid: 101eb92c32c5d59489268b8b16d83c94, type: 3}
   gameClip: {fileID: 8300000, guid: ab99aec586cd8e94eb3b336176670619, type: 3}

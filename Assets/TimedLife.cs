@@ -21,12 +21,12 @@ public class TimedLife : MonoBehaviour {
             return;
         }
 
-        spawnTime = gameManager.gameTime;
+        spawnTime = gameManager.curTime;
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if (gameManager.gameTime - spawnTime > lifeTime) {
+		if (gameManager.curTime - spawnTime > lifeTime) {
             GameObject.Destroy(gameObject);
         }
     }
