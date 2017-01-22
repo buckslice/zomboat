@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour {
     Text timerText;
     Text centerText;
     Text playerCountText;
+    Text zhText;
     Image splash;
     public Sprite winSplash;
     public Sprite loseSplash;
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour {
     public AudioClip gameClip;
     public AudioClip shotgunClip;
     public AudioClip humanWinClip;
+    public AudioClip zombieWinClip;
     AudioSource source;
     WaveSpawner waves;
 
@@ -61,7 +63,7 @@ public class GameManager : MonoBehaviour {
         }
         ResetVariables();
 
-        UpdateGameTimerText();
+        UpdateGameText();
         DontDestroyOnLoad(transform.gameObject);    // keep the manager alive
     }
 
@@ -82,6 +84,7 @@ public class GameManager : MonoBehaviour {
         timerText = GameObject.Find("TimerText").GetComponent<Text>();
         centerText = GameObject.Find("CenterText").GetComponent<Text>();
         playerCountText = GameObject.Find("PlayerCountText").GetComponent<Text>();
+        zhText = GameObject.Find("ZHText").GetComponent<Text>();
         splash = GameObject.Find("SplashScreen").GetComponent<Image>();
         waves = FindObjectOfType<WaveSpawner>();
         waves.enabled = false;
@@ -184,7 +187,7 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        playerCountText.text = "players: " + players.Count;  // shows number of connected players
+        UpdateGameText();
 
         if (introGoing) {
             if (Input.GetKeyDown(KeyCode.Space)) {
@@ -225,9 +228,8 @@ public class GameManager : MonoBehaviour {
                     source.Play();
                 }
             }
-        } else if(!reseting){
+        } else if (!reseting) {
             curTime += Time.deltaTime;
-            UpdateGameTimerText();
 
             source.pitch = 1.0f + Mathf.Lerp(0.5f, 0.0f, (winTimeSeconds - curTime) / 30.0f);
             if (curTime >= winTimeSeconds - 1.0f) {
@@ -248,18 +250,17 @@ public class GameManager : MonoBehaviour {
     IEnumerator ResetRoutine(bool humansWin) {
         source.pitch = 1.0f;
 
-        foreach (PlayerHandle player in players)
-        {
+        foreach (PlayerHandle player in players) {
             if (player.controller.alive) {
-                SendEndGame(new TopDownGamePad.MessageNumber(0), player.netPlayer);}
-            else {
-                SendEndGame(new TopDownGamePad.MessageNumber(Random.Range(1,8)), player.netPlayer);}  
+                SendEndGame(new TopDownGamePad.MessageNumber(0), player.netPlayer);
+            } else {
+                SendEndGame(new TopDownGamePad.MessageNumber(Random.Range(1, 8)), player.netPlayer);
+            }
         };
 
-        if (humansWin) {
-            source.clip = humanWinClip;
-            source.Play();
-        }
+        source.clip = humansWin ? humanWinClip : zombieWinClip;
+        source.Play();
+
         float t = 0.0f;
         while (t < 10.0f) {
             t += Time.deltaTime;
@@ -284,7 +285,9 @@ public class GameManager : MonoBehaviour {
         return true;
     }
 
-    void UpdateGameTimerText() {
+    void UpdateGameText() {
+        playerCountText.text = "players: " + players.Count;  // shows number of connected players
+
         int t = (int)(winTimeSeconds - curTime);
         string color = "<color=#FFFFFFFF>";
         if (t <= 10) {
@@ -298,10 +301,23 @@ public class GameManager : MonoBehaviour {
         }
         string txt = string.Format("{0}:{1:00}", t / 60, t % 60);
         timerText.text = color + txt + "</color>";
+
+        int zombieCount = 0;
+        int humanCount = 0;
+        for (int i = 0; i < players.Count; ++i) {
+            if (players[i].controller == null) {
+                continue;
+            }
+            if (!players[i].controller.alive) {
+                zombieCount++;
+            } else {
+                humanCount++;
+            }
+        }
+        zhText.text = "<color=#00FF00FF>Z:" + zombieCount + "</color> <color=#FF0000FF>H:" + humanCount + "</color>";
     }
 
-    public void SendEndGame(TopDownGamePad.MessageNumber hz,NetPlayer netPlayer)
-    {
+    public void SendEndGame(TopDownGamePad.MessageNumber hz, NetPlayer netPlayer) {
         netPlayer.SendCmd("gameover", hz);
     }
 

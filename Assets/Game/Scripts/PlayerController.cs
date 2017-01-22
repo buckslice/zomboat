@@ -256,7 +256,7 @@ public class PlayerController : MonoBehaviour {
                         return;
                     }
                     abilityTimer = 0.1f;
-                    int rets = Physics2D.RaycastNonAlloc(transform.position, gamepad.dir, hitRes, 1.5f);
+                    int rets = Physics2D.RaycastNonAlloc(transform.position, gamepad.dir, hitRes, 2.0f);
                     for (int i = 0; i < rets; ++i) {
                         if (hitRes[i].collider.CompareTag("Movable")) {
                             if (Random.value < 0.25f) {

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 82438483366916682}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
   gameClip: {fileID: 8300000, guid: ab99aec586cd8e94eb3b336176670619, type: 3}
   shotgunClip: {fileID: 8300000, guid: 07a82b5f504ca4948b994e71ee6d64f1, type: 3}
   humanWinClip: {fileID: 8300000, guid: 420aa522fed9a2f4eb45fde967ddfda8, type: 3}
+  zombieWinClip: {fileID: 8300000, guid: d827f6806a49ae343adca5e23508999f, type: 3}
 --- !u!114 &114749273408884610
 MonoBehaviour:
   m_ObjectHideFlags: 1
