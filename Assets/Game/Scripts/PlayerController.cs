@@ -219,9 +219,7 @@ public class PlayerController : MonoBehaviour {
             if (otherPlayer.alive) {
                 if (!alive) {
                     otherPlayer.AddHealth(-dps * Time.deltaTime);
-                    otherPlayer.bloodParticles.Play();
-                    Debug.Log("Blood");
-                   
+                    otherPlayer.bloodParticles.Play();                   
                     //Debug.Log(otherPlayer.health);
                 }
                 else if (alive && role == Role.MEDIC) {
