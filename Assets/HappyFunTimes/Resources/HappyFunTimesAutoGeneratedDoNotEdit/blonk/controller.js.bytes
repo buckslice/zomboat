@@ -80,7 +80,7 @@ function handleLives(data)
 
 function handleZomb(data)
 {
-	picture.style.backgroundImage = "url('zomboat_character_" + (data.number).toString() + "zombie.jpg')";
+	picture.style.backgroundImage = "url('zomboat_character_" + (data.number).toString() + "_zombie.jpg')";
 }
 
 function handleScore(data){

@@ -180,10 +180,10 @@ public class TopDownGamePad : MonoBehaviour {
         }
     }
 
-    //public void SendZombification()
-    //{
-    //    Debug.Log("SendZomb");
-    //    netPlayer.SendCmd("zomb", new MessageNumber(charNumb));
-    //}
+    public void SendZombification()
+    {
+        Debug.Log("SendZomb");
+        netPlayer.SendCmd("zomb", new MessageNumber(charNumb));
+    }
 
 }
