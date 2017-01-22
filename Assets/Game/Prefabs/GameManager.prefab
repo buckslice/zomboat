@@ -134,15 +134,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WAVE_TIMES:
-  - 15
-  - 30
+  - 20
+  - 80
   currentWave: 0
   playersToStart: 3
   spawnRadius: 0.5
   playerPrefab: {fileID: 1328025226996676, guid: cea65baec29c96f4d8f801980ed38a8e,
     type: 2}
   gameTime: 0
-  countDownTime: 10
+  countDownTime: 5
   countDownText: {fileID: 0}
   playerCountText: {fileID: 0}
   introClip: {fileID: 8300000, guid: 101eb92c32c5d59489268b8b16d83c94, type: 3}

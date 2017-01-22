@@ -167,7 +167,7 @@ public class TopDownGamePad : MonoBehaviour {
 
 
     if(netPlayer != null){
-            charNumb = UnityEngine.Random.Range(1, 9);
+            charNumb = UnityEngine.Random.Range(1, 19);
             netPlayer.SendCmd("picture", new MessageNumber(charNumb));
         }
     }
@@ -180,10 +180,15 @@ public class TopDownGamePad : MonoBehaviour {
         }
     }
 
-    //public void SendZombification()
-    //{
-    //    Debug.Log("SendZomb");
-    //    netPlayer.SendCmd("zomb", new MessageNumber(charNumb));
-    //}
+    public void SendZombification()
+    {
+        Debug.Log("SendZomb");
+        netPlayer.SendCmd("zomb", new MessageNumber(charNumb));
+    }
+
+    public void SendRole(Role role)
+    {
+        netPlayer.SendCmd("role", role.ToString().ToLower());
+    }
 
 }
