@@ -75,6 +75,9 @@ public class PlayerController : MonoBehaviour {
             case Role.SECRETZOMBIE:
                 SetZombie(true);
                 break;
+            case Role.ZOMBIE:
+                PerformAction();    // just auto attack boxes as zombie
+                break;
             default:
                 break;
         }
@@ -243,7 +246,7 @@ public class PlayerController : MonoBehaviour {
                 if (abilityTimer > 0.0f) {
                     return;
                 }
-                abilityTimer = 3.0f;
+                abilityTimer = 0.1f;
                 int rets = Physics2D.RaycastNonAlloc(transform.position, gamepad.dir, hitRes, 1.5f);
                 for (int i = 0; i < rets; ++i) {
                     if (hitRes[i].collider.CompareTag("Movable")) {
@@ -252,6 +255,10 @@ public class PlayerController : MonoBehaviour {
                             GameManager.instance.foodPrefab.GetComponentInChildren<SpriteRenderer>().sprite = GameManager.instance.foodSprites[Random.Range(0, GameManager.instance.foodSprites.Length)];
                             Instantiate(GameManager.instance.foodPrefab, hitRes[i].transform.position, Quaternion.identity);
                         }
+                        // add box destruction
+                        GameObject go = Instantiate(GameManager.instance.boxBreakPrefab, hitRes[i].transform.position, Quaternion.identity);
+                        Destroy(go, 3.0f);
+                        abilityTimer = 3.0f;
                         Destroy(hitRes[i].collider.gameObject);
                         break;
                     }
@@ -271,5 +278,5 @@ public class PlayerController : MonoBehaviour {
         yield return new WaitForSeconds(time);
         canMove = true;
     }
-    
+
 }
