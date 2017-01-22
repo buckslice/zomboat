@@ -67,6 +67,11 @@
 	margin: auto;
 }
 
+#hideme
+{
+	display: none;
+}
+
 
 
 #bar {

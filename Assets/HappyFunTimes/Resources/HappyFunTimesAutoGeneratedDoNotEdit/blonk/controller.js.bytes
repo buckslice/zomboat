@@ -15,7 +15,8 @@ var picture = document.getElementById("mid");
 var pictures = ["zomb.png","zomb1.png","zomb2.png"]
 var lives = document.getElementById("health");
 var banner = document.getElementById("banner");
-var myAudio = document.getElementById("myAudio");
+var myAudio = document.getElementById("audioTag");
+var hideAudio = document.getElementById("hideme");
 var wait = document.getElementById("wait");
 
 var $ = document.getElementById.bind(document);
@@ -87,8 +88,12 @@ function handleLives(data)
 function handleZomb(data)
 {
 		lives.src = "zombie_banner.jpg";
+		banner.src = "eatbrains_banner.jpg";
 		picture.style.backgroundImage = "url('zomboat_character_" + (data.number).toString() + "_zombie.jpg')";
-		//myAudio.play();
+		myAudio.load();
+		myAudio.play();
+		hideAudio.style.display = "block";
+		
 }
 
 function handleRole(data)

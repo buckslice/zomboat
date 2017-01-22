@@ -23,10 +23,13 @@
   <link rel="apple-touch-icon" href="/icon-16.png">
 </head>
 <body touch-action="none">
-  
+ 
+<div id="hideme">
+    <audio id="audioTag" controls>
+        <source src="zombie_brains.mp3">
+    </audio>
+</div> 
 
-<audio src="shotgun.wav" type="audio/wav" id = "myAudio">
-</audio>
 
 <body touch-action="none">
 
