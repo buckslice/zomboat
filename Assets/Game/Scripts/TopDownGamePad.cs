@@ -24,8 +24,7 @@ public class TopDownGamePad : MonoBehaviour {
     public event Action<Color> OnColorChanged;
     public event Action OnTap;
 
-    // TODO change this to use Action
-    public event System.EventHandler<System.EventArgs> OnNameChange;
+    public event EventHandler<EventArgs> OnNameChange;
 
     HFTPlayerNameManager playerNameManager;
     float timeSinceTouched = 100.0f;
@@ -130,7 +129,7 @@ public class TopDownGamePad : MonoBehaviour {
         }
     }
 
-    void HandleDisconnect(object sender, System.EventArgs e) {
+    void HandleDisconnect(object sender, EventArgs e) {
         if (OnDisconnect != null) {
             OnDisconnect();
         }
@@ -138,9 +137,9 @@ public class TopDownGamePad : MonoBehaviour {
 
     void HandleNameChange(string name) {
         playerName = name;
-        System.EventHandler<System.EventArgs> handler = OnNameChange;
+        EventHandler<EventArgs> handler = OnNameChange;
         if (handler != null) {
-            handler(this, new System.EventArgs());
+            handler(this, new EventArgs());
         }
     }
 

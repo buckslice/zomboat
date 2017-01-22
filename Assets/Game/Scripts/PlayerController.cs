@@ -24,8 +24,6 @@ public class PlayerController : MonoBehaviour {
     public float abilityTimer = 0.0f;
     public float abilityCooldown = 5.0f;
 
-    public bool disabled = false;
-    public float disabledTimer = 0.0f;
     float moveSpeed;
     bool dashing = false; // for runners
     public bool alive = true;   // zombies are dead
@@ -91,20 +89,13 @@ public class PlayerController : MonoBehaviour {
                 dashing = false;
             }
         }
-        disabledTimer -= Time.deltaTime;
-        if (disabledTimer < 0.0f) {
-            disabled = false;
-        }
     }
 
     void FixedUpdate() {
-        if (!disabled) {
-            if (canMove && gamepad.touching) {
-                rb.velocity = gamepad.dir * moveSpeed + velocityChange;
-            } else {
-                rb.velocity = Vector2.zero + velocityChange;
-            }
-            //Debug.Log(gamepad.dir);  
+        if (canMove && gamepad.touching) {
+            rb.velocity = gamepad.dir * moveSpeed + velocityChange;
+        } else {
+            rb.velocity = Vector2.zero + velocityChange;
         }
     }
 
@@ -271,8 +262,14 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void DisableControls(float time) {
-        disabled = true;
-        disabledTimer = time;
+        Debug.Log("disabled");
+        canMove = false;
+        StartCoroutine("EnableMove", time);
     }
 
+    IEnumerator EnableMove(float time) {
+        yield return new WaitForSeconds(time);
+        canMove = true;
+    }
+    
 }

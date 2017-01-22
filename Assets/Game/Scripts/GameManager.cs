@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour {
     AudioSource source;
     WaveSpawner waves;
 
-    private List<PlayerHandle> players = new List<PlayerHandle>();
+    List<PlayerHandle> players = new List<PlayerHandle>();
     bool introGoing = false;
 
     // crappy singleton
@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour {
         np.OnDisconnect += OnPlayerDisconnected;
         np.SendCmd("wait");
         players.Add(ph);
-        playerCountText.text = "players " + players.Count;  // shows number of connected players
     }
 
     private void OnLevelWasLoaded(int level) {  // not sure what the non deprecated version of this is
@@ -82,7 +81,6 @@ public class GameManager : MonoBehaviour {
         timerText = GameObject.Find("TimerText").GetComponent<Text>();
         centerText = GameObject.Find("CenterText").GetComponent<Text>();
         playerCountText = GameObject.Find("PlayerCountText").GetComponent<Text>();
-        playerCountText.text = "players " + players.Count;  // shows number of connected players
         splash = GameObject.Find("SplashScreen").GetComponent<Image>();
         waves = FindObjectOfType<WaveSpawner>();
         waves.enabled = false;
@@ -185,6 +183,8 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        playerCountText.text = "players: " + players.Count;  // shows number of connected players
+
         if (introGoing) {
             if (Input.GetKeyDown(KeyCode.Space)) {
                 introSequence++;
@@ -299,7 +299,6 @@ public class GameManager : MonoBehaviour {
                 break;
             }
         }
-        playerCountText.text = "players " + players.Count;
     }
 
 }
