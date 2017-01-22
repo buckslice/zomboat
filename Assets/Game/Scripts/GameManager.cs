@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     public float spawnRadius = 1.0f;
     public GameObject playerPrefab;
     public GameObject foodPrefab;
+    public Sprite[] foodSprites;
     bool gameStarted = false;
     public float curTime;
     public float winTimeSeconds = 180.0f;
@@ -65,6 +66,7 @@ public class GameManager : MonoBehaviour {
     public void RegisterNetPlayer(NetPlayer np) {
         PlayerHandle ph = new PlayerHandle(np, null);
         np.OnDisconnect += OnPlayerDisconnected;
+        np.SendCmd("wait");
         players.Add(ph);
         playerCountText.text = "players " + players.Count;  // shows number of connected players
     }

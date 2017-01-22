@@ -80,6 +80,8 @@ public class TopDownGamePad : MonoBehaviour {
 
     public void InitializeNetPlayer(NetPlayer netPlayer) {
         this.netPlayer = netPlayer;
+        
+        
         netPlayer.OnDisconnect += HandleDisconnect;
 
         // Setup events for the different messages.
@@ -182,5 +184,6 @@ public class TopDownGamePad : MonoBehaviour {
     public void SendRole(Role role) {
         netPlayer.SendCmd("role", role.ToString().ToLower());
     }
+
 
 }
