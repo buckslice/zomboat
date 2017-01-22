@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour {
     public Sprite zombieSprite;
     public ParticleSystem zombParticles;
     public ParticleSystem bloodParticles;
+    public ParticleSystem abilityParticles;
     public TopDownGamePad gamepad;
     public GameObject projectile;
     public GameObject medPack;
@@ -93,6 +94,10 @@ public class PlayerController : MonoBehaviour {
                 moveSpeed = zombieSpeed;
                 dashing = false;
             }
+        }
+
+        if(abilityTimer < 0.0f && !abilityParticles.isPlaying) {
+            abilityParticles.Play();
         }
     }
 
@@ -236,6 +241,7 @@ public class PlayerController : MonoBehaviour {
                         dashing = true;
                         dashTimer = maxDashTime;
                         abilityTimer = abilityCooldown;
+                        abilityParticles.Stop();
                     }
                     break;
                 case Role.POLICE:
@@ -243,12 +249,14 @@ public class PlayerController : MonoBehaviour {
                         GameObject p = Instantiate(projectile, transform.position + transform.right.normalized * 2.0f + new Vector3(0, 0, 10), Quaternion.identity);
                         p.GetComponent<Projectile>().direction = transform.right;
                         abilityTimer = abilityCooldown;
+                        abilityParticles.Stop();
                     }
                     break;
                 case Role.MEDIC:
                     if (abilityTimer < 0.0f) {
                         GameObject p = Instantiate(medPack, transform.position, Quaternion.identity);
                         abilityTimer = 10.0f;
+                        abilityParticles.Stop();
                     }
                     break;
                 case Role.ZOMBIE:
@@ -256,6 +264,7 @@ public class PlayerController : MonoBehaviour {
                         return;
                     }
                     abilityTimer = 0.1f;
+                    abilityParticles.Stop();
                     int rets = Physics2D.RaycastNonAlloc(transform.position, gamepad.dir, hitRes, 1.5f);
                     for (int i = 0; i < rets; ++i) {
                         if (hitRes[i].collider.CompareTag("Movable")) {
