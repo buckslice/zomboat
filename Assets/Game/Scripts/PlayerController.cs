@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour {
     public Sprite playerSprite;
     public Sprite zombieSprite;
     public ParticleSystem zombParticles;
+    public ParticleSystem bloodParticles;
     public TopDownGamePad gamepad;
     public GameObject projectile;
 
@@ -218,6 +219,8 @@ public class PlayerController : MonoBehaviour {
             if (otherPlayer.alive) {
                 if (!alive) {
                     otherPlayer.AddHealth(-dps * Time.deltaTime);
+                    otherPlayer.bloodParticles.Play();
+                    Debug.Log("Blood");
                    
                     //Debug.Log(otherPlayer.health);
                 }
@@ -242,7 +245,7 @@ public class PlayerController : MonoBehaviour {
                 break;
             case Role.POLICE:
                 if (abilityTimer < 0.0f) {
-                    GameObject p = Instantiate(projectile, transform.position + transform.right.normalized * 2.0f, Quaternion.identity);
+                    GameObject p = Instantiate(projectile, transform.position + transform.right.normalized * 2.0f + new Vector3(0,0,10), Quaternion.identity);
                     p.GetComponent<Projectile>().direction = transform.right;
                     abilityTimer = dashCooldown;
                 }
