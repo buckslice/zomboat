@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour {
         // give each player a random role
         ph.controller.role = (Role)Random.Range(0, System.Enum.GetValues(typeof(Role)).Length - 2);
         ph.controller.SetCanMove(false);
+        ph.controller.SetZombie(false);
     }
 
     void SetPlayersCanMove(bool canMove) {    // set all players movement
