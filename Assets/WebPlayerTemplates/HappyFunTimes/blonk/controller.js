@@ -92,7 +92,7 @@ function handleZomb(data)
 		picture.style.backgroundImage = "url('zomboat_character_" + (data.number).toString() + "_zombie.jpg')";
 		myAudio.load();
 		myAudio.play();
-		hideAudio.style.display = "block";
+		
 		
 }
 
@@ -121,6 +121,22 @@ function handleWait(data)
 	wait.style.display = "block";
 }
 
+function handleGameOver(data)
+{
+	if(data.number > 0)
+	{
+		picture.style.backgroundImage = "url('End_phone_zombie_screen_" + (data.number).toString() + ".jpg')";
+	}
+	else
+	{
+		picture.style.backgroundImage = "url('End_phone_winner_screen.jpg')";
+	}
+	
+	crosshair.style.display = "none";
+	
+	
+}
+
 client.addEventListener('color', handleColor);
 client.addEventListener('zomb', handleZomb);
 client.addEventListener('play', handlePlay);
@@ -129,6 +145,7 @@ client.addEventListener('livechange',handleLives);
 client.addEventListener('character', handleCharacter);
 client.addEventListener('role', handleRole);
 client.addEventListener('wait', handleWait);
+client.addEventListener('gameover', handleGameOver);
 //client.addEventListener('score', handleScore);
 //client.addEventListener('countdown', handleCountdown);
 

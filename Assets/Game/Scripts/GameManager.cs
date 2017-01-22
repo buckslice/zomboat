@@ -229,7 +229,6 @@ public class GameManager : MonoBehaviour {
             UpdateGameTimerText();
 
             source.pitch = 1.0f + Mathf.Lerp(0.5f, 0.0f, (winTimeSeconds - curTime) / 30.0f);
-
             if (curTime >= winTimeSeconds - 1.0f) {
                 splash.sprite = winSplash;
                 splash.enabled = true;
@@ -247,6 +246,15 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator ResetRoutine(bool humansWin) {
         source.pitch = 1.0f;
+
+        foreach (PlayerHandle player in players)
+        {
+            if (player.controller.alive) {
+                SendEndGame(new TopDownGamePad.MessageNumber(0), player.netPlayer);}
+            else {
+                SendEndGame(new TopDownGamePad.MessageNumber(Random.Range(1,8)), player.netPlayer);}  
+        };
+
         if (humansWin) {
             source.clip = humanWinClip;
             source.Play();
@@ -289,6 +297,11 @@ public class GameManager : MonoBehaviour {
         }
         string txt = string.Format("{0}:{1:00}", t / 60, t % 60);
         timerText.text = color + txt + "</color>";
+    }
+
+    public void SendEndGame(TopDownGamePad.MessageNumber hz,NetPlayer netPlayer)
+    {
+        netPlayer.SendCmd("gameover", hz);
     }
 
     void OnPlayerDisconnected(object sender, System.EventArgs e) {
