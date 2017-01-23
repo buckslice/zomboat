@@ -140,7 +140,9 @@ public class GameManager : MonoBehaviour {
 
     void SetPlayersCanMove(bool canMove) {    // set all players movement
         for (int i = 0; i < players.Count; ++i) {
-            players[i].controller.SetCanMove(canMove);
+            if (players[i].controller) {
+                players[i].controller.SetCanMove(canMove);
+            }
         }
     }
 
@@ -269,6 +271,9 @@ public class GameManager : MonoBehaviour {
         source.pitch = 1.0f;
 
         foreach (PlayerHandle player in players) {
+            if (!player.controller) {
+                continue;
+            }
             if (player.controller.alive) {
                 SendEndGame(new TopDownGamePad.MessageNumber(0), player.netPlayer);
             } else {
@@ -296,7 +301,7 @@ public class GameManager : MonoBehaviour {
 
     bool OnlyZombiesLeft() {
         for (int i = 0; i < players.Count; ++i) {
-            if (players[i].controller.alive) {
+            if (players[i].controller && players[i].controller.alive) {
                 return false;
             }
         }
@@ -323,7 +328,7 @@ public class GameManager : MonoBehaviour {
         int zombieCount = 0;
         int humanCount = 0;
         for (int i = 0; i < players.Count; ++i) {
-            if (players[i].controller == null) {
+            if (players[i].controller ) {
                 continue;
             }
             if (!players[i].controller.alive) {
