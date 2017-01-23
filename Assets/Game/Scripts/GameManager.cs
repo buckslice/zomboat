@@ -223,7 +223,7 @@ public class GameManager : MonoBehaviour {
 
         if (!gameStarted) {
             for (int i = 0; i < players.Count; ++i) {
-                if (players[i].controller == null) {
+                if (!players[i].controller) {
                     SpawnPlayer(players[i]);
                 }
             }
@@ -328,13 +328,12 @@ public class GameManager : MonoBehaviour {
         int zombieCount = 0;
         int humanCount = 0;
         for (int i = 0; i < players.Count; ++i) {
-            if (players[i].controller ) {
-                continue;
-            }
-            if (!players[i].controller.alive) {
-                zombieCount++;
-            } else {
-                humanCount++;
+            if (players[i].controller) {
+                if (!players[i].controller.alive) {
+                    zombieCount++;
+                } else {
+                    humanCount++;
+                }
             }
         }
         zhText.text = "<color=#00FF00FF>Z:" + zombieCount + "</color> <color=#FF0000FF>H:" + humanCount + "</color>";
